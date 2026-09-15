@@ -11,10 +11,10 @@ import SimulatorWidget from '@/components/blog/SimulatorWidget';
 import LocalLinker from '@/components/blog/LocalLinker';
 import { marked } from 'marked';
 
-// Initialize Supabase Client (No specific hook yet in this project structure)
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
-const supabase = (supabaseUrl && supabaseKey) ? createClient(supabaseUrl, supabaseKey) : null;
+// Initialize Supabase Client
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://bkspcizcojelegicuwmb.supabase.co';
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJrc3BjaXpjb2plbGVnaWN1d21iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEyMDUxMzYsImV4cCI6MjA5Njc4MTEzNn0.W6T92I1lmyxACcko6kVnZ6aZEQ535CouMvcshMrW4W4';
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 export const revalidate = 60; // ISR 60 seconds
 
@@ -39,10 +39,6 @@ interface BlogPost {
 
 // Fetch single post
 async function getPost(slug: string): Promise<BlogPost | null> {
-    if (!supabase) {
-        console.warn("Supabase client not initialized - returning null post");
-        return null;
-    }
     const { data, error } = await supabase
         .from('blog_posts')
         .select(`
@@ -52,7 +48,7 @@ async function getPost(slug: string): Promise<BlogPost | null> {
         `)
         .eq('slug', slug)
         .eq('status', 'published')
-        .contains('tags', ['solaire'])
+        .contains('tags', ['solaire-ch'])
         .single();
 
     if (error || !data) {
