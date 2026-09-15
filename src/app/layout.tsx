@@ -64,7 +64,7 @@ export async function generateMetadata(): Promise<Metadata> {
     url: `${baseUrl}${path}`,
     images: [
       {
-        url: `${baseUrl}/images/og-image.png`,
+        url: `${baseUrl}/api/og`,
         width: 1200,
         height: 630,
         alt: "Expert Panneau Solaire - Installation de panneaux photovoltaïques",
@@ -75,7 +75,7 @@ export async function generateMetadata(): Promise<Metadata> {
     card: "summary_large_image",
     title: "Expert Panneau Solaire - Photovoltaïque & Autoconsommation",
     description: "Installation de panneaux solaires photovoltaïques. Simulateur d'éligibilité gratuit.",
-    images: [`${baseUrl}/images/og-image.png`],
+    images: [`${baseUrl}/api/og`],
   },
   icons: {
     icon: "/icon.png",

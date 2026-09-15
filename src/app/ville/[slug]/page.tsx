@@ -48,6 +48,10 @@ export async function generateMetadata({
         // Canonical is handled by root layout.tsx
         alternates: {
             canonical: `https://www.expertpanneausolaire.ch/ville/${resolvedParams.slug}`,
+            languages: {
+                "fr-CH": `https://www.expertpanneausolaire.ch/ville/${resolvedParams.slug}`,
+                "x-default": `https://www.expertpanneausolaire.ch/ville/${resolvedParams.slug}`,
+            },
         },
         openGraph: {
             title: pseo.meta_title,
@@ -55,7 +59,7 @@ export async function generateMetadata({
             siteName: site.name,
             images: [
                 {
-                    url: site.heroImage,
+                    url: `https://www.expertpanneausolaire.ch/api/og?q=${resolvedParams.slug}`,
                     width: 1200,
                     height: 630,
                     alt: `Installation de panneaux solaires à ${site.city}`
