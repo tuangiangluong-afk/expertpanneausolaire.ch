@@ -8,6 +8,7 @@ import { LocalFAQ } from "@/components/LocalFAQ";
 import { InternalMesh } from "@/components/InternalMesh";
 import { CheckCircle, Award } from "lucide-react";
 import { MARKET } from "@/config/market";
+import LocalSources from "@/components/LocalSources";
 
 export interface ContentSection {
     title: string;
@@ -243,6 +244,7 @@ export default function SolaireContentPage({
             <Reviews site={site} themeColor={themeColor} />
             <LocalFAQ site={site} segment="B2C" />
             <InternalMesh city={site.city} config={site} />
+            <LocalSources site={site} url={canonicalUrl} />
             <Footer config={site} />
         </div>
     );
