@@ -4,6 +4,12 @@ import Image from "next/image";
 import { createClient } from "@supabase/supabase-js";
 import { Calendar, ArrowRight } from "lucide-react";
 
+export const metadata = {
+    title: "Blog solaire suisse : prix, aides et rentabilité",
+    description: "Prix au kilowatt-crête, rétribution unique, reprise de l'injection et calcul de rentabilité pour la Suisse romande.",
+};
+
+
 // Initialize Supabase Client
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://bkspcizcojelegicuwmb.supabase.co';
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJrc3BjaXpjb2plbGVnaWN1d21iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEyMDUxMzYsImV4cCI6MjA5Njc4MTEzNn0.W6T92I1lmyxACcko6kVnZ6aZEQ535CouMvcshMrW4W4';

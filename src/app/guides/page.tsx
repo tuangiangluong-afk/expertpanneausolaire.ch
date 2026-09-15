@@ -14,7 +14,7 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 export const revalidate = 60; // ISR 60 seconds
 
 export const metadata: Metadata = {
-    title: "Guides et Conseils Panneaux Solaires en Suisse | Expert Panneau Solaire",
+    title: "Guides solaires en Suisse : prix, aides, rentabilité",
     description: "Tout comprendre sur l'installation photovoltaïque en Suisse romande : subventions Pronovo, tarifs de rachat, rentabilité et fiscalité.",
 };
 

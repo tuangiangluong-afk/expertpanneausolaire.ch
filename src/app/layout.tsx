@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
   title: {
-    template: `%s | Expert Solaire`,
+    template: "%s",
     default: `Expert Panneau Solaire - Panneaux Photovoltaïques & Aides ${getCurrentYearSEO()}`,
   },
   description: `Installation de panneaux solaires photovoltaïques et autoconsommation en ${MARKET.country}. Installateurs porteurs du label ${MARKET.installerLabelShort}. Simulateur de ${MARKET.subsidyScheme} gratuit en 24h.`,

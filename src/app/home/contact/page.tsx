@@ -5,6 +5,12 @@ import { ArrowLeft, Mail, Phone, MapPin, Zap, CheckCircle } from "lucide-react";
 import { getTheme } from "@/lib/theme";
 import Header from "@/components/Header";
 
+export const metadata = {
+    title: "Contact : étude d'ensoleillement",
+    description: "Contactez nos partenaires pour une étude d'ensoleillement et un devis d'installation photovoltaïque, rétribution unique déduite.",
+};
+
+
 export default function HubContactPage() {
     return (
         <div className="min-h-screen bg-slate-50 font-sans text-slate-900 selection:bg-amber-500 selection:text-white">
