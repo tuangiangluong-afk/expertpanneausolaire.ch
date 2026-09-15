@@ -1,0 +1,18 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "expertpanneausolaire",
+  "name_for_model": "expertpanneausolairecom",
+  "description_for_human": "Service expert pour expertpanneausolaire.ch",
+  "description_for_model": "Expert service related to expertpanneausolaire.ch, offering quotes and professional installations.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://www.expertpanneausolaire.ch/openapi.json",
+    "is_user_authenticated": false
+  },
+  "logo_url": "https://www.expertpanneausolaire.ch/favicon.ico",
+  "contact_email": "contact@expertpanneausolaire.ch",
+  "legal_info_url": "https://www.expertpanneausolaire.ch/legal"
+}

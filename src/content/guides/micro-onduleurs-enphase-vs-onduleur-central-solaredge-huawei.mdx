@@ -1,0 +1,243 @@
+---
+title: "Micro-Onduleurs Enphase vs Onduleur Centralisé (SolarEdge, Huawei) : Le Duel 2026"
+description: "Comparatif complet onduleurs solaires : Enphase IQ8 vs SolarEdge avec optimiseurs vs onduleur central Huawei/SMA. Rendement en cas d'ombrage, sécurité 0V, pannes et durée de vie."
+publishedAt: "2026-09-03"
+category: "Matériel & Onduleurs"
+readTime: "10 min"
+image: "/images/og-image.png"
+---
+
+# Micro-Onduleurs vs Onduleur Central : Quel Choix Technique pour vos Panneaux en 2026 ?
+
+En 2026, l'onduleur représente entre 18 % et 28 % du coût matériel d'une centrale photovoltaïque résidentielle, mais conditionne 100 % de son rendement, de sa sécurité incendie et de sa maintenabilité sur 30 ans. 
+
+Face à la standardisation des modules solaires de forte puissance (440 Wc à 500 Wc basés sur les technologies de cellules N-Type TOPCon et HJT), l'arbitrage entre une architecture distribuée à micro-onduleurs (Enphase IQ8, Hoymiles HMS) et une architecture centralisée (onduleur de chaîne Huawei SUN2000, SMA Sunny Boy, Fronius GEN24) ou hybride optimisée (SolarEdge Home Wave) ne relève pas d'une préférence commerciale : c'est un calcul d'ingénierie électrique strict.
+
+Tension continue résiduelle, comportement des chaînes face aux masques d'ombrage, coût de la maintenance en toiture versus en local technique, taux d'écrêtage (clipping ratio) et efficacité du couplage batterie : voici l'analyse technique sans compromis pour concevoir votre générateur solaire.
+
+---
+
+## 1. Topologies Électriques : Trois Philosophies de Conversion
+
+Pour comprendre les écarts de performance, il faut disséquer le point de conversion où le courant continu (DC) généré par l'effet photovoltaïque est transformé en courant alternatif (AC) 230 V monophasé ou 400 V triphasé synchronisé sur la fréquence du réseau suisse (50 Hz ± 0,2 Hz).
+
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│                        ARCHITECTURES COMPARÉES                         │
+└────────────────────────────────────────────────────────────────────────┘
+
+1. MICRO-ONDULEURS (Architecture Décentralisée AC)
+   [Panneau DC] ──> [Micro IQ8] ──(230V AC)──┐
+   [Panneau DC] ──> [Micro IQ8] ──(230V AC)──┼──> [Q-Relay / Coffret AC] ──> Tableau
+   [Panneau DC] ──> [Micro IQ8] ──(230V AC)──┘    (Tension toiture &lt; 60V DC)
+
+2. HYBRIDE OPTIMISÉ (SolarEdge / Architecture DC Distribuée)
+   [Panneau DC] ──> [Optimiseur] ──┐
+   [Panneau DC] ──> [Optimiseur] ──┼──(380V-750V DC Bus)──> [Onduleur] ──> Tableau
+   [Panneau DC] ──> [Optimiseur] ──┘                          (SafeDC 1V/opti hors tension)
+
+3. ONDULEUR CENTRAL DE CHAÎNE (String classique Huawei / SMA / Fronius)
+   [Panneau DC] ──┐
+   [Panneau DC] ──┼──(Chaîne en série : 300V - 1000V DC)────> [Onduleur] ──> Tableau
+   [Panneau DC] ──┘                                            (Haute tension continue active)
+```
+
+### Option A : Les Micro-Onduleurs (Enphase IQ8 Series, Hoymiles HMS)
+Chaque panneau solaire (ou paire de panneaux) est raccordé directement à un micro-onduleur miniaturisé fixé sous le module sur le rail de montage.
+* **Tension d'entrée DC :** Très Basse Tension de Sécurité (TBTS), généralement entre 16 V et 60 V DC.
+* **Point de Fonctionnement Maximal (MPPT) :** 1 MPPT dédié par panneau (ou par demi-cellule sur certains modèles bi-panneaux).
+* **Liaison toiture-coffret :** Câble de dérivation étanche transportant directement du courant alternatif 230 V. Aucun courant continu ne pénètre dans le bâti.
+
+### Option B : L'Onduleur Centralisé avec Optimiseurs (SolarEdge)
+Les panneaux restent connectés en série au niveau de leur sortie, mais chaque panneau est équipé d'un boîtier électronique DC/DC (optimiseur de puissance S440, S500 ou S1200).
+* **Rôle de l'optimiseur :** Exécute un suivi MPPT indépendant à l'échelle du panneau et ajuste en temps réel le rapport tension/courant pour délivrer une tension fixe sur le bus DC (ex: 380 V en monophasé, 750 V en triphasé).
+* **Rôle de l'onduleur central :** Il ne gère plus le MPPT. Il assure uniquement la conversion DC/AC, la synchronisation réseau et la gestion des flux de stockage.
+
+### Option C : L'Onduleur Central de Chaîne Pur (Huawei SUN2000, SMA Sunny Boy/Tripower, Fronius)
+Les modules sont câblés électriquement en série ("string"). Les tensions s'additionnent : 10 panneaux générant 42 V en charge forment une chaîne sous une tension de 420 V DC.
+* **Plage de tension de chaîne :** Souvent comprise entre 160 V et 800 V DC en monophasé, et jusqu'à 1 000 V DC en triphasé.
+* **MPPT :** Global pour l'ensemble de la chaîne (typiquement 2 trackers MPPT indépendants par onduleur, acceptant chacun 1 à 2 chaînes).
+* **Contrainte intrinsèque :** Le courant (en Ampères) de la chaîne est dicté par le maillon le plus faible de la série.
+
+---
+
+## 2. Ombrages, Encrassement et Mismatch : L'Impact Physique Réel
+
+L'un des arguments majeurs en faveur des micro-onduleurs et des optimiseurs repose sur la gestion des pertes dites de "mismatch" (hétérogénéité électrique entre panneaux).
+
+### Le Phénomène du Maillon Faible en String Classique
+Un panneau solaire en silicium monocristallin est constitué de cellules montées en série. Lorsqu'une cellule est masquée (ombre portée d'une cheminée, fiente d'oiseau, accumulation de feuilles dans le coin inférieur) :
+1. La cellule ombragée cesse de produire du courant et se comporte comme une résistance électrique passive.
+2. Pour éviter que cette cellule ne surchauffe jusqu'à destruction par effet Joule (point chaud ou "hotspot"), des **diodes by-pass** (généralement 3 par panneau) entrent en conduction.
+3. L'activation d'une diode by-pass court-circuite le sous-ensemble de cellules concerné (un tiers du panneau). Cela réduit la tension globale du panneau d'un tiers, mais préserve le passage du courant de la chaîne.
+4. **Problème en onduleur de chaîne standard :** Si l'ombrage s'étend ou si l'algorithme MPPT de l'onduleur n'est pas doté d'un balayage global efficace (comme le *SMA ShadeFix* ou le balayage multi-points Huawei), l'onduleur peut rester bloqué sur un maximum local de puissance, effondrant la production de la chaîne entière de 30 % à 70 %.
+
+```
+IMPACT D'UN OMBRAGE PARTIEL (Arbre ou Cheminée)
+
+Architecture Micro-Onduleurs :
+Panneau 1 (Plein soleil) : 440 W  ──> Produit 440 W (100 %)
+Panneau 2 (Ombre 40 %)   : 264 W  ──> Produit 264 W (60 %)
+Panneau 3 (Plein soleil) : 440 W  ──> Produit 440 W (100 %)
+PRODUCTION TOTALE = 1 144 W
+
+Architecture String Classique (sans optimiseurs, algorithme basique) :
+Panneau 1 (Plein soleil) : 264 W  ──> Bridé à 264 W par le courant du P2
+Panneau 2 (Ombre 40 %)   : 264 W  ──> Produit 264 W
+Panneau 3 (Plein soleil) : 264 W  ──> Bridé à 264 W par le courant du P2
+PRODUCTION TOTALE = 792 W (Perte nette : 352 W / -30,8 %)
+```
+
+### Les Algorithmes de Balayage Numérique Rendent-ils les Optimiseurs Moins Critiques ?
+Oui, en partie. Les fabricants d'onduleurs de chaîne haut de gamme (SMA avec *ShadeFix*, Fronius avec *Dynamic Peak Manager*, Huawei avec son balayage MPPT par courbe I-V) ont largement comblé l'écart sur les ombrages modérés et linéaires (ombres d'arbres distants, mâts d'antenne fins). L'onduleur force périodiquement la tension de la chaîne à varier pour déclencher les diodes by-pass des panneaux ombragés et trouver le point de puissance maximale global.
+
+Cependant, sur des toitures complexes avec **trois ou quatre orientations distinctes** (par exemple : 4 panneaux Est, 6 panneaux Sud, 4 panneaux Ouest), l'onduleur central atteint ses limites physiques de tension d'amorçage :
+* Un onduleur de chaîne monophasé standard nécessite au minimum 80 V à 120 V pour démarrer. Si une orientation n'accueille que 3 modules (tension totale = 3 × 35 V = 105 V), la plage de tension utile en été (où la chaleur fait chuter la tension des panneaux de 0,28 % par degré Celsius) descendra sous le seuil de coupure MPPT.
+* Dans ce scénario précis, le micro-onduleur Enphase ou Hoymiles est techniquement indispensable : chaque panneau démarre dès que sa propre tension atteint 22 V à 30 V, indépendamment de ses voisins.
+
+---
+
+## 3. Matrice Technique et Économique Comparative (Centrale 6 kWc en 2026)
+
+Voici le comparatif chiffré pour une installation résidentielle standard de 6 kWc (soit 12 panneaux de 500 Wc ou 14 panneaux de 430 Wc) installée selon les prescriptions NIBT et les règles de l'ESTI en vigueur.
+
+| Paramètre Technique / Économique | Micro-Onduleurs (Enphase IQ8HC / Hoymiles HMS) | Hybride avec Optimiseurs (SolarEdge Home Wave) | Onduleur Central String (Huawei SUN2000-6KTL / SMA) |
+| :--- | :--- | :--- | :--- |
+| **Coût Matériel Ondulation (6 kWc)** | 1 950 CHF à 2 400 CHF TTC (12 à 14 micro-onduleurs + passerelle Envoy + Q-Cable) | 1 650 CHF à 2 000 CHF TTC (Onduleur + 12 à 14 optimiseurs S500) | 1 100 CHF à 1 500 CHF TTC (Onduleur central 6 kVA bi-MPPT) |
+| **Rendement Européen (Pondéré)** | 96,5 % à 97,0 % | 98,0 % (Optimiseur) × 99,0 % (Onduleur) = **97,0 %** global | **97,5 % à 98,2 %** |
+| **Garantie Constructeur (Matériel)** | **25 ans** (Enphase, sous condition de connexion internet active) / 12 à 25 ans (Hoymiles) | Onduleur : 12 ans (extension payante à 20-25 ans) / Optimiseurs : 25 ans | 10 ans (Huawei/Fronius, extension 15-20 ans disponible) |
+| **Tension Continue (DC) en Toiture** | **TBTS (&lt; 60 V DC)** | Variable, fixée à 380 V DC en marche / **1 V DC par panneau hors tension** | **200 V à 600 V DC** en continu permanent tant que le soleil éclaire |
+| **Point de Panne Unique (SPOF)** | Non (panne isolée à 1 panneau) | Oui (l'onduleur central arrête l'ensemble si le pont de puissance lâche) | Oui (l'onduleur central arrête l'ensemble du système) |
+| **Évolutivité de l'Installation** | Maximale (ajout possible de 1, 2 ou 3 panneaux sans contrainte de chaîne) | Moyenne (limité par les règles de dimensionnement des strings SolarEdge) | Faible (obligation de respecter les tensions minimales/maximales de chaîne MPPT) |
+| **Empreinte Électronique en Toiture** | 12 à 14 appareils sous les tuiles (température 65 °C à 85 °C en été) | 12 à 14 modules DC/DC électroniques sous les tuiles | **Zéro électronique sous les panneaux** (uniquement câbles solaires 4 ou 6 mm²) |
+
+<Callout title="Conseil de Sécurité Électrique">
+Sur une installation en onduleur central classique sans boîtier de coupure pompier déporté, les câbles DC reliant le champ solaire à l'onduleur restent sous une tension de 300 V à 800 V DC en plein jour, même lorsque le disjoncteur général du tableau électrique est ouvert. Le courant continu ne possède pas de passage naturel par zéro (contrairement à l'AC à 50 Hz), ce qui favorise le maintien d'arcs électriques dangereux en cas de détérioration de câble (rongeurs, frottement sous tuiles).
+</Callout>
+
+---
+
+## 4. Sécurité Incendie, Norme UTE et Tension Continue : Le Choc Réglementaire
+
+Le risque d'incendie d'origine photovoltaïque est statistiquement faible mais techniquement redouté par les services départementaux d'incendie et de secours (SDIS). La cause racine principale d'un départ de feu électrique en toiture est l'**arc électrique continu (DC Arc Fault)**.
+
+### Pourquoi le DC est Plus Exigeant que l'AC
+Dans un circuit alternatif 230 V, le courant passe par zéro volt 100 fois par seconde (50 Hz). Tout arc électrique naissant a tendance à s'éteindre de lui-même à chaque passage par zéro. 
+
+En courant continu haute tension (chaînes de 400 V à 800 V DC), l'arc électrique ionise l'air environnant et s'auto-alimente indéfiniment tant que le générateur photovoltaïque fournit de la tension. Cet arc peut atteindre des températures supérieures à 3 000 °C, capables de percer une gaine en quelques secondes et d'enflammer un écran de sous-toiture bitumineux ou de la charpente en bois.
+
+### La Réponse Technologique : Rapid Shutdown et Arrêt d'Urgence
+
+```
+SÉCURITÉ EN CAS DE COUPURE GÉNÉRALE D'URGENCE (Arrêt pompier / coupure du gestionnaire de réseau)
+
+Architecture Enphase :
+Réseau 230V coupé ──> Perte du signal réseau ──> Déconnexion immédiate (&lt; 100 ms)
+Tension résiduelle sur le toit = &lt; 45 V DC (isolée au niveau de la boîte de jonction du panneau)
+Tension câble de descente = 0 V AC
+
+Architecture SolarEdge SafeDC :
+Réseau 230V coupé ──> Perte du signal d'asservissement ──> Optimiseurs basculent en SafeDC
+Tension par panneau = 1 V DC (14 panneaux = 14 V DC sur la ligne)
+Sécurité totale pour intervention humaine
+
+Architecture Onduleur Central Standard (sans Rapid Shutdown externe) :
+Réseau 230V coupé ──> Onduleur s'arrête (protection anti-îlotage DIN VDE 0126)
+MAIS la ligne descendante toiture-garage RESTE sous 400 V à 800 V DC tant qu'il fait jour.
+```
+
+1. **Enphase (Micro-onduleurs) :** Conforme par construction à la réglementation américaine NEC 2020 / NEC 2023 (Rapid Shutdown) et aux exigences strictes de sécurité incendie. L'absence totale de tension continue supérieure à 60 V élimine le risque d'arc électrique dangereux sur les liaisons inter-modules.
+2. **SolarEdge (SafeDC) :** Chaque optimiseur intègre un mécanisme de sécurité intrinsèque. Dès que l'onduleur est mis hors tension ou que le réseau AC est coupé, l'optimiseur bascule en mode sécurisé et n'émet plus qu'une tension de **1 V DC**. Une chaîne de 14 panneaux passe instantanément de 450 V à 14 V DC, un niveau sans danger pour les services de secours.
+3. **Onduleurs Centraux (Huawei, SMA, Fronius) :** Ils intègrent désormais des détecteurs d'arc logiciel (AFCI - *Arc Fault Circuit Interrupter*) certifiés selon la norme CEI 63027. Lorsqu'un bruit de haute fréquence caractéristique d'un arc série est détecté, l'onduleur interrompt le circuit. Cependant, pour abaisser la tension de toiture à zéro, il est nécessaire d'adjoindre des boîtiers de coupure rapide au dos des panneaux (ex: boîtiers Huawei Smart PV Optimizer ou boîtiers Tigo TS4-A-F), ce qui augmente le coût final de l'installation.
+
+---
+
+## 5. Ce que les Installateurs ne Vous Disent Pas : La Vérité du Terrain et du SAV
+
+Les plaquettes commerciales opposent souvent la "garantie de 25 ans" d'Enphase aux "10 ans" d'un onduleur central. Sur le terrain, la réalité opérationnelle et financière d'un dépannage photovoltaïque obéit à des règles bien différentes que tout acquéreur doit intégrer avant de signer.
+
+### Le Piège du SAV en Toiture : "Garantie Matériel" vs "Coût de Main-d'Œuvre"
+Lorsqu'un fabricant de micro-onduleurs garantit son produit 25 ans, la garantie couvre **le remplacement de la pièce défaillante**, pas les frais d'accès à la toiture.
+
+Considérons une panne survenue en année 7 :
+* **Cas de l'onduleur central (installé au garage ou local technique) :** L'onduleur affiche un code défaut ou s'éteint. Le technicien intervient au sol, à l'abri, sans monter sur le toit. Il débranche les connecteurs MC4, décroche l'appareil mural, fixe le nouvel onduleur envoyé par le SAV et rebranche le système. Temps d'intervention : 45 minutes. Coût de main-d'œuvre : environ 150 CHF à 250 CHF HT.
+* **Cas du micro-onduleur (sous le panneau en toiture) :** Le micro-onduleur n° 8 (situé en plein milieu d'un champ de 14 modules sur un toit en pente à 40° recouvert d'ardoises) cesse d'émettre.
+  1. Il faut sécuriser l'accès au toit (échafaudage réglementaire ou nacelle de levage).
+  2. Il faut déposer les fixations mécaniques, soulever le panneau n° 8 sans endommager les câbles adjacents ni fêler les cellules (risque de micro-cracks par flexion).
+  3. Il faut démonter le micro-onduleur défectueux, sertir/remplacer les connecteurs si nécessaire, fixer la nouvelle unité et replacer le panneau.
+  4. Coût réel de l'intervention pour le propriétaire si l'installateur d'origine a déposé le bilan (ou si sa garantie de parfait achèvement de 2 ans est expirée) : **500 CHF à 900 CHF TTC** de main-d'œuvre et de déplacement pour remplacer un micro-onduleur fourni "gratuitement" par le SAV.
+
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│               ANALYSE TECHNIQUE DU COÛT D'INTERVENTION SAV             │
+└────────────────────────────────────────────────────────────────────────┘
+
+ONDULEUR CENTRAL (Au garage) :
+[Électronique accessible au mur] ──> Diagnostic immédiat
+Temps : 45 min │ Risque toiture : Zéro │ Coût moyen SAV : 150 CHF - 250 CHF
+
+MICRO-ONDULEUR (Sous le panneau n°8 en toiture) :
+[Échafaudage] ──> [Dépose panneau] ──> [Échange micro] ──> [Repose panneau]
+Temps : 3 h │ Risque casse tuiles/étanchéité : Réel │ Coût moyen SAV : 500 CHF - 900 CHF
+```
+
+### Le Taux de Défaillance Statistique (MTBF Multiplié)
+Appliquons la loi des probabilités aux composants électroniques. Un micro-onduleur moderne contient des condensateurs électrolytiques ou à film, des ponts de diodes et des puces de commande logique soumis à des contraintes thermiques sévères (de -15 °C en hiver à +75 °C sous les tuiles en plein été).
+* Sur une installation de 6 kWc en onduleur de chaîne, vous avez **1 seul appareil électronique** exposé aux pannes, logé dans un garage ou une buanderie tempérée (15 °C à 25 °C).
+* Sur la même installation en micro-onduleurs, vous avez **12 à 14 appareils électroniques** indépendants soumis aux pires amplitudes thermiques sous le champ de panneaux.
+* Même avec un taux de fiabilité exceptionnel de 99,5 % par an par micro-onduleur, la probabilité statistique de subir au moins une intervention en toiture sur 15 ans pour remplacer une unité est nettement plus élevée que sur un onduleur unique.
+
+### L'Écrêtage (Clipping) : Le Dimensionnement Caché Ratio DC/AC
+Les installateurs associent fréquemment des panneaux de 440 Wc ou 500 Wc à des micro-onduleurs Enphase IQ8M (puissance maximale de sortie continue : 330 VA) ou IQ8AC (366 VA) pour des raisons de coût de fourniture :
+* Ratio DC/AC avec un panneau de 440 Wc sur un IQ8M : 440 / 330 = **1,33** (surdimensionnement de 33 %).
+* En mai et juin, par ciel clair et température modérée (conditions idéales d'ensoleillement avec un vent frais maintenant les cellules à 35 °C), le panneau génère 400 W réels. Le micro-onduleur, plafonné à 330 VA, va **écrêter** la courbe de production : le surplus d'énergie (70 W par panneau) est perdu sous forme de chaleur dissipée.
+* Sur un onduleur central de 6 kVA (ex: Huawei SUN2000-6KTL-L1), la puissance de sortie continue est de 6 000 VA. Avec 12 panneaux de 440 Wc (5,28 kWc au total), l'onduleur n'écrête absolument jamais, même aux pics de production printaniers.
+
+---
+
+## 6. Tableaux de Rentabilité selon la Typologie de Toiture
+
+Le choix technique doit découler de l'environnement physique de votre toiture et non d'une préférence dogmatique.
+
+### Tableau Comparatif des Pertes de Production Annuelle Estimées
+
+| Configuration de Toiture | Perte Annuelle en Onduleur Central Standard | Perte Annuelle avec Onduleur Central + Optimiseurs | Perte Annuelle avec Micro-Onduleurs | Solution Technique Recommandée |
+| :--- | :--- | :--- | :--- | :--- |
+| **Toiture 1 pan Sud sans aucun obstacle (0 ombre)** | **0,0 %** (Référence) | +0,5 % à -0,5 % (Pertes d'insertion des optimiseurs) | -0,8 % à -1,2 % (Rendement de conversion légèrement inférieur) | **Onduleur Central de Chaîne** (Investissement initial inférieur de 800 CHF, meilleur rendement brut) |
+| **Toiture 1 pan Sud avec 1 conduit de cheminée ou lucarne** | -4,5 % à -8,0 % (Sans algorithme de balayage avancé) | -1,5 % à -2,5 % | -1,0 % à -1,8 % | **Micro-Onduleurs ou Optimiseurs** |
+| **Toiture 2 pans (Est / Ouest)** | 0,0 % (en utilisant 1 MPPT par pan sur un onduleur bi-tracker) | 0,0 % | 0,0 % | **Onduleur Central Bi-MPPT** (Parfaitement adapté, surcoût micro-onduleurs inutile) |
+| **Toiture complexe (3 ou 4 pans, lucarnes multiples, ombres portées tournantes)** | -12,0 % à -22,0 % (Chaînes trop courtes ou déstabilisées) | -2,0 % à -3,5 % | **0,0 % à -1,5 %** | **Micro-Onduleurs Obligatoires** (Flexibilité absolue module par module) |
+
+<LocalLinker />
+
+---
+
+## 7. Couplage Batterie et Évolutivité : L'Affrontement AC vs DC
+
+Si vous envisagez le stockage stationnaire par batterie physique (pour maximiser l'autoconsommation nocturne ou maintenir une alimentation de secours en cas de black-out réseau), la topologie de l'onduleur dicte le rendement global du cycle de charge/décharge (Round-Trip Efficiency).
+
+```
+COMPARAISON DES CYCLES DE CONVERSION BATTERIE
+
+1. Architecture DC-Coupled (Onduleur Hybride Central Huawei / Fronius) :
+   [Panneau DC] ────────(DC)────────> [Bus DC Onduleur] ──(DC direct)──> [Batterie DC Haute Tension]
+                                            │
+                                    (Conversion DC/AC unique)
+                                            ↓
+                                      [Maison 230V AC]
+   Rendement cycle global : 89 % à 93 %
+
+2. Architecture AC-Coupled (Micro-Onduleurs Enphase + Batterie AC Enphase IQ Battery 5P) :
+   [Panneau DC] ──(DC/AC)──> [Câble 230V AC] ──(AC/DC)──> [Batterie DC] ──(DC/AC)──> [Maison 230V AC]
+   Rendement cycle global : 82 % à 85 % (Triple conversion successive)
+```
+
+### 1. Le Couplage DC (Onduleurs Hybrides Centraux)
+Les onduleurs hybrides contemporains (Huawei SUN2000 L1/M1, SMA Sunny Tripower Smart Energy, Fronius Primo GEN24 Plus) intègrent un port batterie directement connecté au bus continu interne :
+* L'énergie issue des panneaux solaires est redirigée vers la batterie haute tension (ex: Huawei LUNA2000, BYD HVS) sans passer par l'étape de transformation en alternatif 230 V.
+* Le courant ne subit qu'une conversion DC/DC minime. Le rendement de charge de la batterie atteint 97 %.
+* Le rendement total de restitution (aller-retour de l'électron : panneau → batterie → consommateur de la maison) s'établit entre **89 % et 93 %**.
+
+### 2. Le Couplage AC (Micro-Onduleurs)
+Avec les micro-onduleurs, la batterie est obligatoirement raccordée sur le réseau alternatif (AC) de la maison :
+* L'électricité solaire est d'abord convertie
