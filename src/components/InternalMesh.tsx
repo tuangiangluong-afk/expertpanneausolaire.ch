@@ -42,7 +42,7 @@ export function InternalMesh({ city, config }: InternalMeshProps) {
                     <div>
                         <h4 className="text-white font-bold mb-6 text-lg">Nos Services</h4>
                         <ul className="space-y-3">
-                            {[{"title": "Autoconsommation Solaire", "href": "/type/autoconsommation"}, {"title": "Vente du Surplus la rétribution de l'injection", "href": "/type/vente-surplus"}, {"title": "Batterie Solaire de Stockage", "href": "/type/batterie-solaire"}, {"title": "Carport Solaire & Abri", "href": "/type/carport-solaire"}, {"title": "Guides & Aides Solaire 2026", "href": "/guides"}].map((service, i) => (
+                            {[{"title": "Autoconsommation Solaire", "href": "/type/autoconsommation"}, {"title": "Vente du Surplus la rétribution de l'injection", "href": "/type/vente-surplus"}, {"title": "Batterie Solaire de Stockage", "href": "/type/batterie-solaire"}, {"title": "Carport Solaire & Abri", "href": "/type/carport-solaire"}, {"title": "Guides & Aides Solaire 2026", "href": "/blog"}].map((service, i) => (
                                 <li key={i}>
                                     <Link href={service.href} className="text-neutral-400 hover:text-white transition text-sm flex items-center gap-2">
                                         <span className="bg-amber-500 rounded-full h-1 w-1 shrink-0"></span>
@@ -98,10 +98,10 @@ export function InternalMesh({ city, config }: InternalMeshProps) {
                         </h4>
                         <ul className="space-y-3">
                             {[
-                                { label: "Aides Panneaux Solaires 2026", href: "/guides/aides-installation-panneaux-solaires" },
-                                { label: "Rentabilité du Photovoltaïque", href: "/guides/rentabilite-panneaux-solaires" },
-                                { label: "Prix d'une Installation Solaire", href: "/guides/prix-panneaux-solaires-maison" },
-                                { label: "Tous nos guides", href: "/guides" }
+                                { label: "Subvention Pronovo Rétribution Unique 2026", href: "/blog/subvention-pronovo-retribution-unique-kleiv-montants-2026" },
+                                { label: "Rentabilité du Photovoltaïque en Suisse (CHF)", href: "/blog/rentabilite-panneaux-solaires-suisse-romande-calcul-tri-chf" },
+                                { label: "Prix d'une Installation Solaire en Suisse", href: "/blog/prix-panneaux-solaires-suisse-cout-reel-chf-2026" },
+                                { label: "Tous nos guides & articles", href: "/blog" }
                             ].map((link, i) => (
                                 <li key={i}>
                                     <Link href={link.href} className="text-neutral-400 hover:text-white transition text-sm flex items-center gap-2">

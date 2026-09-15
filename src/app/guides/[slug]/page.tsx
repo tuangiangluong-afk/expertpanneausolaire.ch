@@ -11,9 +11,9 @@ import { createClient } from "@supabase/supabase-js";
 import { marked } from 'marked';
 
 // Initialize Supabase Client
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
-const supabase = (supabaseUrl && supabaseKey) ? createClient(supabaseUrl, supabaseKey) : null;
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://bkspcizcojelegicuwmb.supabase.co';
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJrc3BjaXpjb2plbGVnaWN1d21iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEyMDUxMzYsImV4cCI6MjA5Njc4MTEzNn0.W6T92I1lmyxACcko6kVnZ6aZEQ535CouMvcshMrW4W4';
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 export const revalidate = 60;
 
@@ -79,7 +79,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         .select('seo_title, title, seo_description, excerpt')
         .eq('slug', resolvedParams.slug)
         .eq('status', 'published')
-        .contains('tags', ['solaire'])
+        .contains('tags', ['solaire-ch'])
         .single();
     
     if (post) {
@@ -114,7 +114,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
             `)
             .eq('slug', resolvedParams.slug)
             .eq('status', 'published')
-            .contains('tags', ['solaire'])
+            .contains('tags', ['solaire-ch'])
             .single();
         
         if (data && !error) {

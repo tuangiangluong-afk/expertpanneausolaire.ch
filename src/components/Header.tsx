@@ -40,16 +40,16 @@ export default function Header({
 
     const navLinks = [
         {
-                "href": "/guides/prime-autoconsommation-photovoltaique-aides",
-                "text": "Aides"
+                "href": "/blog/subvention-pronovo-retribution-unique-kleiv-montants-2026",
+                "text": "Subventions Pronovo"
         },
         {
-                "href": "/guides/rentabilite-panneaux-solaires-maison",
-                "text": "Rentabilité"
+                "href": "/blog/rentabilite-panneaux-solaires-suisse-romande-calcul-tri-chf",
+                "text": "Rentabilité CHF"
         },
         {
-                "href": "/guides",
-                "text": "Guides"
+                "href": "/blog",
+                "text": "Guides & Blog"
         }
 ];
 
