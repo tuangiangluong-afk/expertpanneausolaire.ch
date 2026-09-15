@@ -59,7 +59,7 @@ export async function POST(request: Request) {
         const vudResult = null;
         console.log(`⚖️ [ARBITRAGE SUISSE] Lead qualifié pour traitement manuel Renovero (Score: ${leadScore})`);
 
-        const apiKey = process.env.RESEND_API_KEY || "re_7pgxJbPq_CwqeXijSNtvzHdZeLk8CPKix";
+        const apiKey = process.env.RESEND_API_KEY;
         const resend = apiKey ? new Resend(apiKey) : null;
 
         // 1. SAVE TO DATABASE (Supabase)
