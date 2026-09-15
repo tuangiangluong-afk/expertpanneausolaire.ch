@@ -70,23 +70,23 @@ export default function StructuredData() {
             "@type": "Offer",
             "priceCurrency": MARKET.currencyCode,
             "price": "12900",
-            "availability": "https://schema.org/InStock",
             "validFrom": "2026-01-01"
         }
     };
 
     // Eligible Product Schema: 100% compliant with Google Product & Review Snippets
-    const productSchema = {
+    // « Service » et non « Product » : ce site ne vend pas un produit catalogue,
+    // il met en relation avec des professionnels. Un Product ici est un balisage
+    // inexact (stock, SKU, livraison) que Google peut ignorer ou signaler.
+    const serviceOfferSchema = {
         "@context": "https://schema.org",
-        "@type": "Product",
-        "@id": `${baseUrl}/#product`,
+        "@type": "Service",
+        "@id": `${baseUrl}/#service-offer`,
         "name": `Kit solaire photovoltaïque clé en main — pose par une entreprise du label ${MARKET.installerLabelShort}`,
         "image": [
             `${baseUrl}/icon.png`
         ],
         "description": `Installation solaire photovoltaïque avec micro-onduleurs, garantie matériel 25 ans et raccordement au ${MARKET.gridOperatorShort} géré de bout en bout.`,
-        "sku": "EPS-SOLAR-001",
-        "mpn": "EPS-SOLAR-001",
         "brand": {
             "@type": "Brand",
             "name": "Expert Panneau Solaire"
@@ -98,52 +98,7 @@ export default function StructuredData() {
             "price": "12900",
             "validFrom": "2026-01-01",
             "priceValidUntil": "2026-12-31",
-            "itemCondition": "https://schema.org/NewCondition",
-            "availability": "https://schema.org/InStock",
-            "hasMerchantReturnPolicy": {
-                "@type": "MerchantReturnPolicy",
-                "applicableCountry": MARKET.countryCode,
-                "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
-            },
-            "shippingDetails": {
-                "@type": "OfferShippingDetails",
-                "shippingRate": {
-                    "@type": "MonetaryAmount",
-                    "value": "0",
-                    "currency": MARKET.currencyCode
-                },
-                "shippingDestination": {
-                    "@type": "DefinedRegion",
-                    "addressCountry": MARKET.countryCode
-                },
-                "deliveryTime": {
-                    "@type": "ShippingDeliveryTime",
-                    "businessDays": {
-                        "@type": "OpeningHoursSpecification",
-                        "dayOfWeek": [
-                            "https://schema.org/Monday",
-                            "https://schema.org/Tuesday",
-                            "https://schema.org/Wednesday",
-                            "https://schema.org/Thursday",
-                            "https://schema.org/Friday"
-                        ]
-                    },
-                    "cutoffTime": "18:00:00Z",
-                    "handlingTime": {
-                        "@type": "QuantitativeValue",
-                        "minValue": 1,
-                        "maxValue": 3,
-                        "unitCode": "DAY"
-                    },
-                    "transitTime": {
-                        "@type": "QuantitativeValue",
-                        "minValue": 1,
-                        "maxValue": 5,
-                        "unitCode": "DAY"
-                    }
-                }
-            }
-        },
+                                },
     };
 
     return (
@@ -164,9 +119,9 @@ export default function StructuredData() {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
             />
             <Script
-                id="product-schema"
+                id="service-offer-schema"
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceOfferSchema) }}
             />
         </>
     );

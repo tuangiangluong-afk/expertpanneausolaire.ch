@@ -72,38 +72,50 @@ export default function SolaireContentPage({
     };
 
     
-    // Robust Price Parsing for AggregateOffer Schema (supporting Prix, Budget, Tarif)
+    // Fourchette de prix lue sur les faits affichés (Prix / Budget / Tarif)
     const priceFact = facts.find(f => {
         const l = f.label.toLowerCase();
         return l.includes('prix') || l.includes('budget') || l.includes('tarif');
     });
     const priceStr = priceFact?.value || "5000";
     const prices = priceStr.match(/\d+(?:[.,\s]\d+)?/g)?.map(p => parseInt(p.replace(/\D/g, ''), 10)) || [5000, 15000];
+    const hasVisiblePrice = !!priceFact;
     const lowPrice = Math.min(...prices) || 5000;
     const highPrice = prices.length > 1 ? Math.max(...prices) : Math.floor(lowPrice * 1.2);
 
-    const productSchema = {
+        // « Service » et non « Product » : ces pages mettent en relation avec des
+    // professionnels, elles ne vendent pas un article de catalogue. Un balisage
+    // Product (stock, SKU, livraison, offerCount) est inexact et peut être ignoré.
+    const serviceOfferSchema = {
         "@context": "https://schema.org",
-        "@type": "Product",
+        "@type": "Service",
         "name": pageTitle,
+        "serviceType": pageTitle,
         "image": `https://www.expertpanneausolaire.ch${heroImage}`,
         "description": introHtml.replace(/<[^>]*>?/gm, ''),
-        "brand": {
-            "@type": "Brand",
-            "name": "Expert Panneau Solaire"
+        "provider": {
+            "@type": "Organization",
+            "name": "Expert Panneau Solaire",
+            "url": "https://www.expertpanneausolaire.ch"
         },
-        "offers": {
-            "@type": "AggregateOffer",
-            "priceCurrency": MARKET.currencyCode,
-            "lowPrice": lowPrice.toString(),
-            "highPrice": highPrice.toString(),
-            "offerCount": "12",
-            "availability": "https://schema.org/InStock",
-            "seller": {
-                "@type": "Organization",
-                "name": "Expert Panneau Solaire"
+        "areaServed": {
+            "@type": "Country",
+            "name": "CH"
+        },
+        // La fourchette n'est déclarée que si elle figure réellement sur la page.
+        ...(hasVisiblePrice ? {
+            "offers": {
+                "@type": "Offer",
+                "url": `https://www.expertpanneausolaire.ch/#simulateur`,
+                "priceCurrency": MARKET.currencyCode,
+                "priceSpecification": {
+                    "@type": "PriceSpecification",
+                    "priceCurrency": MARKET.currencyCode,
+                    "minPrice": lowPrice.toString(),
+                    "maxPrice": highPrice.toString()
+                }
             }
-        }
+        } : {})
     };
 
     return (
@@ -112,7 +124,7 @@ export default function SolaireContentPage({
 
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceOfferSchema) }} />
 
             <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-24">
                 <div className="container mx-auto px-4">

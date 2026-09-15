@@ -1,5 +1,6 @@
 import type { CityConfig } from "@/lib/db";
 import { CANTONS, cantonFromNpa, type Canton } from "@/data/ch-cantons";
+import { composeLocalIntro } from "@/lib/pseo-local";
 
 export interface PseoPageContent {
     meta_title: string;
@@ -160,7 +161,25 @@ export async function getPseoContent(cityConfig: CityConfig, _targetType: string
 
     const hero_title = `Installateur <span class="text-amber-500">Panneaux Solaires</span> à ${c.city}${npaSpan}`;
 
-    const intro_html = pick(OPENERS, h)(c) + pick(MIDDLES, h >> 5)(c) + riskParagraph(c);
+    const intro_html = composeLocalIntro(
+        {
+            city: c.city, postal: c.npa, deptCode: c.cantonCode, deptName: c.cantonName,
+            region: "Suisse romande", prefecture: c.chefLieu, quartiers: c.quartiers,
+            authority: "le gestionnaire de réseau de distribution local",
+            montagne: c.neige,
+        },
+        {
+            audience: "Les propriétaires et les entreprises",
+            service: "l'étude, la fourniture et la pose de panneaux solaires photovoltaïques",
+            norms: "les normes SIA et l'ordonnance sur les installations à basse tension (OIBT)",
+            document: "le dossier de subvention et le schéma de l'installation",
+            authorityLabel: "le gestionnaire de réseau",
+            project: "votre projet d'autoconsommation",
+            terms: { dept: "canton", prefecture: "chef-lieu", city: "commune" },
+        },
+        { openers: OPENERS.map((fn) => () => fn(c)), middles: MIDDLES.map((fn) => () => fn(c)) },
+        h,
+    ) + riskParagraph(c);
     const expert_tip = pick(TIPS, h >> 7)(c);
 
     // --- Faits locaux vérifiables ---

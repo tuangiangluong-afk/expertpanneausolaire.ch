@@ -2,6 +2,7 @@ import type { CityConfig } from "@/lib/db";
 import type { SolarBrand } from "@/data/solar-brands";
 import { CANTONS, cantonFromNpa } from "@/data/ch-cantons";
 import { MARKET, CH_FACTS } from "@/config/market";
+import { composeLocalIntro } from "@/lib/pseo-local";
 
 /**
  * Production solaire réelle par canton (kWh/kWc/an) et contrainte locale.
@@ -111,42 +112,46 @@ export function getPseoSolaireContent(city: CityConfig, brand: SolarBrand): Pseo
         </p>
     </div>`;
 
-    const intros = [
-        `<p class="mb-4">
-            Vous cherchez un installateur porteur du label <strong>${MARKET.installerLabelShort}</strong> pour la pose de panneaux solaires <strong>${brand.name}</strong> à <strong>${city.city}${npa ? ` (${npa})` : ""}</strong> ?
-            Nos partenaires installent les gammes ${brand.modeles.join(", ")} avec étude d'ensoleillement offerte et raccordement au ${MARKET.gridOperatorShort} géré de bout en bout.
-            ${quartierMention}
-        </p>
-        <p>
-            Comptez entre <strong>${brand.prix}</strong> pour une installation ${brand.name} clé en main à ${city.city}, avant déduction de la ${MARKET.subsidyScheme} versée par ${MARKET.subsidyBody}.
-            Nous montons gratuitement votre dossier de subvention.
-        </p>`,
-        `<p class="mb-4">
-            L'installation de panneaux solaires <strong>${brand.name}</strong> à <strong>${city.city}</strong> par une entreprise du label <strong>${MARKET.installerLabelShort}</strong> est la garantie d'un rendement conforme (${brand.rendement}) et d'un dossier de ${MARKET.subsidyScheme} accepté par ${MARKET.subsidyBody}.
-            ${quartierMention}
-        </p>
-        <p>
-            Budget indicatif à ${city.city} : <strong>${brand.prix}</strong> fourniture et pose comprises, avant subvention.
-            Notre équipe gère votre demande de ${MARKET.subsidyScheme} et le raccordement au ${MARKET.gridOperatorShort}.
-        </p>`,
-        `<p class="mb-4">
-            Avec un gisement de <strong>${yieldInfo.prod}</strong> à ${city.city}, une installation ${brand.name} de 6 kWc produit plus de 5 500 kWh par an et couvre une large part de la consommation d'une maison individuelle.
-            ${quartierMention}
-        </p>
-        <p>
-            Prix indicatif à ${city.city} : <strong>${brand.prix}</strong> avant subvention. Comme le kWh acheté coûte environ 30 ct/kWh contre environ 11 ct/kWh pour la reprise de l'injection, autoconsommer rapporte près de trois fois plus que revendre.
-            Devis gratuit et sans engagement sous 24h.
-        </p>`,
-        `<p class="mb-4">
-            La gamme <strong>${brand.name}</strong> (${brand.modeles.join(", ")}) à <strong>${city.city}</strong> : ${brand.rendement} de rendement, garantie jusqu'à 30 ans et production adaptée au climat ${yieldInfo.zone} de votre canton.
-            ${quartierMention}
-        </p>
-        <p>
-            Budget à prévoir à ${city.city} : <strong>${brand.prix}</strong> avant ${MARKET.subsidyScheme}. Notre étude d'ensoleillement gratuite calcule votre production exacte.
-        </p>`,
-    ];
-
-    const intro_html = intros[h % intros.length];
+    // L'intro est assemblée à partir de six emplacements factuels (voir
+    // pseo-local.ts) : l'ancienne version piochait 1 texte sur 4 par hash, ce
+    // qui donnait des pages identiques à un mot près sur tout le canton.
+    const intro_html = composeLocalIntro(
+        {
+            city: city.city,
+            postal: npa,
+            deptName: cantonName,
+            quartiers,
+            authority: `l'${MARKET.buildingAuthority}`,
+        },
+        {
+            audience: "Les propriétaires et les entreprises",
+            service: "l'étude, la fourniture et la pose de l'installation solaire",
+            norms: `l'${MARKET.electricalNorm}`,
+            document: `le dossier de ${MARKET.subsidyScheme} et le protocole de mise en service`,
+            authorityLabel: "l'autorité de contrôle des installations électriques",
+            project: "votre projet photovoltaïque",
+            terms: { dept: "canton", prefecture: "chef-lieu", region: "canton", city: "localité" },
+        },
+        {
+            openers: [
+                (f) => `Panneaux solaires ${brand.name} à ${f.city} : nos partenaires posent la gamme ${brand.modeles.join(", ")}, avec étude d'ensoleillement offerte.`,
+                (f) => `À ${f.city}, une installation ${brand.name} couvre le besoin d'une maison individuelle, avec raccordement au ${MARKET.gridOperatorShort} géré de bout en bout.`,
+                (f) => `Pour une toiture à ${f.city}, la gamme ${brand.name} (${brand.gamme}) est prévue pour ${brand.surface} de capteurs.`,
+                (f) => `La gamme ${brand.name} à ${f.city} : ${brand.atouts[0].toLowerCase()}`,
+                (f) => `Nos partenaires installent ${brand.name} à ${f.city} et montent gratuitement le dossier de ${MARKET.subsidyScheme}.`,
+                (f) => `Toiture à équiper à ${f.city} : l'étude d'ensoleillement ${brand.name} est gratuite et sans engagement.`,
+            ],
+            middles: [
+                () => `Comptez ${brand.prix} pour une installation ${brand.name} clé en main, fourniture et pose comprises, avant ${MARKET.subsidyScheme}.`,
+                (f) => `Le budget à ${f.city} dépend de la puissance installée et du nombre de capteurs, pour un rendement annoncé de ${brand.rendement}.`,
+                () => `La ${MARKET.subsidyScheme} est versée par ${MARKET.subsidyBody} après la mise en service : nous montons le dossier avant le début des travaux.`,
+                (f) => `Les travaux électriques à ${f.city} relèvent de l'${MARKET.electricalNorm} et sont validés par un installateur autorisé.`,
+                () => `Autoconsommer d'abord reste le calcul gagnant : le kWh évité vaut ${MARKET.energyPriceRetail}, contre ${MARKET.feedInTariff}.`,
+                (f) => `Le devis remis à ${f.city} distingue le matériel, la pose, le raccordement et les démarches administratives incluses.`,
+            ],
+        },
+        h,
+    );
 
     const faqs = [
         {
