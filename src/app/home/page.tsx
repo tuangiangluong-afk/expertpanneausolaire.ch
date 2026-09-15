@@ -19,8 +19,8 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import FloatingCTA from "@/components/FloatingCTA";
 
 export const metadata: Metadata = {
-    title: "Installateur Panneaux Solaires en Suisse | Devis & Simulation",
-    description: "Comparez les installateurs de panneaux solaires photovoltaïques en Suisse romande. Simulation gratuite d'autoconsommation, rétribution unique déduite et devis sous 24h.",
+    title: "Installateur panneaux solaires en Suisse romande",
+    description: "Comparez les installateurs photovoltaïques en Suisse romande. Simulation d'autoconsommation et devis gratuits.",
     keywords: ["installateur panneaux solaires", "panneaux solaires photovoltaïques", "simulation solaire", "devis panneau solaire", "autoconsommation photovoltaïque", "Les Pros du Solaire", "panneau solaire maison prix", "panneau solaire rentable ou pas", "combien de panneaux solaires pour une maison", "rétribution unique 2026", "panneau solaire 3kw prix", "panneau solaire 6kw prix", "panneau solaire 9kw prix", "installateur panneau solaire Suisse près de chez moi", "reprise du surplus photovoltaïque gestionnaire de réseau", "kit panneau solaire autoconsommation"],
 };
 

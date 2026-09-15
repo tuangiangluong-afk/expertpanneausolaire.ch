@@ -174,7 +174,7 @@ export default async function SuccessPage({ searchParams }: PageProps) {
                                     d&apos;achat d&apos;électricité la rétribution de l'injection pour optimiser votre rentabilité.
                                 </p>
                                 <Link
-                                    href="/guides/prime-autoconsommation-photovoltaique-aides"
+                                    href="/guides/subventions-solaires-suisse-2026"
                                     className="flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 text-slate-950 font-semibold py-3 px-4 rounded-lg transition-all w-full"
                                 >
                                     <Download className="w-4 h-4" />
