@@ -13,7 +13,7 @@ export default function RealizationsGrid() {
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl font-bold mb-4">
-                        Dernières installations en <span className="text-amber-500">Île-de-France</span>
+                        Dernières installations en <span className="text-amber-500">Île-de-Suisse</span>
                     </h2>
                     <p className="text-neutral-400">
                         Qualité artisanale, finitions soignées. Nos chantiers parlent pour nous.

@@ -44,7 +44,7 @@ export default function AdminPage() {
                                 <TrendingUp size={20} />
                             </div>
                         </div>
-                        <div className="text-3xl font-bold mb-1">4.2k€</div>
+                        <div className="text-3xl font-bold mb-1">4.2k CHF</div>
                         <div className="text-sm text-neutral-500">Revenus Mensuels</div>
                     </div>
                 </div>
@@ -87,7 +87,7 @@ export default function AdminPage() {
                                         {Math.floor(Math.random() * 40) + 10}%
                                     </td>
                                     <td className="px-6 py-4 text-right font-bold text-gray-900">
-                                        300 €
+                                        300 CHF
                                     </td>
                                 </tr>
                             ))}

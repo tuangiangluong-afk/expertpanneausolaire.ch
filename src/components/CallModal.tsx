@@ -110,7 +110,7 @@ export default function CallModal({
                             </div>
                             <div>
                                 <p className="text-sm font-semibold text-neutral-900">Installateurs Certifiés</p>
-                                <p className="text-xs text-neutral-500">Service certifié RGE & QualiPV</p>
+                                <p className="text-xs text-neutral-500">Service porteur du label « Les Pros du Solaire » & Les Pros du Solaire</p>
                             </div>
                         </div>
 

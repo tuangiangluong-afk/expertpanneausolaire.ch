@@ -12,7 +12,7 @@ const HOME_FIELDS = [
     { key: "hero_subtitle", label: "Sous-titre Hero", type: "textarea", placeholder: "Produisez votre propre électricité verte et réduisez vos factures..." },
     { key: "cta_button", label: "Texte CTA Button", type: "text", placeholder: "Simuler mes économies" },
     { key: "about_title", label: "Titre 'À Propos'", type: "text", placeholder: "Pourquoi choisir Expert Panneau Solaire ?" },
-    { key: "about_text", label: "Texte 'À Propos'", type: "textarea", placeholder: "Nous accompagnons les particuliers dans leur transition énergétique avec des équipements certifiés RGE..." },
+    { key: "about_text", label: "Texte 'À Propos'", type: "textarea", placeholder: "Nous accompagnons les particuliers dans leur transition énergétique avec des équipements porteurs du label « Les Pros du Solaire »..." },
 ];
 
 export default function AdminPagesPage() {

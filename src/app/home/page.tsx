@@ -19,9 +19,9 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import FloatingCTA from "@/components/FloatingCTA";
 
 export const metadata: Metadata = {
-    title: "Installateur Panneaux Solaires RGE | Devis & Simulation Aides",
-    description: "Comparez les meilleurs installateurs de panneaux solaires photovoltaïques. Simulation gratuite d'autoconsommation, prime d'État déduite et devis sous 24h.",
-    keywords: ["installateur panneaux solaires", "panneaux solaires photovoltaïques", "simulation solaire", "devis panneau solaire", "autoconsommation photovoltaïque", "QualiPV RGE", "panneau solaire maison prix", "panneau solaire rentable ou pas", "combien de panneaux solaires pour une maison", "prime autoconsommation 2026", "panneau solaire 3kw prix", "panneau solaire 6kw prix", "panneau solaire 9kw prix", "installateur panneau solaire RGE près de chez moi", "revente electricité EDF OA", "kit panneau solaire autoconsommation"],
+    title: "Installateur Panneaux Solaires en Suisse | Devis & Simulation",
+    description: "Comparez les installateurs de panneaux solaires photovoltaïques en Suisse romande. Simulation gratuite d'autoconsommation, rétribution unique déduite et devis sous 24h.",
+    keywords: ["installateur panneaux solaires", "panneaux solaires photovoltaïques", "simulation solaire", "devis panneau solaire", "autoconsommation photovoltaïque", "Les Pros du Solaire", "panneau solaire maison prix", "panneau solaire rentable ou pas", "combien de panneaux solaires pour une maison", "rétribution unique 2026", "panneau solaire 3kw prix", "panneau solaire 6kw prix", "panneau solaire 9kw prix", "installateur panneau solaire Suisse près de chez moi", "reprise du surplus photovoltaïque gestionnaire de réseau", "kit panneau solaire autoconsommation"],
 };
 
 export default function HomePage() {
@@ -61,7 +61,7 @@ export default function HomePage() {
                                 {/* Trust Badge */}
                                 <div className="inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-4 py-2 text-sm font-bold text-amber-700 mb-6">
                                     <CheckCircle size={16} className="mr-2" />
-                                    Réseau National certifié RGE QualiPV
+                                    Réseau d'entreprises du label Swissolar « Les Pros du Solaire »
                                 </div>
 
                                 {/* H1 */}
@@ -71,7 +71,7 @@ export default function HomePage() {
 
                                 {/* Subtitle */}
                                 <p className="text-xl text-slate-600 mb-4 max-w-xl mx-auto lg:mx-0">
-                                    <strong className="text-slate-900">Autoconsommation avec revente de surplus.</strong> Recevez vos devis gratuits et simulez vos primes d&apos;État sous 24h.
+                                    <strong className="text-slate-900">Autoconsommation avec revente de surplus.</strong> Recevez vos devis gratuits et estimez votre rétribution unique Pronovo selon votre projet.
                                 </p>
                             </div>
 
@@ -85,7 +85,7 @@ export default function HomePage() {
                                             <p className="text-sm text-slate-500">Gratuit • Sans engagement • Résultats en 2 min</p>
                                         </div>
                                         <LeadForm
-                                            city="France"
+                                            city="Suisse"
                                             domain="expertpanneausolaire.ch"
                                             targetType="MIXED"
                                             themeColor="gold"
@@ -128,7 +128,7 @@ export default function HomePage() {
                             <div className="flex flex-wrap items-center gap-4 justify-center px-4">
                                 <div className="flex items-center gap-2 bg-white border border-slate-200 px-5 py-3 rounded-xl shadow-sm hover:shadow-md transition-all hover:scale-105 duration-300">
                                     <Award size={24} className="text-amber-500 fill-amber-100" />
-                                    <span className="font-bold text-slate-900 text-base">QualiPV RGE</span>
+                                    <span className="font-bold text-slate-900 text-base">Les Pros du Solaire</span>
                                 </div>
                                 <div className="flex items-center gap-2 bg-white border border-slate-200 px-5 py-3 rounded-xl shadow-sm hover:shadow-md transition-all hover:scale-105 duration-300">
                                     <Award size={24} className="text-yellow-500 fill-yellow-100" />
@@ -210,11 +210,11 @@ export default function HomePage() {
                                         </div>
                                         <div className="flex justify-between items-center py-3 border-b border-green-100">
                                             <span className="text-neutral-700">Primes d&apos;État</span>
-                                            <span className="font-semibold text-green-600">Prime autoconsommation déduite</span>
+                                            <span className="font-semibold text-green-600">Rétribution unique déduite</span>
                                         </div>
                                         <div className="flex justify-between items-center pt-4">
                                             <span className="font-bold text-neutral-900">Revente surplus</span>
-                                            <span className="text-lg font-bold text-green-600">EDF OA Garanti 20 ans</span>
+                                            <span className="text-lg font-bold text-green-600">rétribution selon les conditions du gestionnaire de réseau local</span>
                                         </div>
                                     </div>
                                 </div>
@@ -244,7 +244,7 @@ export default function HomePage() {
                             Nos installateurs par ville
                         </h2>
                         <p className="text-slate-600 text-lg">
-                            Trouvez un technicien RGE QualiPV près de chez vous
+                            Trouvez un installateur du label Les Pros du Solaire près de chez vous
                         </p>
                     </div>
 
@@ -291,19 +291,19 @@ export default function HomePage() {
                                     Autoconsommation &amp; Économies d&apos;Énergie
                                 </span>
                                 <h3 className="text-2xl font-bold text-slate-900">
-                                    Alimentez votre pompe à chaleur avec votre propre électricité solaire
+                                    Augmentez votre autoconsommation grâce à votre propre électricité solaire
                                 </h3>
                                 <p className="text-slate-600 text-sm leading-relaxed">
-                                    Coupler vos panneaux solaires photovoltaïques à une pompe à chaleur air-eau ou une climatisation réversible permet d&apos;atteindre jusqu&apos;à 70% d&apos;autonomie énergétique tout en maximisant vos aides MaPrimeRénov&apos;.
+                                    Associer production solaire, stockage et usages électriques peut augmenter l&apos;autoconsommation ; le résultat dépend du profil de consommation, de l&apos;orientation et du dimensionnement.
                                 </p>
                             </div>
                             <a
-                                href="https://www.expertpompeachaleur.com"
+                                href="https://www.swissolar.ch/fr/"
                                 target="_blank"
                                 rel="noopener"
                                 className="shrink-0 inline-flex items-center gap-2 bg-white text-rose-700 border border-rose-200 hover:bg-rose-600 hover:text-white px-6 py-3.5 rounded-2xl font-bold shadow-sm transition group"
                             >
-                                <span>Découvrir les pompes à chaleur</span>
+                                <span>Vérifier les exigences Swissolar</span>
                                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                             </a>
                         </div>

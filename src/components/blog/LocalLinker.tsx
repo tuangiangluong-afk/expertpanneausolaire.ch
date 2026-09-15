@@ -128,7 +128,7 @@ export default function LocalLinker() {
                         <CheckCircle className="text-green-400 shrink-0 mt-0.5" size={18} />
                         <div>
                             <p className="text-sm font-medium text-green-100 mb-2">
-                                Bonne nouvelle ! Nous avons un installateur RGE partenaire à <span className="text-white font-bold">{result.city}</span>.
+                                Bonne nouvelle ! Nous avons un installateur du label « Les Pros du Solaire » partenaire à <span className="text-white font-bold">{result.city}</span>.
                             </p>
                             <Link
                                 href={result.url}
@@ -147,7 +147,7 @@ export default function LocalLinker() {
                         <AlertCircle className="text-slate-400 shrink-0 mt-0.5" size={18} />
                         <div>
                             <p className="text-xs text-slate-300 mb-2">
-                                Pas de site dédié pour cette zone, mais notre réseau national d&apos;installateurs QualiPV couvre toute la France.
+                                Pas de site dédié pour cette zone, mais notre réseau national d&apos;installateurs Les Pros du Solaire couvre toute la Suisse.
                             </p>
                             <Link
                                 href="/#simulateur"

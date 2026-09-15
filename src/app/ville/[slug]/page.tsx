@@ -167,7 +167,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                         Installation de panneaux solaires par marque à {site.city}
                     </h2>
                     <p className="text-slate-600 text-center mb-8">
-                        Découvrez les prix et avis par marque, avec des installateurs certifiés RGE QualiPV à {site.city}.
+                        Découvrez les prix et avis par marque, avec des installateurs certifiés Les Pros du Solaire à {site.city}.
                     </p>
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
                         {SOLAR_BRANDS.map((marque) => (
@@ -184,7 +184,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                 </div>
             </section>
 
-            <LocalAeoSection site={site} />
+            <LocalAeoSection site={site} pseo={pseo} />
 
             <section className="py-16 bg-slate-50 border-y border-slate-200" id="simulateur">
                 <div className="container mx-auto px-4">

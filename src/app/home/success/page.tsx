@@ -34,9 +34,9 @@ const timelineSteps: TimelineStep[] = [
     },
     {
         icon: <Wrench className="w-5 h-5" />,
-        title: "Étude technique RGE",
+        title: "Étude technique et devis",
         timing: "Évaluation de toiture",
-        description: "Un technicien RGE QualiPV étudiera l'ensoleillement, l'inclinaison et la structure de votre toit.",
+        description: "Un installateur du label Les Pros du Solaire étudiera l'ensoleillement, l'inclinaison et la structure de votre toit.",
         active: false,
     },
     {
@@ -148,7 +148,7 @@ export default async function SuccessPage({ searchParams }: PageProps) {
 
                         {/* Trust badges */}
                         <div className="mt-6 flex flex-wrap justify-center gap-8 opacity-60">
-                            {["QUALIPV", "RGE", "DECENNALE"].map((badge) => (
+                            {["SWISSOLAR", "ESTI", "GARANTIE DÉCENNALE"].map((badge) => (
                                 <div key={badge} className="text-xs font-bold text-slate-500 tracking-widest">
                                     {badge}
                                 </div>
@@ -171,7 +171,7 @@ export default async function SuccessPage({ searchParams }: PageProps) {
                                 </h3>
                                 <p className="text-slate-300 text-sm mb-6">
                                     Consultez notre guide d&apos;expert sur la <strong>prime à l&apos;autoconsommation</strong> et les tarifs
-                                    d&apos;achat d&apos;électricité EDF OA pour optimiser votre rentabilité.
+                                    d&apos;achat d&apos;électricité la rétribution de l'injection pour optimiser votre rentabilité.
                                 </p>
                                 <Link
                                     href="/guides/prime-autoconsommation-photovoltaique-aides"

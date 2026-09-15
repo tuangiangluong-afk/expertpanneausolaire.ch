@@ -7,6 +7,7 @@ import Reviews from "@/components/Reviews";
 import { LocalFAQ } from "@/components/LocalFAQ";
 import { InternalMesh } from "@/components/InternalMesh";
 import { CheckCircle, Award } from "lucide-react";
+import { MARKET } from "@/config/market";
 
 export interface ContentSection {
     title: string;
@@ -93,7 +94,7 @@ export default function SolaireContentPage({
         },
         "offers": {
             "@type": "AggregateOffer",
-            "priceCurrency": "EUR",
+            "priceCurrency": MARKET.currencyCode,
             "lowPrice": lowPrice.toString(),
             "highPrice": highPrice.toString(),
             "offerCount": "12",

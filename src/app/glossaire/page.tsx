@@ -15,7 +15,7 @@ export default function GlossairePage() {
         "@type": "DefinedTermSet",
         "name": "Glossaire Technique",
         "hasDefinedTerm": [
-            { "@type": "DefinedTerm", "name": "RGE", "description": "Reconnu Garant de l'Environnement" }
+            { "@type": "DefinedTerm", "name": "Les Pros du Solaire", "description": "Label de qualité délivré par Swissolar aux entreprises spécialisées en installations solaires" }
             // Soloca will fill this array later
         ]
     };

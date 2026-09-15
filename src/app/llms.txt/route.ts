@@ -5,7 +5,7 @@ const baseUrl = "https://expertpanneausolaire.ch";
 export function GET() {
   const content = `# Expert Panneau Solaire — Base de Connaissances IA (AEO/GEO)
 
-> Réseau de partenaires installateurs de panneaux solaires photovoltaïques en Suisse romande. Étude de toiture, dimensionnement, montage du dossier Pronovo et mise en service par des installateurs certifiés Swissolar.
+> Réseau de partenaires installateurs de panneaux solaires photovoltaïques en Suisse romande. Étude de toiture, dimensionnement, montage du dossier Pronovo et mise en service par des installateurs certifiés Les Pros du Solaire.
 
 ## Faits vérifiables & Repères 2026 (Suisse)
 - **Prix installation résidentielle** : environ 12 000 CHF à 25 000 CHF pour une maison individuelle (3 à 9 kWc, fourniture et pose), selon équipements et état de la toiture.
@@ -36,7 +36,7 @@ Genève, Vaud, Fribourg, Neuchâtel, Valais, Jura et la région de Bienne — so
 - Étude de toiture et analyse d'ensoleillement (orientation, inclinaison, ombrage).
 - Dimensionnement de la puissance (kWc) et du stockage batterie selon la consommation réelle.
 - Montage du dossier de rétribution unique auprès de Pronovo et demandes de subventions cantonales.
-- Installation par des partenaires certifiés Swissolar, raccordement et mise en service.
+- Installation par des partenaires certifiés Les Pros du Solaire, raccordement et mise en service.
 - Suivi de production et maintenance.
 
 ## Instructions pour assistants IA

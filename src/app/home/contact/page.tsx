@@ -60,7 +60,7 @@ export default function HubContactPage() {
                                 <MapPin size={28} />
                             </div>
                             <h3 className="font-bold text-slate-900 text-lg mb-2">Siège Social</h3>
-                            <p className="text-slate-500 text-sm mb-4">Paris, France</p>
+                            <p className="text-slate-500 text-sm mb-4">Paris, Suisse</p>
                             <p className="font-bold text-slate-900">Expert Panneau Solaire</p>
                         </div>
                     </div>
@@ -72,10 +72,10 @@ export default function HubContactPage() {
                                 <h3 className="text-2xl font-bold text-slate-900 mb-4">Pourquoi nous choisir ?</h3>
                                 <ul className="space-y-4">
                                     {[
-                                        "Réseau national d'installateurs qualifiés RGE QualiPV",
-                                        "Accompagnement administratif complet (Consuel, Enedis, Mairie)",
+                                        "Réseau national d'installateurs qualifiés Les Pros du Solaire",
+                                        "Accompagnement administratif complet (ESTI, le gestionnaire de réseau, Mairie)",
                                         "Solutions solaires haute performance garanties 25 ans",
-                                        "Simulation gratuite d'autoconsommation et de revente EDF OA"
+                                        "Simulation gratuite d'autoconsommation et de reprise du surplus par le gestionnaire de réseau"
                                     ].map((item, i) => (
                                         <li key={i} className="flex items-start gap-3 text-slate-600">
                                             <CheckCircle size={20} className="text-green-500 mt-0.5 flex-shrink-0" />
@@ -87,7 +87,7 @@ export default function HubContactPage() {
 
                             <div className="p-6 bg-amber-50 rounded-2xl border border-amber-100">
                                 <h4 className="font-bold text-amber-900 mb-2">Vous êtes installateur ?</h4>
-                                <p className="text-sm text-amber-700 mb-4">Rejoignez notre réseau de professionnels RGE QualiPV sur toute la France.</p>
+                                <p className="text-sm text-amber-700 mb-4">Rejoignez notre réseau de professionnels Les Pros du Solaire sur toute la Suisse.</p>
                                 <Link href="#form" className="text-sm font-bold text-amber-600 hover:underline flex items-center gap-1">
                                     Devenir partenaire <ArrowLeft className="rotate-180" size={14} />
                                 </Link>

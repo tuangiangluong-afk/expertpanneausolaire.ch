@@ -203,7 +203,8 @@ export default function LeadForm({
                     lead_category: formData.projectType,
                     lead_city: city,
                     value: 100.00,
-                    currency: 'EUR',
+                    // Devise du marché : voir src/config/market.ts
+                    currency: 'CHF',
                     traffic_source: (attribution as any).source || 'direct',
                     landing_page: window.location.pathname
                 });
@@ -232,11 +233,11 @@ export default function LeadForm({
                     Étude d&apos;éligibilité validée !
                 </h3>
                 <p className="text-neutral-700 mb-6">
-                    Votre demande a été transmise. Un expert solaire certifié RGE QualiPV va réaliser votre étude de rentabilité sous <strong>24h</strong> pour votre projet {(!city || city.toLowerCase() === 'france' || city.toLowerCase() === 'national') ? 'en France' : <>à <strong>{city}</strong></>}.
+                    Votre demande a été transmise. Un expert solaire certifié Les Pros du Solaire va réaliser votre étude de rentabilité sous <strong>24h</strong> pour votre projet {(!city || city.toLowerCase() === 'france' || city.toLowerCase() === 'national') ? 'en Suisse' : <>à <strong>{city}</strong></>}.
                 </p>
                 <div className="flex items-center justify-center gap-2 text-sm text-amber-700 font-medium">
                     <Shield size={16} />
-                    <span>Matériel garanti 25 ans & Installateur RGE</span>
+                    <span>Matériel garanti 25 ans & installateur du label Les Pros du Solaire</span>
                 </div>
             </div>
         );
@@ -366,21 +367,21 @@ export default function LeadForm({
                                 selected={formData.monthlyBill === 'plus_150'}
                                 onClick={() => handleOptionSelect('monthlyBill', 'plus_150')}
                                 icon={TrendingUp}
-                                label="Plus de 150 € / mois"
+                                label="Plus de 200 CHF / mois"
                                 sublabel="Installation solaire ultra-rentable"
                             />
                             <OptionButton
                                 selected={formData.monthlyBill === '100_150'}
                                 onClick={() => handleOptionSelect('monthlyBill', '100_150')}
                                 icon={Zap}
-                                label="Entre 100 et 150 € / mois"
+                                label="Entre 130 et 200 CHF / mois"
                                 sublabel="Rentabilité rapide"
                             />
                             <OptionButton
                                 selected={formData.monthlyBill === 'moins_100'}
                                 onClick={() => handleOptionSelect('monthlyBill', 'moins_100')}
                                 icon={Zap}
-                                label="Moins de 100 € / mois"
+                                label="Moins de 130 CHF / mois"
                                 sublabel="Projet de petite taille"
                             />
                         </div>
@@ -413,7 +414,7 @@ export default function LeadForm({
                                 onClick={() => handleOptionSelect('roofType', 'amiante_chaume')}
                                 icon={AlertTriangle}
                                 label="Toit en Amiante ou Chaume"
-                                sublabel="⚠️ Non pris en charge par nos installateurs RGE"
+                                sublabel="⚠️ Non pris en charge par nos installateurs du label « Les Pros du Solaire »"
                             />
                         </div>
                     </div>
@@ -609,7 +610,7 @@ export default function LeadForm({
                             </button>
 
                             <p className="text-xs text-slate-400 text-center mt-4 px-4 leading-relaxed">
-                                En cliquant sur ce bouton, vous acceptez nos <Link href="/cgv" className="underline hover:text-amber-600">CGV</Link> et acceptez d&apos;être recontacté par nos experts RGE QualiPV partenaires pour votre projet solaire.
+                                En cliquant sur ce bouton, vous acceptez nos <Link href="/cgv" className="underline hover:text-amber-600">CGV</Link> et acceptez d&apos;être recontacté par nos experts Les Pros du Solaire partenaires pour votre projet solaire.
                             </p>
                         </div>
                     )}
@@ -621,7 +622,7 @@ export default function LeadForm({
                     <span className="hidden sm:inline">•</span>
                     <span className="flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-amber-500"></div> Sans engagement</span>
                     <span className="hidden sm:inline">•</span>
-                    <span className="flex items-center gap-1.5"><Sun size={12} className="text-amber-500" /> Installateurs RGE QualiPV</span>
+                    <span className="flex items-center gap-1.5"><Sun size={12} className="text-amber-500" /> Installateurs Les Pros du Solaire</span>
                     <span className="hidden sm:inline">•</span>
                     <span className="flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-slate-400"></div> Étude 24h</span>
                 </div>

@@ -51,7 +51,7 @@ export default function MentionsLegales() {
                     <div className="mb-8 rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
                         <h2 className="mb-4 text-2xl font-bold text-amber-900">2. Service Proposé</h2>
                         <p>
-                            Expert Panneau Solaire est une plateforme nationale de mise en relation entre les particuliers ou les entreprises et des installateurs solaires certifiés RGE QualiPV (Infrastructure de production photovoltaïque).
+                            Expert Panneau Solaire est une plateforme nationale de mise en relation entre les particuliers ou les entreprises et des installateurs solaires certifiés Les Pros du Solaire (Infrastructure de production photovoltaïque).
                         </p>
                     </div>
 
@@ -76,7 +76,7 @@ export default function MentionsLegales() {
                     <div className="mb-8 rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
                         <h2 className="mb-4 text-2xl font-bold text-amber-900">5. Données Personnelles (RGPD)</h2>
                         <p>
-                            Les données collectées (nom, téléphone, adresse d'installation, facture d'électricité moyenne, type de toit) sont utilisées uniquement pour l'établissement d'études de rentabilité, de devis et la mise en relation avec nos partenaires installateurs certifiés QualiPV.
+                            Les données collectées (nom, téléphone, adresse d'installation, facture d'électricité moyenne, type de toit) sont utilisées uniquement pour l'établissement d'études de rentabilité, de devis et la mise en relation avec nos partenaires installateurs certifiés Les Pros du Solaire.
                         </p>
                         <p>
                             Vous disposez d&apos;un droit d&apos;accès, de rectification et de suppression de vos données. Pour l&apos;exercer, contactez-nous via la page contact.

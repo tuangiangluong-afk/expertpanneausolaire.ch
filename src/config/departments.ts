@@ -28,6 +28,6 @@ export const DEPARTMENTS: Record<string, { code: string; name: string; slug: str
         description: "Au cœur de la dynamique du Grand Paris. Saint-Denis, Montreuil, Roissy... Un maillage complet pour vos trajets quotidiens et urgences, avec prise en charge CPAM disponible.",
         heroColor: "from-purple-900 to-slate-900",
         accentColor: "purple",
-        image: "https://images.unsplash.com/photo-1565060169123-5e9ad0c15926?q=80&w=3174&auto=format&fit=crop" // Stade de France / Urban dynamic
+        image: "https://images.unsplash.com/photo-1565060169123-5e9ad0c15926?q=80&w=3174&auto=format&fit=crop" // Stade de Suisse / Urban dynamic
     },
 };

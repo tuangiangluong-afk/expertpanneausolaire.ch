@@ -10,6 +10,7 @@ const inter = Inter({
 });
 
 import { getCurrentYearSEO } from "@/lib/date";
+import { MARKET } from "@/config/market";
 import StructuredData from "@/components/seo/StructuredData";
 import AttributionTracker from "@/components/AttributionTracker";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
@@ -36,7 +37,7 @@ export async function generateMetadata(): Promise<Metadata> {
     template: `%s | Expert Solaire`,
     default: `Expert Panneau Solaire - Panneaux Photovoltaïques & Aides ${getCurrentYearSEO()}`,
   },
-  description: "Installation de panneaux solaires photovoltaïques et autoconsommation. Réseau d'installateurs qualifiés RGE. Simulateur d'aides gratuit en 24h.",
+  description: `Installation de panneaux solaires photovoltaïques et autoconsommation en ${MARKET.country}. Installateurs porteurs du label ${MARKET.installerLabelShort}. Simulateur de ${MARKET.subsidyScheme} gratuit en 24h.`,
   metadataBase: new URL(baseUrl),
   alternates: {
     canonical: `${baseUrl}${path}`,
@@ -55,9 +56,9 @@ export async function generateMetadata(): Promise<Metadata> {
   },
   openGraph: {
     title: "Expert Panneau Solaire - Photovoltaïque & Autoconsommation",
-    description: "Installation de panneaux solaires photovoltaïques. Simulateur d'éligibilité et devis gratuits sous 24h. Installateurs RGE.",
+    description: `Installation de panneaux solaires photovoltaïques en ${MARKET.country}. Simulateur de ${MARKET.subsidyScheme} et devis gratuits sous 24h.`,
     siteName: "Expert Panneau Solaire",
-    locale: "fr_CH",
+    locale: MARKET.locale,
     type: "website",
     url: `${baseUrl}${path}`,
     images: [
@@ -98,7 +99,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className="scroll-smooth">
+    <html lang={MARKET.language} className="scroll-smooth">
       <head>
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Summary" />
         {/* Google Tag Manager */}

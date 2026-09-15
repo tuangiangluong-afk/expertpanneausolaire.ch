@@ -56,7 +56,7 @@ export function VillesVoisines({ currentCitySlug, department, cityName }: Villes
                         Installation de panneaux solaires près de {cityName}
                     </h2>
                     <p className="text-slate-600 mt-2">
-                        Nos installateurs RGE QualiPV interviennent également dans ces villes du département {department}.
+                        Nos installateurs Les Pros du Solaire interviennent également dans ces villes du département {department}.
                     </p>
                 </div>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">

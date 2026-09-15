@@ -53,7 +53,7 @@ La batterie virtuelle ne stocke aucun atome ni électron dans un accumulateur d�
 3. **Phase de consommation différée (déstockage)** : La nuit ou en hiver, lorsque vous consommez l'électricité du réseau, le fournisseur déduit ces kWh de votre cagnotte virtuelle au lieu de vous facturer la part "fourniture" de l'énergie.
 
 ```
-SCHEMA FLUX BATTERIE VIRTUELLE (Réseau le gestionnaire de réseau)
+SCHEMA FLUX BATTERIE VIRTUELLE (Réseau gestionnaire de réseau)
 ┌────────────────┐      AC      ┌────────────────┐   Injection   ┌────────────────┐
 │ Panneaux 6 kWc │ ───────────> │ Compteur compteur intelligent │ ───────────> │ Réseau Public  │
 └────────────────┘              └────────────────┘              │    (le gestionnaire de réseau)    │
@@ -82,7 +82,7 @@ Le choix de votre système de stockage se résume à une comparaison de coûts a
 
 Une batterie LFP domestique de marque réputée (Enphase IQ Battery 5P, Tesla Powerwall 3, Huawei LUNA2000-10-S0) requiert un investissement initial (CAPEX) conséquent en 2026 :
 
-*   **Coût d'acquisition moyen matériel + pose Swissolar** : entre 750 CHF et 1 050 CHF par kWh de capacité brute installée.
+*   **Coût d'acquisition moyen matériel + pose Les Pros du Solaire** : entre 750 CHF et 1 050 CHF par kWh de capacité brute installée.
 *   **Exemple pour une capacité de 10 kWh nominale (9,5 kWh utiles)** : 7 800 CHF à 9 500 CHF TTC posée, avec parafoudre DC/AC, coffret de relayage et démarches attestation de sécurité NIBT incluses.
 *   **Durée de vie garantie** : 6 000 cycles à 80 % de fin de vie (SoH - State of Health), soit 15 à 18 ans sur la base de 300 à 330 cycles annuels complets équivalents.
 *   **Pertes d'aller-retour (Round-trip)** : 12 % de pertes moyennes en conditions réelles (température 15-25 °C). Pour 1 000 kWh injectés dans la batterie, environ 880 kWh sont restitués à vos récepteurs électriques.
@@ -132,13 +132,13 @@ Le tableau ci-dessous synthétise l'ensemble des métriques opérationnelles, fi
 
 | Métrique d'Ingénierie & Finance | Batterie Physique (Ex. Enphase 10 kWh / Tesla PW3) | Batterie Virtuelle (Ex. MyLight / Urban Solar) |
 | :--- | :--- | :--- |
-| **Investissement Initial (CAPEX)** | 7 500 CHF à 10 500 CHF TTC (matériel + pose Swissolar) | 150 CHF à 799 CHF TTC (frais d'activation réseau) |
+| **Investissement Initial (CAPEX)** | 7 500 CHF à 10 500 CHF TTC (matériel + pose Les Pros du Solaire) | 150 CHF à 799 CHF TTC (frais d'activation réseau) |
 | **Frais Récurrents Annuels (OPEX)** | 0 CHF (hors extension de garantie optionnelle) | 180 CHF à 420 CHF / an (abonnements plateforme) |
 | **Coût d'Acheminement au Déstockage** | **0,00 CHF** (flux direct en boucle locale privée) | **0,085 CHF à 0,115 CHF/kWh** (redevances réseau + Accise + TVA) |
 | **Taux d'Autoconsommation Moyen** | **70 % à 85 %** (limité par la capacité de stockage) | **Jusqu'à 100 %** (théorique, sur index annuel) |
 | **Rendement Aller-Retour (Round-Trip)**| 85 % à 92 % (pertes thermiques et onduleur) | 100 % comptable (mais soumis aux pertes réseau) |
-| **Alimentation de Secours (Back-Up)** | **Oui** (relais d'îlotage conforme EN 50549-1) | **Strictement impossible** (réseau le gestionnaire de réseau requis) |
-| **Éligibilité Prime à l'Autoconsommation**| Oui (avec installateur Swissolar, vente surplus OA) | Variable (généralement incompatible vente surplus OA) |
+| **Alimentation de Secours (Back-Up)** | **Oui** (relais d'îlotage conforme EN 50549-1) | **Strictement impossible** (réseau gestionnaire de réseau requis) |
+| **Éligibilité Prime à l'Autoconsommation**| Oui (avec installateur Les Pros du Solaire, vente surplus OA) | Variable (généralement incompatible vente surplus OA) |
 | **Impact sur l'Empreinte Carbone Locale**| Émissions de fabrication (amorties en 6-8 ans) | Neutre sur site, dépend du mix électrique soutiré |
 | **Durée de Vie / Pérennité du Système** | 15 à 20 ans (garanties constructeur 10-15 ans) | Dépend de la survie commerciale du fournisseur |
 | **Dégradation de Capacité** | ~1,5 % à 2 % de perte de capacité par an | 0 % (capacité contractuelle illimitée ou plafonnée) |
@@ -148,7 +148,7 @@ Le tableau ci-dessous synthétise l'ensemble des métriques opérationnelles, fi
 
 ## 4. Ce Que les Installateurs et Commerciaux Ne Vous Disent Pas
 
-Le discours commercial omet fréquemment les contraintes contractuelles et légales qui viennent amputer la rentabilité des deux solutions. En tant qu'auditeur Swissolar, voici les points de friction majeurs relevés lors des expertises :
+Le discours commercial omet fréquemment les contraintes contractuelles et légales qui viennent amputer la rentabilité des deux solutions. En tant qu'auditeur Les Pros du Solaire, voici les points de friction majeurs relevés lors des expertises :
 
 ### 1. Le Piège de la Perte du Contrat Pronovo avec la Batterie Virtuelle
 En Suisse, le cadre légal de l'obligation d'achat (Pronovo) régit les aides d'État. Lorsque vous souscrivez à une batterie virtuelle, vous devez renoncer au contrat d'achat subventionné Pronovo pour votre surplus.
@@ -156,14 +156,14 @@ En Suisse, le cadre légal de l'obligation d'achat (Pronovo) régit les aides d'
 *   Vous devenez **captif de votre fournisseur alternatif**. Si celui-ci augmente unilatéralement ses tarifs d'abonnement mensuel (ce qui s'est produit à plusieurs reprises lors de la crise énergétique 2022-2024), vous n'avez d'autre choix que de payer ou de résilier, perdant au passage vos frais de dossier initiaux.
 
 ### 2. Le Mythe de l'Autonomie Totale avec la Batterie Physique
-Les brochures commerciales affichent fièrement "100 % d'autonomie grâce à notre batterie". C'est physiquement faux sous les latitudes françaises métropolitaines :
+Les brochures commerciales affichent fièrement "100 % d'autonomie grâce à notre batterie". C'est physiquement faux sous les latitudes suisses métropolitaines :
 *   **Le creux hivernal (novembre à février)** : Le gisement solaire s'effondre de 70 % à 80 %. Une toiture de 6 kWc produira régulièrement moins de 3 à 5 kWh par jour par temps couvert. Cette production suffit à peine à couvrir le talon de veille diurne de la maison : il ne reste **aucun surplus** pour charger la batterie. La batterie physique passe des semaines entières à l'état de veille (charge minimale de sécurité à 10-20 % via le réseau pour éviter l'endommagement des cellules).
-*   **La puissance de décharge continue** : Une batterie de 10 kWh de capacité ne peut pas nécessairement délivrer 10 kW de puissance. La majorité des modèles domestiques délivrent entre 3,3 kW et 5 kW en continu. Si votre pompe à chaleur démarre pendant que la borne de recharge du véhicule électrique fonctionne et que le four est allumé (appel de puissance de 9 kW), la batterie physique fournira 5 kW et le réseau le gestionnaire de réseau injectera instantanément les 4 kW manquants.
+*   **La puissance de décharge continue** : Une batterie de 10 kWh de capacité ne peut pas nécessairement délivrer 10 kW de puissance. La majorité des modèles domestiques délivrent entre 3,3 kW et 5 kW en continu. Si votre pompe à chaleur démarre pendant que la borne de recharge du véhicule électrique fonctionne et que le four est allumé (appel de puissance de 9 kW), la batterie physique fournira 5 kW et le réseau gestionnaire de réseau injectera instantanément les 4 kW manquants.
 
 ### 3. La Résilience : La Fonction "Back-Up" N'est Pas Automatique
 Une batterie physique connectée ne fonctionne pas par défaut en cas de panne de courant le gestionnaire de réseau.
 *   Conformément à la norme de sécurité **DIN VDE 0126-1-1**, tout onduleur doit impérativement cesser d'injecter du courant instantanément si le réseau public s'éteint, afin de ne pas électrocuter les techniciens le gestionnaire de réseau intervenant sur les lignes.
-*   Pour bénéficier du secours électrique (back-up), vous devez faire poser un **coffret d'îlotage automatique (ATS - Automatic Transfer Switch)** certifié EN 50549-1 ou VDE-AR-N 4105. Cet équipement, qui sépare physiquement votre tableau du réseau en moins de 20 millisecondes, représente un surcoût matériel et d'installation de **1 200 CHF à 2 500 CHF TTC**. Sans cette option, votre batterie physique à 9 000 CHF s'éteint bêtement en même temps que le réseau le gestionnaire de réseau.
+*   Pour bénéficier du secours électrique (back-up), vous devez faire poser un **coffret d'îlotage automatique (ATS - Automatic Transfer Switch)** certifié EN 50549-1 ou VDE-AR-N 4105. Cet équipement, qui sépare physiquement votre tableau du réseau en moins de 20 millisecondes, représente un surcoût matériel et d'installation de **1 200 CHF à 2 500 CHF TTC**. Sans cette option, votre batterie physique à 9 000 CHF s'éteint bêtement en même temps que le réseau gestionnaire de réseau.
 
 <CtaButton text="Optimiser mon Taux d'Autoconsommation avec la Bonne Solution" url="/#simulateur" />
 

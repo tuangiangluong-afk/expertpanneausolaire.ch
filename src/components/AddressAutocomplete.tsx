@@ -40,7 +40,7 @@ export function AddressAutocomplete({
         clearSuggestions,
     } = usePlacesAutocomplete({
         requestOptions: {
-            componentRestrictions: { country: "fr" }, // Limit to France
+            componentRestrictions: { country: "fr" }, // Limit to Suisse
         },
         debounce: 300,
         defaultValue: value

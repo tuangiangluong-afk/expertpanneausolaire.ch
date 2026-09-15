@@ -21,11 +21,11 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     const canonicalUrl = `${BASE_URL}/marques/${slug}`;
     return {
         title: `Panneaux Solaires ${marque.name} : Prix, Avis & Installation | Expert Panneau Solaire`,
-        description: `Installation de panneaux solaires ${marque.name} (${marque.modeles.join(", ")}) par des installateurs RGE QualiPV. ${marque.prix} avant aides. Devis gratuit sous 24h.`,
+        description: `Installation de panneaux solaires ${marque.name} (${marque.modeles.join(", ")}) par des installateurs Les Pros du Solaire. ${marque.prix} avant aides. Devis gratuit sous 24h.`,
         alternates: { canonical: canonicalUrl },
         openGraph: {
             title: `Panneaux Solaires ${marque.name} : Prix & Installation`,
-            description: `${marque.prix} fourniture et pose, avant aides. Installateurs certifiés RGE QualiPV.`,
+            description: `${marque.prix} fourniture et pose, avant aides. Installateurs certifiés Les Pros du Solaire.`,
             locale: "fr_FR",
             type: "website",
             url: canonicalUrl,
@@ -44,11 +44,11 @@ export default async function MarquePage({ params }: { params: Params }) {
 
     const canonicalUrl = `${BASE_URL}/marques/${slug}`;
     const introHtml = `<p class="mb-4">
-        ${marque.name} est l'une des références du marché photovoltaïque français : ${marque.type}, rendement de ${marque.rendement} et gamme ${marque.gamme}.
-        Notre réseau d'installateurs <strong>certifiés RGE QualiPV</strong> pose et met en service les gammes ${marque.modeles.join(", ")} partout en France.
+        ${marque.name} est l'une des références du marché photovoltaïque suisse : ${marque.type}, rendement de ${marque.rendement} et gamme ${marque.gamme}.
+        Notre réseau d'installateurs <strong>certifiés Les Pros du Solaire</strong> pose et met en service les gammes ${marque.modeles.join(", ")} partout en Suisse romande.
     </p>
     <p>
-        Comptez entre <strong>${marque.prix}</strong> pour une installation ${marque.name} clé en main, avant déduction de la prime à l'autoconsommation (jusqu'à 260€/kWc) et de la revente EDF OA.
+        Comptez entre <strong>${marque.prix}</strong> pour une installation ${marque.name} clé en main, avant déduction de la rétribution unique  et de la reprise du surplus par le gestionnaire de réseau.
         Devis gratuit et personnalisé sous 24h.
     </p>`;
 
@@ -79,7 +79,7 @@ export default async function MarquePage({ params }: { params: Params }) {
     const faqs = [
         {
             question: `Quel est le prix d'une installation ${marque.name} ?`,
-            reponse: `Comptez entre ${marque.prix} pour une installation clé en main, fourniture et pose comprises, avant déduction de la prime à l'autoconsommation (jusqu'à 260€/kWc). Le prix dépend de la puissance (${marque.gamme}) et de votre toiture.`,
+            reponse: `Comptez entre ${marque.prix} pour une installation clé en main, fourniture et pose comprises, avant déduction de la rétribution unique . Le prix dépend de la puissance (${marque.gamme}) et de votre toiture.`,
         },
         {
             question: `Quelle est la durée de vie des panneaux ${marque.name} ?`,
@@ -87,11 +87,11 @@ export default async function MarquePage({ params }: { params: Params }) {
         },
         {
             question: `Une installation ${marque.name} est-elle éligible aux aides ?`,
-            reponse: `Oui, si elle est installée par un professionnel RGE QualiPV : prime à l'autoconsommation jusqu'à 260€/kWc, revente du surplus à EDF OA (12,69 c€/kWh pendant 20 ans) et TVA réduite à 10%. Nous validons votre éligibilité avant la signature du devis.`,
+            reponse: `Oui, si elle est installée par une entreprise du label « Les Pros du Solaire » et raccordée dans les règles : la rétribution unique est versée par Pronovo après la mise en service (de l'ordre de 20 % de l'investissement), le surplus est repris par le gestionnaire de réseau (environ 11 ct/kWh au maximum jusqu'à 100 kW) et la TVA suisse est de 8,1 %. Nous validons votre éligibilité avant la signature du devis.`,
         },
         {
             question: `Où faire installer des panneaux ${marque.name} ?`,
-            reponse: `Notre réseau d'installateurs certifiés intervient partout en France. Consultez nos pages par ville pour trouver un installateur ${marque.name} près de chez vous, ou demandez votre devis gratuit sous 24h.`,
+            reponse: `Notre réseau d'installateurs certifiés intervient partout en Suisse romande. Consultez nos pages par ville pour trouver un installateur ${marque.name} près de chez vous, ou demandez votre devis gratuit sous 24h.`,
         },
     ];
 

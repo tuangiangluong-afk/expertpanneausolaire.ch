@@ -7,7 +7,7 @@ export default function SimulatorWidget() {
                 Comparez les offres
             </h3>
             <p className="text-sm text-slate-600 mb-6">
-                Recevez jusqu'à 3 devis gratuits d'installateurs qualifiés RGE.
+                Recevez jusqu'à 3 devis gratuits d'installateurs du label Les Pros du Solaire.
             </p>
 
             {/* Mini Formulaire visuel */}

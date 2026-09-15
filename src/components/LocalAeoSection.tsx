@@ -1,18 +1,29 @@
 import Link from "next/link";
 import { CheckCircle, ShieldCheck, Clock, Award, Euro, ArrowRight, ChevronRight, FileText, Landmark, Building2 } from "lucide-react";
 import type { CityConfig } from "@/lib/db";
+import type { PseoPageContent } from "@/lib/pseo";
 
 interface LocalAeoSectionProps {
     site: CityConfig;
+    /** Contenu pSEO local (faits vérifiables du canton, contraintes, délais) */
+    pseo?: PseoPageContent;
 }
 
-const pricingMatrix = [{"name": "Kit Solaire 3 kWc (Autoconsommation)", "usage": "Foyer standard (6 à 8 panneaux)", "price": "6 500€ - 8 900€", "aid": "Prime EDF OA ~1 050€", "net": "Dès 5 450€"}, {"name": "Kit Solaire 6 kWc (Grand foyer / PAC)", "usage": "Maison avec pompe à chaleur ou VE", "price": "10 500€ - 13 900€", "aid": "Prime EDF OA ~1 560€", "net": "Dès 8 940€"}, {"name": "Kit Solaire 9 kWc (Autonomie maximale)", "usage": "Grande villa avec piscine ou pro", "price": "14 500€ - 18 900€", "aid": "Prime EDF OA ~1 800€", "net": "Dès 12 700€"}, {"name": "Batterie de stockage physique (5 à 10 kWh)", "usage": "Stockage nuit & secours anti-coupure", "price": "4 500€ - 7 900€", "aid": "TVA 10% sur équipement", "net": "Sur mesure"}];
-const steps = [{"title": "Étude de faisabilité & Simulation 3D", "desc": "Analyse de toiture par satellite, modélisation des masques solaires et calcul de production annuelle."}, {"title": "Démarches administratives Mairie & Enedis", "desc": "Dépôt de la déclaration préalable (DP) en mairie et demande de raccordement d'injection auprès d'Enedis."}, {"title": "Pose surimposée en une journée", "desc": "Fixation des crochets sur chevrons, pose des panneaux bi-verre, micro-onduleurs et passage de câbles."}, {"title": "Validation Consuel & Vente de surplus", "desc": "Contrôle de conformité électrique Consuel et activation du contrat de rachat d'électricité avec EDF OA."}];
+const pricingMatrix = [{"name": "Installation 3 kWc (autoconsommation)", "usage": "Foyer standard (6 à 8 panneaux)", "price": "12 000 CHF - 15 000 CHF", "aid": "Rétribution unique Pronovo ~200 CHF/kWc", "net": "Dès 11 400 CHF"}, {"name": "Installation 6 kWc (grand foyer / PAC)", "usage": "Maison avec pompe à chaleur ou véhicule électrique", "price": "17 000 CHF - 21 000 CHF", "aid": "Rétribution unique + programme cantonal", "net": "Sur devis"}, {"name": "Installation 9 kWc (autonomie maximale)", "usage": "Grande villa avec piscine ou activité", "price": "23 000 CHF - 28 000 CHF", "aid": "Rétribution unique + programme cantonal", "net": "Sur devis"}, {"name": "Batterie de stockage (5 à 10 kWh)", "usage": "Stockage nocturne et secours en cas de coupure", "price": "8 000 CHF - 14 000 CHF", "aid": "Déduction fiscale selon canton", "net": "Sur mesure"}];
+const steps = [{"title": "Étude de toiture et dimensionnement", "desc": "Analyse de l'orientation, de l'inclinaison et des masques solaires, puis calcul de la production annuelle attendue."}, {"title": "Annonce à la commune et au gestionnaire de réseau", "desc": "Dépôt de l'annonce de construire auprès de la commune et demande de raccordement au gestionnaire de réseau local."}, {"title": "Pose surimposée en une à deux journées", "desc": "Fixation des crochets sur chevrons, pose des modules, onduleur ou micro-onduleurs et passage des câbles."}, {"title": "Attestation NIBT et dossier Pronovo", "desc": "Attestation de sécurité électrique (NIBT) délivrée par un installateur autorisé, puis demande de rétribution unique auprès de Pronovo."}];
 
-export default function LocalAeoSection({ site }: LocalAeoSectionProps) {
+export default function LocalAeoSection({ site, pseo }: LocalAeoSectionProps) {
     const city = site.city;
     const dept = site.department ? ` (${site.department})` : "";
     const neighborhoods = site.neighborhoods || [];
+    const facts = pseo?.local_facts || [];
+    const priceLine = pseo?.pricing_estimated && !pseo.pricing_estimated.includes("partir")
+        ? pseo.pricing_estimated
+        : "12 000 CHF – 25 000 CHF";
+    const canton = facts.find(f => f.label === "Canton")?.value;
+    const chefLieu = facts.find(f => f.label === "Chef-lieu")?.value;
+    const vent = facts.find(f => f.label === "Vent dominant")?.value;
+    const soleil = facts.find(f => f.label === "Ensoleillement")?.value;
     const neighborhoodsText = neighborhoods.length > 0 
         ? `, notamment dans les quartiers ${neighborhoods.slice(0, 4).join(', ')}` 
         : "";
@@ -44,17 +55,38 @@ export default function LocalAeoSection({ site }: LocalAeoSectionProps) {
                     </div>
 
                     <p className="text-base md:text-lg text-slate-700 leading-relaxed mb-6">
-                        <strong>En résumé : </strong>À {city}{dept}, le coût moyen d'une prestation de panneaux solaires réalisée par nos artisans qualifiés s'établit entre 6 500€ – 14 000€ avant déduction des éventuelles aides financières. Nos techniciens certifiés interviennent sous 24h à 48h avec garantie décennale.
+                        <strong>En résumé : </strong>À {city}{dept}, le coût moyen d'une prestation de panneaux solaires réalisée par nos artisans qualifiés s'établit entre {priceLine} avant déduction des aides fédérales et cantonales. {pseo?.installation_timeline || "Étude sous 48h, pose en 1 à 2 jours"}{canton ? ` — installation dimensionnée pour le canton de ${canton}${vent ? ` (vent dominant : ${vent})` : ""}.` : "."}
                     </p>
+
+                    {facts.length > 0 && (
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 pt-2 mb-6">
+                            {facts.slice(0, 8).map((f) => (
+                                <div key={f.label} className="rounded-2xl bg-slate-50 border border-slate-200/80 p-4">
+                                    <div className="text-xs text-slate-500 font-medium">{f.label}</div>
+                                    <div className="text-sm font-bold text-slate-900 mt-1 leading-snug">{f.value}</div>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+
+                    {canton && (
+                        <p className="text-sm text-slate-600 leading-relaxed mb-6 pt-1 border-t border-slate-100">
+                            <strong>Contexte local : </strong>{city} se situe dans le canton de {canton}
+                            {chefLieu ? ` (chef-lieu : ${chefLieu})` : ""}
+                            {soleil ? `, avec un ensoleillement annuel moyen de ${soleil}` : ""}
+                            {vent ? ` et un vent dominant ${vent}` : ""}.
+                            {" "}Ces paramètres locaux déterminent le dimensionnement, les fixations et la résistance mécanique de l'installation.
+                        </p>
+                    )}
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 pt-2">
                         <div className="rounded-2xl bg-slate-50 border border-slate-200/80 p-4 text-center">
                             <div className="text-xs text-slate-500 font-medium">Prix estimé</div>
-                            <div className="text-sm md:text-base font-bold text-slate-900 mt-1">6 500€ – 14 000€</div>
+                            <div className="text-sm md:text-base font-bold text-slate-900 mt-1">{priceLine}</div>
                         </div>
                         <div className="rounded-2xl bg-slate-50 border border-slate-200/80 p-4 text-center">
                             <div className="text-xs text-slate-500 font-medium">Aides & Primes</div>
-                            <div className="text-sm md:text-base font-bold text-slate-900 mt-1">Prime à l'Autoconsommation & EDF OA</div>
+                            <div className="text-sm md:text-base font-bold text-slate-900 mt-1">Rétribution unique Pronovo</div>
                         </div>
                         <div className="rounded-2xl bg-slate-50 border border-slate-200/80 p-4 text-center">
                             <div className="text-xs text-slate-500 font-medium">Délai d'intervention</div>
@@ -62,7 +94,7 @@ export default function LocalAeoSection({ site }: LocalAeoSectionProps) {
                         </div>
                         <div className="rounded-2xl bg-slate-50 border border-slate-200/80 p-4 text-center">
                             <div className="text-xs text-slate-500 font-medium">Garantie & Norme</div>
-                            <div className="text-sm md:text-base font-bold text-slate-900 mt-1">Garantie Décennale & RGE</div>
+                            <div className="text-sm md:text-base font-bold text-slate-900 mt-1">Installateurs certifiés Les Pros du Solaire</div>
                         </div>
                     </div>
                 </div>
@@ -125,7 +157,7 @@ export default function LocalAeoSection({ site }: LocalAeoSectionProps) {
                                 <h3 className="font-bold text-slate-900 text-base">Urbanisme, Mairie & ABF à {city}</h3>
                             </div>
                             <p className="text-sm text-slate-600 leading-relaxed">
-                                Toute installation photovoltaïque sur toiture à {city}{dept} requiert le dépôt préalable d'une Déclaration Préalable de Travaux (DP) en mairie. Si votre maison se situe dans le périmètre d'un monument historique ou en zone protégée par l'Architecte des Bâtiments de France (ABF), des prescriptions esthétiques peuvent s'appliquer (ex: panneaux full-black homogènes, intégration géométrique). Nos équipes constituent l'intégralité du dossier d'urbanisme avec plans d'insertion paysagère pour obtenir votre autorisation sans délai.
+                                Toute installation photovoltaïque sur toiture à {city}{dept} requiert le dépôt préalable d'une Déclaration Préalable de Travaux (DP) en mairie. Si votre maison se situe dans le périmètre d'un monument historique ou en zone protégée par l'Architecte des Bâtiments de Suisse (ABF), des prescriptions esthétiques peuvent s'appliquer (ex: panneaux full-black homogènes, intégration géométrique). Nos équipes constituent l'intégralité du dossier d'urbanisme avec plans d'insertion paysagère pour obtenir votre autorisation sans délai.
                             </p>
                         </div>
 
@@ -138,7 +170,7 @@ export default function LocalAeoSection({ site }: LocalAeoSectionProps) {
                                 <h3 className="font-bold text-slate-900 text-base">Typologie de toiture & Quartiers à {city}</h3>
                             </div>
                             <p className="text-sm text-slate-600 leading-relaxed">
-                                Nos couvreurs et soliers RGE QualiPV interviennent dans tous les secteurs de {city}{neighborhoodsText}. Nous maîtrisons la pose sur tous types de matériaux régionaux (tuiles mécaniques, canal, ardoises ou bac acier) avec des crochets inox réglables et des abergements étanches sous avis technique du CSTB, garantissant la protection absolue de votre charpente contre les infiltrations.
+                                Nos partenaires installateurs certifiés Les Pros du Solaire interviennent dans tous les secteurs de {city}{neighborhoodsText}. Ils maîtrisent la pose sur tous types de couvertures suisses (tuiles béton, tuiles terre cuite, ardoises, bac acier ou toit plat) avec des crochets inox réglables et des abergements étanches conformes aux règles de l'art et aux normes SIA, garantissant l'étanchéité de votre charpente.
                             </p>
                         </div>
 
@@ -151,7 +183,7 @@ export default function LocalAeoSection({ site }: LocalAeoSectionProps) {
                                 <h3 className="font-bold text-slate-900 text-base">Ensoleillement & Rentabilité à {city}</h3>
                             </div>
                             <p className="text-sm text-slate-600 leading-relaxed">
-                                Le gisement solaire local garantit une production moyenne de 1 150 à 1 600 kWh par kWc installé et par an. Grâce au dispositif de l'autoconsommation avec vente du surplus à EDF OA, les foyers de {city} réduisent leur facture annuelle de 800€ à 1 800€ tout en percevant la prime à l'autoconsommation d'État (jusqu'à 350€/kWc). Votre installation est généralement amortie en 6 à 8 ans avec une rentabilité assurée sur plus de 30 ans.
+                                En Suisse romande, une installation produit en moyenne 900 à 1 300 kWh par kWc installé et par an selon l'altitude et l'exposition. Grâce à l'autoconsommation et à la reprise du surplus par le gestionnaire de réseau, les foyers de {city} réduisent leur facture annuelle, tout en percevant la rétribution unique versée par Pronovo après la mise en service. Le temps de retour se situe généralement entre 10 et 15 ans, sur une durée de vie de plus de 30 ans.
                             </p>
                         </div>
                     </div>

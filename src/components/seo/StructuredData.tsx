@@ -1,4 +1,5 @@
 import Script from "next/script";
+import { MARKET } from "@/config/market";
 
 export default function StructuredData() {
     const baseUrl = "https://www.expertpanneausolaire.ch";
@@ -12,7 +13,7 @@ export default function StructuredData() {
         "url": baseUrl,
         "logo": `${baseUrl}/icon.png`,
         "image": `${baseUrl}/icon.png`,
-        "description": "Étude, fourniture et pose de panneaux solaires photovoltaïques en autoconsommation en Suisse, avec rétribution unique Pronovo.",
+        "description": `Étude, fourniture et pose de panneaux solaires photovoltaïques en autoconsommation en ${MARKET.country}, avec ${MARKET.subsidyScheme} versée par ${MARKET.subsidyBody}.`,
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "Rue du Rhône 14",
@@ -25,11 +26,11 @@ export default function StructuredData() {
             "telephone": "+41 22 000 00 00",
             "contactType": "customer service",
             "areaServed": "CH",
-            "availableLanguage": ["fr-FR", "en-US"]
+            "availableLanguage": [MARKET.language, "de-CH", "en-US"]
         },
         "areaServed": {
             "@type": "Country",
-            "name": "FR"
+            "name": MARKET.countryCode
         }
     };
 
@@ -39,8 +40,8 @@ export default function StructuredData() {
         "@id": `${baseUrl}/#website`,
         "url": baseUrl,
         "name": "Expert Panneau Solaire",
-        "description": "Étude, fourniture et pose de panneaux solaires photovoltaïques en autoconsommation en Suisse, avec rétribution unique Pronovo.",
-        "inLanguage": "fr-CH",
+        "description": `Étude, fourniture et pose de panneaux solaires photovoltaïques en autoconsommation en ${MARKET.country}, avec ${MARKET.subsidyScheme} versée par ${MARKET.subsidyBody}.`,
+        "inLanguage": MARKET.language,
         "publisher": {
             "@id": `${baseUrl}/#organization`,
             "@type": "Organization",
@@ -62,13 +63,13 @@ export default function StructuredData() {
         },
         "areaServed": {
             "@type": "Country",
-            "name": "FR"
+            "name": MARKET.countryCode
         },
-        "description": "Étude, fourniture et pose de panneaux solaires photovoltaïques en autoconsommation en Suisse, avec rétribution unique Pronovo.",
+        "description": `Étude, fourniture et pose de panneaux solaires photovoltaïques en autoconsommation en ${MARKET.country}, avec ${MARKET.subsidyScheme} versée par ${MARKET.subsidyBody}.`,
         "offers": {
             "@type": "Offer",
-            "priceCurrency": "EUR",
-            "price": "5990",
+            "priceCurrency": MARKET.currencyCode,
+            "price": "12900",
             "availability": "https://schema.org/InStock",
             "validFrom": "2026-01-01"
         }
@@ -79,11 +80,11 @@ export default function StructuredData() {
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": `${baseUrl}/#product`,
-        "name": "Kit Solaire Photovoltaïque Clé en Main avec Pose RGE",
+        "name": `Kit solaire photovoltaïque clé en main — pose par une entreprise du label ${MARKET.installerLabelShort}`,
         "image": [
             `${baseUrl}/icon.png`
         ],
-        "description": "Installation solaire photovoltaïque haute performance avec micro-onduleurs et garantie de production 25 ans.",
+        "description": `Installation solaire photovoltaïque avec micro-onduleurs, garantie matériel 25 ans et raccordement au ${MARKET.gridOperatorShort} géré de bout en bout.`,
         "sku": "EPS-SOLAR-001",
         "mpn": "EPS-SOLAR-001",
         "brand": {
@@ -93,15 +94,15 @@ export default function StructuredData() {
         "offers": {
             "@type": "Offer",
             "url": `${baseUrl}/#simulateur`,
-            "priceCurrency": "EUR",
-            "price": "5990",
+            "priceCurrency": MARKET.currencyCode,
+            "price": "12900",
             "validFrom": "2026-01-01",
             "priceValidUntil": "2026-12-31",
             "itemCondition": "https://schema.org/NewCondition",
             "availability": "https://schema.org/InStock",
             "hasMerchantReturnPolicy": {
                 "@type": "MerchantReturnPolicy",
-                "applicableCountry": "FR",
+                "applicableCountry": MARKET.countryCode,
                 "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
             },
             "shippingDetails": {
@@ -109,11 +110,11 @@ export default function StructuredData() {
                 "shippingRate": {
                     "@type": "MonetaryAmount",
                     "value": "0",
-                    "currency": "EUR"
+                    "currency": MARKET.currencyCode
                 },
                 "shippingDestination": {
                     "@type": "DefinedRegion",
-                    "addressCountry": "CH"
+                    "addressCountry": MARKET.countryCode
                 },
                 "deliveryTime": {
                     "@type": "ShippingDeliveryTime",
@@ -143,45 +144,6 @@ export default function StructuredData() {
                 }
             }
         },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "275",
-            "bestRating": "5",
-            "worstRating": "1"
-        },
-        "review": [
-            {
-                "@type": "Review",
-                "author": {
-                    "@type": "Person",
-                    "name": "Laurent G."
-                },
-                "datePublished": "2026-02-04",
-                "reviewBody": "Installation photovoltaïque 6 kWc en autoconsommation avec revente. Production optimale et suivi via application très clair.",
-                "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "5",
-                    "bestRating": "5",
-                    "worstRating": "1"
-                }
-            },
-            {
-                "@type": "Review",
-                "author": {
-                    "@type": "Person",
-                    "name": "Isabelle R."
-                },
-                "datePublished": "2026-03-22",
-                "reviewBody": "Équipe RGE QualiPV au top. Démarches Enedis et Consuel gérées rapidement. Je recommande à 100%.",
-                "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "5",
-                    "bestRating": "5",
-                    "worstRating": "1"
-                }
-            }
-        ]
     };
 
     return (

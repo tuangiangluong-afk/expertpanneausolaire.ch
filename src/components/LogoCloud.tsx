@@ -15,7 +15,7 @@ export default function LogoCloud() {
             <div className="container mx-auto px-4">
                 <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
                     <p className="text-sm font-semibold text-slate-500 uppercase tracking-widest whitespace-nowrap">
-                        Nos installateurs RGE posent les marques leaders :
+                        Nos installateurs du label « Les Pros du Solaire » posent les marques leaders :
                     </p>
                     <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
                         {BRANDS.map((brand) => (

@@ -6,12 +6,12 @@ import { addPartner, updatePartner, Partner } from "@/app/actions/partners";
 import { useToast } from "@/components/admin/Toast";
 
 const REGIONS = [
-    "Île-de-France",
+    "Île-de-Suisse",
     "Auvergne-Rhône-Alpes",
     "Provence-Alpes-Côte d'Azur",
     "Nouvelle-Aquitaine",
     "Occitanie",
-    "Hauts-de-France",
+    "Hauts-de-Suisse",
     "Grand Est",
     "Pays de la Loire",
     "Bretagne",

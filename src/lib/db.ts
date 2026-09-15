@@ -102,7 +102,7 @@ const ADAPTED_SITES = Object.entries(SITES).reduce((acc, [key, site]) => {
         ...site,
         // Map SiteConfig fields to CityConfig fields
         pricing: {
-            base: site.priceRange === 'LUXE' ? 'Sur Dev.' : '900€',
+            base: site.priceRange === 'LUXE' ? 'Sur Dev.' : '900 CHF',
             description: "Installation à partir de"
         },
         geo: site.coordinates,

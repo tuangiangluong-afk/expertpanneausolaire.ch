@@ -80,7 +80,7 @@ export function Footer({ config }: FooterProps) {
             `Installateur solaire ${cityName}`,
             `Photovoltaïque ${cityName}`,
             `Installation solaire ${cityName}`,
-            `Artisan RGE solaire ${cityName}`,
+            `Installateur solaire ${cityName}`,
             `${cityName} (Panneaux Solaires)`
         ];
         return variations[index % variations.length];
@@ -92,13 +92,13 @@ export function Footer({ config }: FooterProps) {
                 <h4 className="text-white font-bold mb-4">À propos de {config.name}</h4>
                 <p className="max-w-2xl mx-auto text-sm mb-8">
                     {config.name} est le comparateur de référence pour l&apos;installation de panneaux solaires à {config.city}.
-                    Nous sélectionnons les meilleurs artisans certifiés RGE QualiPV pour vos projets d&apos;autoconsommation et de revente de surplus.
+                    Nous sélectionnons les meilleurs artisans certifiés Les Pros du Solaire pour vos projets d&apos;autoconsommation et de revente de surplus.
                     Obtenez jusqu&apos;à 3 devis gratuits pour comparer.
                 </p>
 
                 <div className="inline-flex items-center gap-2 bg-amber-900/30 border border-amber-800 px-4 py-2 rounded-full mb-8">
                     <span className="w-2 h-2 rounded-full bg-amber-500"></span>
-                    <span className="text-amber-400 font-bold text-sm">Réseau d&apos;Installateurs Certifiés RGE QualiPV</span>
+                    <span className="text-amber-400 font-bold text-sm">Réseau d&apos;Installateurs Certifiés Les Pros du Solaire</span>
                 </div>
 
                 <div className="border-t border-white/10 pt-12 mt-12">
@@ -111,7 +111,7 @@ export function Footer({ config }: FooterProps) {
                             <ul className="space-y-3 text-sm">
                                 {config.slug === 'home' ? (
                                     <>
-                                        <li><Link href="/ville/paris" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-neutral-600 group-hover:bg-amber-500 transition"></span>Île-de-France</Link></li>
+                                        <li><Link href="/ville/paris" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-neutral-600 group-hover:bg-amber-500 transition"></span>Île-de-Suisse</Link></li>
                                         <li><Link href="/ville/lyon" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-neutral-600 group-hover:bg-amber-500 transition"></span>Auvergne-Rhône-Alpes</Link></li>
                                         <li><Link href="/ville/marseille" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-neutral-600 group-hover:bg-amber-500 transition"></span>Provence-Alpes-Côte d&apos;Azur</Link></li>
                                         <li><Link href="/ville/bordeaux" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-neutral-600 group-hover:bg-amber-500 transition"></span>Nouvelle-Aquitaine</Link></li>
@@ -179,7 +179,7 @@ export function Footer({ config }: FooterProps) {
                                     const getVariedFooterAnchor = (cityName: string, index: number) => {
                                         const variations = [
                                             `Installation solaire ${cityName}`,
-                                            `Artisan QualiPV ${cityName}`,
+                                            `Artisan Les Pros du Solaire ${cityName}`,
                                             `Photovoltaïque ${cityName}`,
                                             `Installateur solaire ${cityName}`,
                                             `Agence ${cityName}`
@@ -251,7 +251,7 @@ export function Footer({ config }: FooterProps) {
 <li>
                                     <Link href="/guides/prix-panneaux-solaires-3kwc-6kwc-9kwc" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group">
                                         <span className={`w-1 h-1 rounded-full bg-neutral-600 group-hover:${theme.classes.bg} transition`}></span>
-                                        Prix Panneau Solaire 3, 6, 9 kWc Autoconsommation RGE 2026
+                                        Prix Panneau Solaire 3, 6, 9 kWc Autoconsommation Suisse 2026
                                     </Link>
                                 </li>
 <li>

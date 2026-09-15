@@ -11,11 +11,11 @@ export default function FAQSection({ city }: { city?: string }) {
     const faqs = [
         {
             question: `Qui a le droit d'installer des panneaux solaires${cityText} ?`,
-            answer: `Toute personne peut installer des panneaux solaires, mais pour vendre votre surplus d'électricité et bénéficier des aides de l'État, l'installation doit être réalisée par un installateur certifié RGE (Reconnu Garant de l'Environnement) qualifié QualiPV. Cela garantit la sécurité et la conformité aux normes électriques${cityText}.`
+            answer: `Toute personne peut installer des panneaux solaires, mais pour vendre votre surplus d'électricité et bénéficier des subventions fédérales, l'installation doit être réalisée par un installateur porteur du label « Les Pros du Solaire » (Reconnu Garant de l'Environnement) qualifié Les Pros du Solaire. Cela garantit la sécurité et la conformité aux normes électriques${cityText}.`
         },
         {
             question: `Quel est le prix moyen d'une installation solaire${cityText} ?`,
-            answer: `Le coût d'une installation complète (panneaux + onduleur + pose) se situe généralement entre 8 000€ et 15 000€ TTC selon la puissance choisie (3 kWp à 9 kWp) et les contraintes de pose${cityPlural}. Ce prix est rentabilisé en moyenne sur 8 à 10 ans.`
+            answer: `Le coût d'une installation complète (panneaux + onduleur + pose) se situe généralement entre 6 000 CHF et 20 500 CHF selon la puissance choisie (3 kWc à 9 kWc) et les contraintes de pose${cityPlural}. En Suisse, comptez 1 800 à 2 200 CHF par kWc installé. La rétribution unique versée par Pronovo couvre de l'ordre de 20 % de l'investissement, et l'installation s'amortit en moyenne sur 10 à 15 ans.`
         },
         {
             question: "Est-ce que l'installation solaire fonctionne en cas de panne de réseau ?",

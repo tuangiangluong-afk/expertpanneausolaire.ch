@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
         alternates: { canonical: canonicalUrl },
         openGraph: {
             title: `Panneaux solaires ${p.puissance} : prix et production`,
-            description: `${p.prix} avant aides. Installateurs RGE QualiPV.`,
+            description: `${p.prix} avant aides. Installateurs Les Pros du Solaire.`,
             locale: "fr_FR",
             type: "website",
             url: canonicalUrl,
@@ -45,7 +45,7 @@ export default async function PuissancePage({ params }: { params: Params }) {
     const canonicalUrl = `${BASE_URL}/puissance/${slug}`;
     const introHtml = `<p class="mb-4">${p.description}</p>
     <p>
-        Comptez entre <strong>${p.prix}</strong> pour une installation clé en main de ${p.puissance}, avant déduction de la prime à l'autoconsommation (jusqu'à 260€/kWc) et de la revente EDF OA.
+        Comptez entre <strong>${p.prix}</strong> pour une installation clé en main de ${p.puissance}, avant déduction de la rétribution unique  et de la reprise du surplus par le gestionnaire de réseau.
         Devis gratuit et personnalisé sous 24h.
     </p>`;
 
@@ -76,7 +76,7 @@ export default async function PuissancePage({ params }: { params: Params }) {
         },
         {
             question: `Quel est le prix d'une installation ${p.puissance} ?`,
-            reponse: `Comptez entre ${p.prix} pour une installation clé en main, fourniture et pose comprises, avant déduction de la prime à l'autoconsommation (jusqu'à 260€/kWc) et de la revente EDF OA.`,
+            reponse: `Comptez entre ${p.prix} pour une installation clé en main, fourniture et pose comprises, avant déduction de la rétribution unique  et de la reprise du surplus par le gestionnaire de réseau.`,
         },
         {
             question: `Combien produit une installation ${p.puissance} ?`,
@@ -84,7 +84,7 @@ export default async function PuissancePage({ params }: { params: Params }) {
         },
         {
             question: `Où faire installer une centrale ${p.puissance} ?`,
-            reponse: `Notre réseau d'installateurs certifiés intervient partout en France. Consultez nos pages par ville ou demandez votre devis gratuit sous 24h.`,
+            reponse: `Notre réseau d'installateurs certifiés intervient partout en Suisse romande. Consultez nos pages par ville ou demandez votre devis gratuit sous 24h.`,
         },
     ];
 

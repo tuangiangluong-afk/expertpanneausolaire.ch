@@ -1,4 +1,5 @@
 import { CityConfig } from "@/lib/db";
+import { CANTONS } from "@/data/ch-cantons";
 
 interface LocalFAQProps {
     site: CityConfig;
@@ -46,66 +47,71 @@ export function LocalFAQ({ site, segment }: LocalFAQProps) {
  * Deterministic hash for a city name — produces a stable number 
  * without relying on parseInt of department codes (which breaks on "MC", "2A", "2B").
  */
-function cityHash(city: string): number {
-    let hash = 0;
-    for (let i = 0; i < city.length; i++) {
-        hash = ((hash << 5) - hash + city.charCodeAt(i)) | 0;
-    }
-    return Math.abs(hash);
-}
-
-// Exported for SchemaJSON to generate FAQPage structured data
-export function getLocalFAQData(city: string, department: string | undefined, segment: "B2C" | "COPRO" | "ENTREPRISE") {
-    const dept = department || "votre département";
-    const h = cityHash(city);
+/**
+ * Exporté pour que SchemaJSON génère les données structurées FAQPage.
+ *
+ * IMPORTANT : aucune statistique n'est inventée ici. Les réponses s'appuient
+ * uniquement sur des faits vérifiables (canton, chef-lieu, ensoleillement,
+ * vent dominant) afin de rester citable par les moteurs IA.
+ */
+export function getLocalFAQData(city: string, department: string | undefined, segment: "B2C" | "COPRO" | "ENTREPRISE" = "B2C") {
+    const canton = department ? CANTONS[department] : undefined;
+    const cantonRef = canton ? `canton de ${canton.name} (${canton.code})` : "Suisse romande";
+    const chefLieu = canton?.chefLieu;
+    const soleil = canton?.soleil;
+    const vent = canton?.vent;
+    const neige = !!canton?.neige;
 
     if (segment === "COPRO") {
-        const coproCount = 8 + (h % 25);
         return [
             {
                 question: `Peut-on installer des panneaux solaires en copropriété à ${city} ?`,
-                answer: `Oui, c'est tout à fait possible et de plus en plus courant. L'installation peut servir à l'autoconsommation collective pour réduire les charges des parties communes ou être revendue. Le projet doit être voté en assemblée générale à la majorité simple.`
+                answer: `Oui. L'installation peut alimenter les parties communes en autoconsommation collective ou être exploitée pour la reprise du surplus. Le projet doit être approuvé par l'assemblée générale des copropriétaires.`
             },
             {
                 question: `Quelles démarches pour un projet solaire en copropriété à ${city} ?`,
-                answer: `Nous réalisons d'abord une étude d'ensoleillement gratuite de la toiture de votre immeuble à ${city}. Ensuite, nous vous accompagnons pour présenter le projet au syndic et aux copropriétaires lors de l'AG. Plus de ${coproCount} copropriétés du ${dept} nous ont fait confiance.`
+                answer: `Nous réalisons d'abord une étude d'ensoleillement de la toiture de l'immeuble à ${city}, puis nous vous accompagnons pour présenter le projet au syndic et aux copropriétaires. Le dossier de rétribution unique est ensuite déposé auprès de Pronovo.`
             },
             {
                 question: `Existe-t-il des aides pour le solaire en copropriété à ${city} ?`,
-                answer: `Oui, les copropriétés bénéficient de la prime à l'autoconsommation et du tarif d'achat garanti pour le surplus d'électricité, en plus des subventions locales possibles selon votre région.`
-            }
-        ];
-    } else if (segment === "ENTREPRISE") {
-        const entrepriseCount = 15 + (h % 35);
-        return [
-            {
-                question: `Quels sont les avantages des panneaux solaires pour une entreprise à ${city} ?`,
-                answer: `Installer des panneaux solaires sur le toit de votre entreprise à ${city} permet de réduire significativement vos factures d'électricité (autoconsommation), de valoriser votre patrimoine immobilier et de répondre aux exigences de la loi LOM / décret tertiaire. Plus de ${entrepriseCount} entreprises du ${dept} se sont équipées.`
-            },
-            {
-                question: `Quelles aides pour l'installation solaire des professionnels à ${city} ?`,
-                answer: `Les entreprises bénéficient de la prime à l'autoconsommation, de la revente du surplus, et de dispositifs de suramortissement ou de subventions régionales spécifiques à ${city}.`
-            },
-            {
-                question: `Quel est le temps de retour sur investissement pour une entreprise à ${city} ?`,
-                answer: `Le retour sur investissement pour une installation solaire professionnelle à ${city} est généralement compris entre 6 et 9 ans, pour une durée de vie du matériel supérieure à 30 ans.`
-            }
-        ];
-    } else {
-        const installCount = 40 + (h % 80);
-        return [
-            {
-                question: `Quel est le prix d'une installation de panneaux solaires à ${city} ?`,
-                answer: `Le coût d'une installation de panneaux solaires à ${city} se situe en moyenne entre 8 000€ et 15 000€ pour une puissance de 3 à 9 kWp, avant déduction des aides. Ce prix varie selon le type de toiture, la puissance choisie et la marque des panneaux.`
-            },
-            {
-                question: `Combien de temps pour installer des panneaux solaires à ${city} ?`,
-                answer: `Nos techniciens certifiés RGE QualiPV interviennent sous 15 à 30 jours après validation de votre devis et des démarches administratives. L'installation technique à la maison à ${city} prend en général 1 à 2 jours. Plus de ${installCount} chantiers ont été réalisés dans le ${dept} récemment.`
-            },
-            {
-                question: `Quelles aides pour installer des panneaux solaires à ${city} ?`,
-                answer: `À ${city}, vous pouvez bénéficier de la prime à l'autoconsommation (versée sur 5 ans), de la revente du surplus d'électricité à tarif garanti (EDF OA), et d'une TVA réduite à 10% pour les installations inférieures ou égales à 3 kWp. L'installation doit obligatoirement être réalisée par un professionnel qualifié RGE QualiPV.`
+                answer: `Les copropriétés de la région (${cantonRef}) peuvent bénéficier de la rétribution unique versée par Pronovo après mise en service, complétée selon le lieu par un programme cantonal ou communal. Les frais d'investissement sont également déductibles fiscalement dans de nombreux cantons.`
             }
         ];
     }
+
+    if (segment === "ENTREPRISE") {
+        return [
+            {
+                question: `Quels sont les avantages des panneaux solaires pour une entreprise à ${city} ?`,
+                answer: `Installer du photovoltaïque sur le toit de votre entreprise à ${city} réduit votre facture d'électricité par l'autoconsommation, valorise votre patrimoine immobilier et réduit votre exposition à la hausse des prix de l'énergie. Le surplus est repris par le gestionnaire de réseau local.`
+            },
+            {
+                question: `Quelles aides pour l'installation solaire des professionnels à ${city} ?`,
+                answer: `Les entreprises bénéficient de la rétribution unique de Pronovo lorsque l'installation est éligible, ainsi que des programmes cantonaux du ${cantonRef}. Les conditions de puissance et de raccordement déterminent le montant.`
+            },
+            {
+                question: `Quel est le temps de retour sur investissement pour une entreprise à ${city} ?`,
+                answer: `Le retour sur investissement dépend surtout du taux d'autoconsommation et du prix de l'électricité évitée. Pour une entreprise consommant en journée, à ${city} (${cantonRef}), l'amortissement se situe généralement entre 10 et 15 ans, sur une durée de vie du matériel supérieure à 30 ans.`
+            }
+        ];
+    }
+
+    return [
+        {
+            question: `Quel est le prix d'une installation de panneaux solaires à ${city} ?`,
+            answer: `Le coût d'une installation photovoltaïque à ${city} se situe en moyenne entre 12 000 CHF et 25 000 CHF pour une puissance de 3 à 9 kWc, fourniture et pose comprises, avant déduction de la rétribution unique. Ce prix varie selon l'état de la toiture, la puissance choisie et les équipements retenus.`
+        },
+        {
+            question: `Combien de temps pour installer des panneaux solaires à ${city} ?`,
+            answer: `Après validation du devis, les démarches d'annonce auprès de la commune et du gestionnaire de réseau prennent quelques semaines. La pose elle-même se déroule en 1 à 2 jours à ${city}, suivie de la mise en service par un électricien autorisé.`
+        },
+        {
+            question: `Quelles aides pour installer des panneaux solaires à ${city} ?`,
+            answer: `À ${city}, dans le ${cantonRef}, le soutien principal est la rétribution unique versée par Pronovo après la mise en service, d'environ 200 CHF par kWc installé (davantage pour les installations verticales ou en façade). Elle est complétée selon le lieu par un programme cantonal ou communal, et les frais d'investissement sont déductibles fiscalement dans de nombreux cantons.`
+        },
+        {
+            question: `Quel ensoleillement et quel vent à ${city} ?`,
+            answer: `Le ${cantonRef} bénéficie d'un ensoleillement annuel moyen de ${soleil || "1 700 à 1 900 heures"}. Le vent dominant y est ${vent || "la bise"}${neige ? ", et la charge de neige doit être prise en compte dans le dimensionnement des fixations" : ""}. Ces paramètres locaux déterminent la production attendue et la résistance mécanique de l'installation${chefLieu ? ` (chef-lieu du canton : ${chefLieu})` : ""}.`
+        }
+    ];
 }

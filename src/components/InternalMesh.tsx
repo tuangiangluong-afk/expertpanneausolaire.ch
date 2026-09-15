@@ -29,7 +29,7 @@ export function InternalMesh({ city, config }: InternalMeshProps) {
             `Installateur solaire ${name}`,
             `Photovoltaïque ${name}`,
             `Pose panneaux solaires ${name}`,
-            `Artisan RGE QualiPV ${name}`
+            `Artisan Les Pros du Solaire ${name}`
         ];
         return variations[index % variations.length];
     }
@@ -42,7 +42,7 @@ export function InternalMesh({ city, config }: InternalMeshProps) {
                     <div>
                         <h4 className="text-white font-bold mb-6 text-lg">Nos Services</h4>
                         <ul className="space-y-3">
-                            {[{"title": "Autoconsommation Solaire", "href": "/type/autoconsommation"}, {"title": "Vente du Surplus EDF OA", "href": "/type/vente-surplus"}, {"title": "Batterie Solaire de Stockage", "href": "/type/batterie-solaire"}, {"title": "Carport Solaire & Abri", "href": "/type/carport-solaire"}, {"title": "Guides & Aides Solaire 2026", "href": "/guides"}].map((service, i) => (
+                            {[{"title": "Autoconsommation Solaire", "href": "/type/autoconsommation"}, {"title": "Vente du Surplus la rétribution de l'injection", "href": "/type/vente-surplus"}, {"title": "Batterie Solaire de Stockage", "href": "/type/batterie-solaire"}, {"title": "Carport Solaire & Abri", "href": "/type/carport-solaire"}, {"title": "Guides & Aides Solaire 2026", "href": "/guides"}].map((service, i) => (
                                 <li key={i}>
                                     <Link href={service.href} className="text-neutral-400 hover:text-white transition text-sm flex items-center gap-2">
                                         <span className="bg-amber-500 rounded-full h-1 w-1 shrink-0"></span>
@@ -86,7 +86,7 @@ export function InternalMesh({ city, config }: InternalMeshProps) {
                                 </li>
                             ))}
                             {neighborhoods.length === 0 && (
-                                <li className="text-neutral-500 text-sm italic">Tout {config?.city || "France"} et agglomération</li>
+                                <li className="text-neutral-500 text-sm italic">Tout {config?.city || "Suisse"} et agglomération</li>
                             )}
                         </ul>
                     </div>

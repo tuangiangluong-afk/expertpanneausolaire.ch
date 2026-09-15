@@ -20,27 +20,27 @@ export default function PricingTable() {
                         <tbody className="text-slate-600">
                             <tr className="border-b hover:bg-slate-50">
                                 <td className="p-4 font-bold text-amber-950">Installation 3 kWp (Autoconsommation)</td>
-                                <td className="p-4">3 500€ - 5 000€</td>
-                                <td className="p-4">2 000€ - 3 500€</td>
-                                <td className="p-4 font-bold text-green-600">Dès 5 500€ (Après aides)</td>
+                                <td className="p-4">4 500 CHF - 6 500 CHF</td>
+                                <td className="p-4">2 500 CHF - 4 500 CHF</td>
+                                <td className="p-4 font-bold text-green-600">Dès 5 500 CHF (après rétribution unique)</td>
                             </tr>
                             <tr className="border-b hover:bg-slate-50">
                                 <td className="p-4 font-bold text-amber-950">Installation 6 kWp (Autoconsommation)</td>
-                                <td className="p-4">6 000€ - 8 500€</td>
-                                <td className="p-4">3 500€ - 5 500€</td>
-                                <td className="p-4 font-bold text-green-600">Dès 9 000€ (Après aides)</td>
+                                <td className="p-4">8 500 CHF - 12 000 CHF</td>
+                                <td className="p-4">4 000 CHF - 6 500 CHF</td>
+                                <td className="p-4 font-bold text-green-600">Dès 9 800 CHF (après rétribution unique)</td>
                             </tr>
                             <tr className="border-b hover:bg-slate-50">
                                 <td className="p-4 font-bold text-amber-950">Installation 9 kWp (Autoconsommation)</td>
-                                <td className="p-4">8 500€ - 12 000€</td>
-                                <td className="p-4">4 500€ - 7 000€</td>
-                                <td className="p-4 font-bold text-green-600">Dès 12 500€ (Après aides)</td>
+                                <td className="p-4">12 500 CHF - 17 000 CHF</td>
+                                <td className="p-4">5 500 CHF - 8 500 CHF</td>
+                                <td className="p-4 font-bold text-green-600">Dès 14 000 CHF (après rétribution unique)</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 <p className="text-center text-sm text-slate-500 mt-4 italic">
-                    *Estimations moyennes 2026. La prime à l&apos;autoconsommation et le tarif d&apos;achat garanti de revente de surplus EDF OA sont déduits. La rentabilité est assurée en moyenne sur 8 à 10 ans.
+                    *Estimations moyennes 2026. La prime à l&apos;autoconsommation et le tarif d&apos;achat garanti de revente de surplus la rétribution de l'injection sont déduits. La rentabilité est assurée en moyenne sur 8 à 10 ans.
                 </p>
             </div>
         </section>

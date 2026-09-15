@@ -107,10 +107,10 @@ export default function Header({
                         </div>
                     )}
 
-                    {/* RGE Badge (Desktop) */}
+                    {/* Badge label (Desktop) */}
                     <div className="hidden lg:flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 px-3 py-1.5 rounded-full">
                         <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
-                        <span className="text-xs font-bold text-amber-700">Artisan RGE QualiPV</span>
+                        <span className="text-xs font-bold text-amber-700">Artisan Les Pros du Solaire</span>
                     </div>
 
                     {/* CTA Devis (Replaces Phone) - Hidden on mobile to avoid redundancy with sticky CTA */}

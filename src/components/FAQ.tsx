@@ -13,11 +13,11 @@ export default function FAQ({ city, type, themeColor = 'amber' }: FAQProps) {
     const questions = [
         {
             q: "Combien coûte l'installation de panneaux solaires ?",
-            a: "Le prix moyen d'une installation photovoltaïque de 3 kWp (environ 8 panneaux) se situe entre 8 000€ et 10 000€ TTC avant déduction de la prime à l'autoconsommation. Pour une installation de 6 kWp, comptez entre 12 000€ et 15 000€ TTC."
+            a: "Le prix moyen d'une installation photovoltaïque de 3 kWp (environ 8 panneaux) se situe entre 6 000 CHF et 8 500 CHF avant déduction de la rétribution unique. Pour une installation de 6 kWp, comptez entre 12 500 CHF et 15 500 CHF."
         },
         {
-            q: "Quelles sont les aides de l'État pour le solaire en 2026 ?",
-            a: "Les particuliers peuvent bénéficier de la prime à l'autoconsommation (versée en une seule fois), du tarif d'achat garanti pour le surplus d'électricité injecté sur le réseau (EDF OA), et d'une TVA réduite à 10% pour les installations de puissance inférieure ou égale à 3 kWp."
+            q: "Quelles sont les subventions fédérales pour le solaire en 2026 ?",
+            a: "Les particuliers peuvent bénéficier de la rétribution unique (versée en une seule fois), du tarif d'achat garanti pour le surplus d'électricité injecté sur le réseau (la rétribution de l'injection), et d'une TVA suisse (8,1 %) pour les installations de puissance inférieure ou égale à 3 kWp."
         },
         {
             q: "Quelle est la durée de vie de panneaux solaires ?",
@@ -28,8 +28,8 @@ export default function FAQ({ city, type, themeColor = 'amber' }: FAQProps) {
             a: "La situation idéale est une orientation plein Sud avec une inclinaison à 30°. Cependant, les orientations Est et Ouest sont également très rentables pour l'autoconsommation (production le matin et en fin de journée). Seule l'orientation plein Nord est à éviter. Nos installateurs réalisent une étude de faisabilité gratuite."
         },
         {
-            q: "Pourquoi faire appel à un installateur certifié RGE QualiPV ?",
-            a: "Le label RGE (Reconnu Garant de l'Environnement) est obligatoire pour prétendre aux aides de l'État et pouvoir vendre votre surplus d'électricité à EDF OA. Il atteste également des compétences techniques de l'artisan et de la conformité de l'installation."
+            q: "Pourquoi faire appel à un installateur certifié Les Pros du Solaire ?",
+            a: "Le label « Les Pros du Solaire », délivré par Swissolar, distingue les entreprises spécialisées qui planifient et installent les centrales photovoltaïques. Il conditionne l'accès à la rétribution unique et aux programmes cantonaux, et atteste des compétences techniques de l'installateur."
         }
     ];
 

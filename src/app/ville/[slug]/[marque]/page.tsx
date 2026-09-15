@@ -77,27 +77,27 @@ export default async function CityMarquePage({ params }: { params: Params }) {
                                 <th class="py-3 px-4 text-left">Puissance Installée</th>
                                 <th class="py-3 px-4 text-left">Production Annuelle à ${site.city}</th>
                                 <th class="py-3 px-4 text-left">Économie Facture Estimée</th>
-                                <th class="py-3 px-4 text-left">Prime Autoconsommation EDF</th>
+                                <th class="py-3 px-4 text-left">Prime Autoconsommation le gestionnaire de réseau</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-slate-100">
                             <tr>
                                 <td class="py-3 px-4 font-bold text-slate-900">3 kWc (6-8 panneaux)</td>
                                 <td class="py-3 px-4 text-slate-700">3 300 à 4 350 kWh / an</td>
-                                <td class="py-3 px-4 text-emerald-700 font-semibold">650 € à 950 € / an</td>
-                                <td class="py-3 px-4 text-slate-700">780 € versés</td>
+                                <td class="py-3 px-4 text-emerald-700 font-semibold">650 CHF à 950 CHF / an</td>
+                                <td class="py-3 px-4 text-slate-700">env. 1 100 CHF versés</td>
                             </tr>
                             <tr>
                                 <td class="py-3 px-4 font-bold text-slate-900">6 kWc (12-16 panneaux)</td>
                                 <td class="py-3 px-4 text-slate-700">6 600 à 8 700 kWh / an</td>
-                                <td class="py-3 px-4 text-emerald-700 font-semibold">1 300 € à 1 900 € / an</td>
-                                <td class="py-3 px-4 text-slate-700">1 140 € versés</td>
+                                <td class="py-3 px-4 text-emerald-700 font-semibold">1 300 CHF à 1 900 CHF / an</td>
+                                <td class="py-3 px-4 text-slate-700">env. 1 650 CHF versés</td>
                             </tr>
                             <tr>
                                 <td class="py-3 px-4 font-bold text-slate-900">9 kWc (18-24 panneaux)</td>
                                 <td class="py-3 px-4 text-slate-700">9 900 à 13 000 kWh / an</td>
-                                <td class="py-3 px-4 text-emerald-700 font-semibold">1 950 € à 2 850 € / an</td>
-                                <td class="py-3 px-4 text-slate-700">1 710 € versés</td>
+                                <td class="py-3 px-4 text-emerald-700 font-semibold">1 950 CHF à 2 850 CHF / an</td>
+                                <td class="py-3 px-4 text-slate-700">env. 2 500 CHF versés</td>
                             </tr>
                         </tbody>
                     </table>
@@ -144,11 +144,11 @@ export default async function CityMarquePage({ params }: { params: Params }) {
             title: `Cadre Légal & Aides d'État 2026 à ${site.city}`,
             html: `<div class="space-y-3 text-slate-700 leading-relaxed text-sm">
                 <p>
-                    L'installation photovoltaïque ${marque.name} réalisée par nos techniciens qualifiés <strong>RGE QualiPV</strong> ouvre droit aux dispositifs publics officiels :
+                    L'installation photovoltaïque ${marque.name} réalisée par nos techniciens qualifiés <strong>Les Pros du Solaire</strong> ouvre droit aux dispositifs publics officiels :
                 </p>
                 <ul class="list-disc pl-5 space-y-1.5">
-                    <li><strong>Prime à l'autoconsommation :</strong> Versée en une seule fois à la date anniversaire de la mise en service Enedis.</li>
-                    <li><strong>Tarif d'achat garanti EDF OA :</strong> Vente du surplus non consommé réinjecté sur le réseau au tarif réglementé fixé par arrêté ministériel sur 20 ans.</li>
+                    <li><strong>Rétribution unique :</strong> Versée en une seule fois à la date anniversaire de la mise en service le gestionnaire de réseau.</li>
+                    <li><strong>Tarif d'achat garanti la rétribution de l'injection :</strong> Vente du surplus non consommé réinjecté sur le réseau au tarif réglementé fixé par directive de Pronovo sur 20 ans.</li>
                     <li><strong>Exonération fiscale :</strong> Les revenus de la revente d'électricité solaire sont 100% exonérés d'impôt sur le revenu pour les installations &le; 3 kWc.</li>
                     <li><strong>TVA réduite :</strong> 10% pour les puissances jusqu'à 3 kWc raccordées au réseau.</li>
                 </ul>
@@ -159,14 +159,14 @@ export default async function CityMarquePage({ params }: { params: Params }) {
     return (
         <SolaireContentPage
             site={site}
-            heroBadge={`Installateur RGE QualiPV ${site.city}`}
+            heroBadge={`Installateur Les Pros du Solaire ${site.city}`}
             pageTitle={`Installation Panneaux Solaires ${marque.name} à ${site.city}`}
             introHtml={pseo.intro_html}
             facts={[
                 { label: "Prix installation", value: pseo.prix },
                 { label: "Rendement", value: marque.rendement },
                 { label: "Production", value: pseo.meta_description.includes("kWh/kWc") ? "6 000 à 8 400 kWh/an" : "6 000 à 8 400 kWh/an" },
-                { label: "Aides", value: "Jusqu'à 260€/kWc" },
+                { label: "Aides", value: "Rétribution unique selon la puissance (Pronovo)" },
             ]}
             benefits={pseo.atouts}
             expertTip={pseo.expert_tip}

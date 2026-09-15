@@ -38,32 +38,32 @@ export interface SiteConfig {
 }
 
 const TEMPLATE_CERTIFICATIONS = [
-    "Swissolar Swissolar",
-    "Swissolar",
-    "Assurance décennale"
+    "Label « Les Pros du Solaire » (Les Pros du Solaire)",
+    "Entreprises d'installation électrique autorisées (ESTI)",
+    "Assurance responsabilité civile et garantie de 10 ans"
 ];
 
 const TEMPLATE_AIDES = [
-    "Prime à l'autoconsommation",
-    "Tarif d'achat garanti EDF OA",
-    "TVA Réduite 10% (Installations <= 3 kWp)"
+    "Rétribution unique (RU) versée par Pronovo",
+    "Rétribution de l'injection versée par le gestionnaire de réseau",
+    "Déduction des frais d'investissement du revenu imposable"
 ];
 
 const TEMPLATE_FEATURES = [
     "Devis gratuit sous 24h",
     "Simulateur de rendement offert",
     "Garantie matériel 25 ans",
-    "Installateurs certifiés Swissolar Swissolar",
+    "Installateurs porteurs du label « Les Pros du Solaire »",
     "Démarches administratives gérées à 100%"
 ];
 
 const _hubConfig: SiteConfig = {
     slug: "home",
     domain: "expertpanneausolaire.ch",
-    city: "France",
+    city: "Suisse",
     postalCode: "",
     department: "",
-    region: "National",
+    region: "Suisse",
     name: "Expert Panneau Solaire",
     phoneNumber: "+41 22 000 00 00",
     email: "contact@expertpanneausolaire.ch",
@@ -71,25 +71,26 @@ const _hubConfig: SiteConfig = {
     priceRange: 'STANDARD',
     theme: 'premium',
     heroImage: "/images/generated/solar-hero.webp",
-    description: "Le réseau n°1 d'installateurs de panneaux solaires photovoltaïques en France. Devis gratuit, étude de rentabilité et artisans certifiés Swissolar.",
+    description: "Installation de panneaux solaires photovoltaïques en Suisse romande. Devis gratuit, étude de rentabilité et installateurs porteurs du label « Les Pros du Solaire » (Les Pros du Solaire).",
     meta: {
-        title: "Expert Panneau Solaire | Panneaux Photovoltaïques & Autoconsommation France",
-        description: "Installation de panneaux solaires pour particuliers partout en France. Devis gratuit sous 24h. Simulateur d'éligibilité aux aides Swissolar Swissolar."
+        title: "Expert Panneau Solaire | Photovoltaïque & Autoconsommation en Suisse",
+        description: "Installation de panneaux solaires en Suisse romande. Devis gratuit sous 24h. Simulateur de rétribution unique (Pronovo) et de rentabilité."
     },
     certifications: TEMPLATE_CERTIFICATIONS,
     aidesDisponibles: TEMPLATE_AIDES,
     features: TEMPLATE_FEATURES,
     localKeywords: [
-        "installateur panneaux solaires",
-        "autoconsommation photovoltaïque",
-        "prix panneaux solaires maison",
-        "pose panneau solaire Swissolar",
-        "rentabilité panneaux solaires"
+        "installateur panneaux solaires Suisse",
+        "autoconsommation photovoltaïque Suisse romande",
+        "prix panneaux solaires Suisse",
+        "pose panneau solaire Les Pros du Solaire",
+        "rentabilité panneaux solaires rétribution unique"
     ],
     quartiers: [],
     coproprietes: [],
     centresCommerciaux: [],
-    coordinates: { lat: 46.2276, lng: 2.2137 }
+    // Centre géographique de la Suisse (Älggi-Alp, canton d'Obwald).
+    coordinates: { lat: 46.8017, lng: 8.2286 }
 };
 
 export const SITES: Record<string, SiteConfig> = {

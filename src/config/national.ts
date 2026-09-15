@@ -17,7 +17,7 @@ export const NATIONAL_CONFIG: CityConfig = {
         "Rendement Garanti",
         "Devis Gratuit sous 24h",
         "Matériel Garanti 25 Ans",
-        "Partenaires certifiés (Swissolar / Pronovo)"
+        "Partenaires certifiés (Les Pros du Solaire / Pronovo)"
     ],
     pricing: {
         base: "Sur Devis",

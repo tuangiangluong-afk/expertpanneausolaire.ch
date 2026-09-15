@@ -3,8 +3,8 @@
 export default function InstallationSteps() {
     const steps = [
         { title: "1. Étude & Devis", desc: "Simulation gratuite et étude de faisabilité de votre projet photovoltaïque." },
-        { title: "2. Démarches", desc: "Prise en charge complète de la déclaration de travaux en mairie et Enedis." },
-        { title: "3. Pose RGE", desc: "Installation de vos panneaux solaires par des techniciens RGE QualiPV." },
+        { title: "2. Démarches", desc: "Prise en charge complète de la déclaration de travaux en mairie et le gestionnaire de réseau." },
+        { title: "3. Pose par un installateur qualifié", desc: "Installation de vos panneaux solaires par une entreprise du label Les Pros du Solaire." },
         { title: "4. Production", desc: "Mise en service de votre onduleur et début d'autoconsommation." }
     ];
 

@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
         alternates: { canonical: canonicalUrl },
         openGraph: {
             title: comp.title,
-            description: `${comp.prix} avant aides. Comparatif détaillé par des installateurs RGE QualiPV.`,
+            description: `${comp.prix} avant aides. Comparatif détaillé par des installateurs Les Pros du Solaire.`,
             locale: "fr_FR",
             type: "website",
             url: canonicalUrl,
@@ -57,7 +57,7 @@ function tableHtml(comp: (typeof SOLAR_COMPARATIFS)[number]): string {
             <tbody>${rows}</tbody>
         </table>
     </div>
-    <p class="mt-4 text-xs text-slate-500">Prix indicatifs fourniture + pose, avant déduction des aides (prime à l'autoconsommation, EDF OA, TVA 10%).</p>`;
+    <p class="mt-4 text-xs text-slate-500">Prix indicatifs fourniture + pose, avant déduction des aides (rétribution unique, la rétribution de l'injection, TVA suisse (8,1 %)).</p>`;
 }
 
 export default async function ComparatifPage({ params }: { params: Params }) {
@@ -71,7 +71,7 @@ export default async function ComparatifPage({ params }: { params: Params }) {
     const introHtml = `<p class="mb-4">${comp.intro}</p>
     <p>
         Prix indicatifs : <strong>${comp.prix}</strong> fourniture et pose, avant déduction des aides.
-        Notre réseau d'installateurs RGE QualiPV vous conseille gratuitement pour faire le bon choix.
+        Notre réseau d'installateurs Les Pros du Solaire vous conseille gratuitement pour faire le bon choix.
     </p>`;
 
     const sections = [
@@ -97,7 +97,7 @@ export default async function ComparatifPage({ params }: { params: Params }) {
                 { label: comp.a.split(" ")[0], value: "Référence" },
                 { label: comp.b.split(" ")[0], value: "Alternative" },
                 { label: "Budget", value: comp.prix },
-                { label: "Aides", value: "Jusqu'à 260€/kWc" },
+                { label: "Aides", value: "Rétribution unique selon la puissance (Pronovo)" },
             ]}
             benefits={[]}
             expertTip="Le bon choix dépend de votre toiture, de votre consommation et de votre budget. Demandez 2 à 3 devis comparatifs à des installateurs certifiés avant de vous décider."

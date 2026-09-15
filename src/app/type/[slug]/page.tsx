@@ -21,11 +21,11 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     const canonicalUrl = `${BASE_URL}/type/${slug}`;
     return {
         title: `${type.name} : Prix, Aides & Installation | Expert Panneau Solaire`,
-        description: `${type.name} : ${type.prix} fourniture et pose, ${type.aides}. Installateurs certifiés RGE QualiPV. Devis gratuit sous 24h.`,
+        description: `${type.name} : ${type.prix} fourniture et pose, ${type.aides}. Installateurs certifiés Les Pros du Solaire. Devis gratuit sous 24h.`,
         alternates: { canonical: canonicalUrl },
         openGraph: {
             title: `${type.name} : Prix & Installation`,
-            description: `${type.prix} avant aides. Installateurs RGE QualiPV.`,
+            description: `${type.prix} avant aides. Installateurs Les Pros du Solaire.`,
             locale: "fr_FR",
             type: "website",
             url: canonicalUrl,
@@ -57,7 +57,7 @@ export default async function TypePage({ params }: { params: Params }) {
         {
             title: `Pour quel projet ?`,
             html: `<p class="mb-2"><strong>Idéale pour :</strong> ${type.ideal}</p>
-            <p>Notre réseau d'installateurs RGE QualiPV réalise l'étude d'ensoleillement et le dimensionnement gratuitement pour confirmer que la ${type.shortName} est adaptée à votre logement et à votre région.</p>`,
+            <p>Notre réseau d'installateurs Les Pros du Solaire réalise l'étude d'ensoleillement et le dimensionnement gratuitement pour confirmer que la ${type.shortName} est adaptée à votre logement et à votre région.</p>`,
         },
     ];
 
@@ -76,20 +76,20 @@ export default async function TypePage({ params }: { params: Params }) {
         },
         {
             question: `Où installer une ${type.shortName} ?`,
-            reponse: `Notre réseau d'installateurs certifiés intervient partout en France. Consultez nos pages par ville ou demandez votre devis gratuit sous 24h.`,
+            reponse: `Notre réseau d'installateurs certifiés intervient partout en Suisse romande. Consultez nos pages par ville ou demandez votre devis gratuit sous 24h.`,
         },
     ];
 
     return (
         <SolaireContentPage
             site={site}
-            heroBadge="Installateur RGE QualiPV"
+            heroBadge="Installateur Les Pros du Solaire"
             pageTitle={type.name}
             introHtml={introHtml}
             facts={[
                 { label: "Prix installation", value: type.prix },
                 { label: "Production", value: type.production },
-                { label: "Aides", value: "Jusqu'à 260€/kWc" },
+                { label: "Aides", value: "Rétribution unique selon la puissance (Pronovo)" },
                 { label: "Idéale pour", value: type.ideal },
             ]}
             benefits={type.points}

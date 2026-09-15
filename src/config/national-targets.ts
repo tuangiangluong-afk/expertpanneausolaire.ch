@@ -1765,6 +1765,7 @@ export function getTargetBySlug(slug: string): NationalTarget | undefined {
 // Uses pSEO for unique content per city
 // ========================================
 import { CityConfig } from "@/lib/db";
+import { CANTONS, cantonFromNpa } from "@/data/ch-cantons";
 
 export function getTargetAsCityConfig(slug: string): CityConfig | undefined {
     const target = NATIONAL_TARGETS.find(t => t.slug === slug);
@@ -1773,9 +1774,9 @@ export function getTargetAsCityConfig(slug: string): CityConfig | undefined {
     const priceDisplay = "Sur Devis";
     const priceDesc = "Étude & Devis Solaire Gratuit";
 
-    const title = `Installateur Panneaux Solaires ${target.name} | Devis & Aides Swissolar`;
-    const uniqueDescription = `Trouvez votre installateur Swissolar de panneaux solaires à ${target.name} (${target.zip}). Réalisez des économies d'énergie en autoconsommation. Devis gratuit sous 24h.`;
-    const uniqueMetaDescription = `Installation panneaux solaires photovoltaïques ${target.name}. Devis gratuit sous 24h avec des poseurs Swissolar Swissolar. Prime à l'autoconsommation déduite.`;
+    const title = `Installateur Panneaux Solaires ${target.name} | Devis & Aides Les Pros du Solaire`;
+    const uniqueDescription = `Trouvez votre installateur Les Pros du Solaire de panneaux solaires à ${target.name} (${target.zip}). Réalisez des économies d'énergie en autoconsommation. Devis gratuit sous 24h.`;
+    const uniqueMetaDescription = `Installation panneaux solaires photovoltaïques ${target.name}. Devis gratuit sous 24h avec des poseurs Les Pros du Solaire. Rétribution unique déduite.`;
 
     return {
         slug: target.slug,
@@ -1785,8 +1786,10 @@ export function getTargetAsCityConfig(slug: string): CityConfig | undefined {
         heroImage: target.heroImage || "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=2672&auto=format&fit=crop",
 
         postalCode: target.zip,
-        department: target.zip.substring(0, 2),
-        region: "France",
+        // `department` = code canton (utilisé par le maillage interne)
+        department: cantonFromNpa(target.zip) || "CH",
+        // Nom du canton réel (auparavant codé en dur sur "Suisse")
+        region: CANTONS[cantonFromNpa(target.zip) || ""]?.name || "Suisse romande",
 
         description: uniqueDescription,
         geo: target.geo,
@@ -1795,7 +1798,7 @@ export function getTargetAsCityConfig(slug: string): CityConfig | undefined {
         features: [
             "Primes Déduites",
             "Rendement Garanti",
-            "Swissolar Swissolar",
+            "Les Pros du Solaire",
             "Matériel 25 ans",
             "Devis sous 24h"
         ],

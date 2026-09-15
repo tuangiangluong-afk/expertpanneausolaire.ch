@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Conditions Générales de Vente - Expert Panneau Solaire",
-    description: "Consultez les CGV du réseau Expert Panneau Solaire : mise en relation avec des installateurs certifiés RGE QualiPV, devis gratuits.",
+    description: "Consultez les CGV du réseau Expert Panneau Solaire : mise en relation avec des installateurs certifiés Les Pros du Solaire, devis gratuits.",
 };
 
 export default function CGV() {
@@ -36,14 +36,14 @@ export default function CGV() {
                     <div className="mb-8 rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
                         <p className="text-sm text-neutral-500">Dernière mise à jour : 25/01/2026</p>
                         <p>
-                            Les présentes Conditions Générales de Vente régissent les relations contractuelles entre la société <strong>WELINK TECH</strong>, sise au 6 RUE DES BATELIERS, 92110 CLICHY (SIREN 984 800 136), ci-après &quot;L&apos;Éditeur&quot;, et toute personne utilisant le site <strong>Expert Panneau Solaire</strong> pour la mise en relation avec des installateurs photovoltaïques certifiés RGE.
+                            Les présentes Conditions Générales de Vente régissent les relations contractuelles entre la société <strong>WELINK TECH</strong>, sise au 6 RUE DES BATELIERS, 92110 CLICHY (SIREN 984 800 136), ci-après &quot;L&apos;Éditeur&quot;, et toute personne utilisant le site <strong>Expert Panneau Solaire</strong> pour la mise en relation avec des installateurs photovoltaïques porteurs du label « Les Pros du Solaire ».
                         </p>
                     </div>
 
                     <div className="mb-8 rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
                         <h2 className="mb-4 text-2xl font-bold text-amber-900">1. Objet et Acceptation</h2>
                         <p>
-                            Le service proposé est la mise en relation avec des installateurs professionnels certifiés RGE QualiPV spécialisés dans l&apos;étude de rentabilité, la pose et le raccordement de panneaux solaires photovoltaïques (sur toiture ou carports), exerçant sur l&apos;ensemble du territoire national. L&apos;utilisation du service implique l&apos;acceptation sans réserve des présentes CGV.
+                            Le service proposé est la mise en relation avec des installateurs professionnels certifiés Les Pros du Solaire spécialisés dans l&apos;étude de rentabilité, la pose et le raccordement de panneaux solaires photovoltaïques (sur toiture ou carports), exerçant sur l&apos;ensemble du territoire national. L&apos;utilisation du service implique l&apos;acceptation sans réserve des présentes CGV.
                         </p>
                     </div>
 
@@ -52,14 +52,14 @@ export default function CGV() {
                         <ul className="list-disc pl-5 space-y-2">
                             <li><strong>Demande de mise en relation :</strong> L'utilisateur remplit un formulaire précisant son besoin (puissance souhaitée, consommation électrique moyenne, type de toit, simulateur d'aides).</li>
                             <li><strong>Devis gratuit :</strong> Le service de mise en relation et l'établissement des devis par nos partenaires sont gratuits pour l'utilisateur.</li>
-                            <li><strong>Tarification des travaux :</strong> Le prix final de l'installation est déterminé par l'installateur RGE QualiPV partenaire après visite technique. Les estimations de rentabilité fournies sur le site sont indicatives.</li>
+                            <li><strong>Tarification des travaux :</strong> Le prix final de l'installation est déterminé par l'installateur Les Pros du Solaire partenaire après visite technique. Les estimations de rentabilité fournies sur le site sont indicatives.</li>
                         </ul>
                     </div>
 
                     <div className="mb-8 rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
                         <h2 className="mb-4 text-2xl font-bold text-amber-900">3. Responsabilité</h2>
                         <p>
-                            <strong>WELINK TECH</strong> agit en qualité d&apos;intermédiaire technologique. La responsabilité de l'installation, de la conformité aux normes Consuel / Enedis et de l'assurance décennale incombe exclusivement à l'installateur RGE partenaire ayant effectué les travaux.
+                            <strong>WELINK TECH</strong> agit en qualité d&apos;intermédiaire technologique. La responsabilité de l'installation, de la conformité aux normes ESTI / le gestionnaire de réseau et de l'assurance décennale incombe exclusivement à l'installateur du label « Les Pros du Solaire » partenaire ayant effectué les travaux.
                         </p>
                     </div>
 
@@ -70,10 +70,10 @@ export default function CGV() {
                             Expert Panneau Solaire est une <strong>plateforme de mise en relation technique</strong> entre les utilisateurs et des installateurs solaires indépendants.
                         </p>
                         <p className="mt-4 text-amber-700">
-                            <strong>Expert Panneau Solaire n&apos;est pas une entreprise d&apos;installation ou de travaux.</strong> Les prestations de pose sont effectuées par des professionnels indépendants ou des sociétés tierces, dûment certifiés RGE et assurés.
+                            <strong>Expert Panneau Solaire n&apos;est pas une entreprise d&apos;installation ou de travaux.</strong> Les prestations de pose sont effectuées par des professionnels indépendants ou des sociétés tierces, dûment porteurs du label « Les Pros du Solaire » et assurés.
                         </p>
                         <p className="mt-4 text-amber-700">
-                            En conséquence, <strong>WELINK TECH décline toute responsabilité</strong> en cas de litige lié à l&apos;exécution des travaux, incluant mais non limité à : malfaçons, retards de raccordement Enedis, non-obtention de la prime à l'autoconsommation ou tout dommage survenu pendant l'installation.
+                            En conséquence, <strong>WELINK TECH décline toute responsabilité</strong> en cas de litige lié à l&apos;exécution des travaux, incluant mais non limité à : malfaçons, retards de raccordement au gestionnaire de réseau, non-obtention de la rétribution unique ou tout dommage survenu pendant l'installation.
                         </p>
                         <p className="mt-4 text-sm text-amber-600">
                             L&apos;utilisateur reconnaît que sa relation contractuelle pour les travaux est établie directement avec l'entreprise d'installation sélectionnée.
@@ -83,7 +83,7 @@ export default function CGV() {
                     <div className="mb-8 rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
                         <h2 className="mb-4 text-2xl font-bold text-amber-900">5. Loi Applicable</h2>
                         <p>
-                            Les présentes CGV sont soumises au droit français. Tout litige relève des tribunaux compétents de Nanterre.
+                            Les présentes CGV sont soumises au droit suisse. Tout litige relève des tribunaux compétents de Nanterre.
                         </p>
                     </div>
                 </div>

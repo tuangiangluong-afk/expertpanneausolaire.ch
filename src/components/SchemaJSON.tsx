@@ -2,6 +2,7 @@ import { SiteConfig } from "@/lib/sites-config";
 import { CityConfig } from "@/lib/db";
 import { slugify } from "@/lib/slugify";
 import { getLocalFAQData } from "@/components/LocalFAQ";
+import { MARKET } from "@/config/market";
 
 interface SchemaJSONProps {
     type: "LocalBusiness" | "Organization" | "Breadcrumb" | "FAQPage";
@@ -37,7 +38,7 @@ export default function SchemaJSON({ type, site, breadcrumbItems, faqSegment }: 
                 "addressLocality": site.city,
                 "postalCode": site.postalCode,
                 "addressRegion": site.department || undefined,
-                "addressCountry": "FR"
+                "addressCountry": MARKET.countryCode
             },
             ...(lat && lng ? {
                 "geo": {
@@ -59,7 +60,7 @@ export default function SchemaJSON({ type, site, breadcrumbItems, faqSegment }: 
                 "opens": "08:00",
                 "closes": "19:00"
             },
-            "priceRange": "€€€",
+            "priceRange": "CHF",
             
             "areaServed": {
                 "@type": "City",
@@ -77,8 +78,8 @@ export default function SchemaJSON({ type, site, breadcrumbItems, faqSegment }: 
                 "@type": "ContactPoint",
                 "telephone": site.phoneNumber || "+41 22 000 00 00",
                 "contactType": "customer service",
-                "areaServed": "FR",
-                "availableLanguage": "French"
+                "areaServed": MARKET.countryCode,
+                "availableLanguage": [MARKET.language, "de-CH"]
             }
         };
     } else if (type === "Breadcrumb" && breadcrumbItems) {

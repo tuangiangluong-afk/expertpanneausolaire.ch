@@ -1,5 +1,7 @@
 // ========================================
 // SOLAR PUISSANCES - Dimensionnement par puissance d'installation
+// Repères suisses : 1 800 à 2 200 CHF par kWc installé,
+// 900 à 1 200 kWh produits par kWc et par an selon le canton.
 // ========================================
 
 export interface SolarPuissance {
@@ -31,16 +33,16 @@ export const SOLAR_PUISSANCES: SolarPuissance[] = [
         panneaux: "7 à 8 panneaux (450 Wc)",
         image: IMG.p3,
         surface: "14 à 16 m² de toiture",
-        production: "3 000 à 4 200 kWh/an",
-        prix: "4 990 € à 7 000 €",
-        description: "L'installation 3 kWc est la taille idéale pour les petits consommateurs (2 500 à 4 000 kWh/an) : elle couvre l'essentiel des besoins d'un foyer de 2 personnes sans produire de surplus excessif.",
+        production: "2 700 à 3 600 kWh/an",
+        prix: "6 000 CHF à 8 500 CHF",
+        description: "L'installation 3 kWc convient aux petits consommateurs (2 500 à 3 500 kWh/an) : elle couvre l'essentiel des besoins d'un ménage de deux personnes sans produire de surplus excessif. C'est aussi la puissance la plus simple à faire accepter en zone protégée.",
         points: [
             "7 à 8 panneaux, soit 14 à 16 m² de toiture",
-            "Production annuelle de 3 000 à 4 200 kWh selon la région",
-            "Prime à l'autoconsommation : 260€/kWc versés sur 5 ans (780€)",
-            "TVA réduite à 10% pour les installations de moins de 3 kWc"
+            "Production annuelle de 2 700 à 3 600 kWh selon le canton",
+            "Dossier de rétribution unique recevable dès 2 kW de puissance",
+            "Raccordement en monophasé dans la plupart des cas"
         ],
-        expertTip: "Sous 3 kWc, vous profitez de la TVA à 10% et d'une procédure de raccordement simplifiée : c'est la puissance la plus rapide à amortir pour les petits foyers."
+        expertTip: "Sous 3 kWc, l'installation reste en monophasé et le dossier Pronovo est simple : c'est la puissance la plus rapide à amortir pour un petit ménage."
     },
     {
         slug: "6kwc",
@@ -49,16 +51,16 @@ export const SOLAR_PUISSANCES: SolarPuissance[] = [
         panneaux: "13 à 14 panneaux (450 Wc)",
         image: IMG.p6,
         surface: "26 à 28 m² de toiture",
-        production: "6 000 à 8 400 kWh/an",
-        prix: "7 900 € à 10 500 €",
-        description: "Le 6 kWc est la configuration la plus installée en France : elle couvre la consommation d'une famille de 4 personnes (4 500 à 6 000 kWh/an) avec un surplus valorisable à EDF OA.",
+        production: "5 400 à 7 200 kWh/an",
+        prix: "11 500 CHF à 14 500 CHF",
+        description: "Le 6 kWc est la configuration la plus posée en Suisse romande : elle couvre la consommation d'une famille de 4 personnes (4 500 à 6 000 kWh/an) et laisse un surplus que le gestionnaire de réseau reprend. C'est le format standard d'une maison individuelle avec pompe à chaleur.",
         points: [
             "13 à 14 panneaux, soit 26 à 28 m² de toiture",
-            "Production annuelle de 6 000 à 8 400 kWh selon la région",
-            "Prime à l'autoconsommation : 260€/kWc sur 5 ans (1 560€)",
-            "Revente du surplus à EDF OA : 12,69 c€/kWh pendant 20 ans"
+            "Production annuelle de 5 400 à 7 200 kWh selon le canton",
+            "Rétribution unique versée par Pronovo après la mise en service",
+            "Surplus repris par le gestionnaire de réseau (environ 11 ct/kWh au maximum)"
         ],
-        expertTip: "Le 6 kWc est le meilleur compromis rentabilité/surface : il couvre la consommation d'une famille et génère un revenu de revente suffisant pour amortir l'installation en 7 à 8 ans."
+        expertTip: "Le 6 kWc est le meilleur compromis surface/rentabilité : avec une pompe à chaleur, il atteint souvent 50 % d'autoconsommation sans batterie."
     },
     {
         slug: "9kwc",
@@ -67,16 +69,16 @@ export const SOLAR_PUISSANCES: SolarPuissance[] = [
         panneaux: "20 panneaux (450 Wc)",
         image: IMG.p9,
         surface: "40 m² de toiture",
-        production: "9 000 à 12 600 kWh/an",
-        prix: "10 900 € à 14 000 €",
-        description: "Le 9 kWc est le maximum pour un particulier en autoconsommation (au-delà, la revente totale s'impose) : il convient aux grandes maisons, aux foyers équipés d'une PAC ou d'un véhicule électrique.",
+        production: "8 100 à 10 800 kWh/an",
+        prix: "16 500 CHF à 20 500 CHF",
+        description: "Le 9 kWc convient aux grandes maisons et aux foyers équipés d'une pompe à chaleur ou d'un véhicule électrique. Contrairement à la Suisse, aucune aide fédérale ne disparaît à ce niveau : la rétribution unique reste versée jusqu'à 100 kW sans autoconsommation propre.",
         points: [
             "20 panneaux, soit 40 m² de toiture",
-            "Production annuelle de 9 000 à 12 600 kWh selon la région",
-            "Prime maximale : 1 710€ de prime à l'autoconsommation",
-            "Idéal avec PAC, véhicule électrique ou piscine"
+            "Production annuelle de 8 100 à 10 800 kWh selon le canton",
+            "Rétribution unique toujours versée (pas de plafond à 9 kWc en Suisse)",
+            "Idéal avec pompe à chaleur, véhicule électrique ou piscine"
         ],
-        expertTip: "Au-delà de 9 kWc, la prime disparaît et le raccordement devient triphasé : sauf grosse consommation, 9 kWc est le plafond rentable de l'autoconsommation."
+        expertTip: "En Suisse, le raccordement passe souvent en triphasé au-delà d'une dizaine de kW selon les prescriptions du gestionnaire de réseau : à vérifier avant de valider la puissance."
     },
     {
         slug: "12kwc",
@@ -85,16 +87,16 @@ export const SOLAR_PUISSANCES: SolarPuissance[] = [
         panneaux: "26 à 27 panneaux (450 Wc)",
         image: IMG.p12,
         surface: "52 à 54 m² de toiture",
-        production: "12 000 à 16 800 kWh/an",
-        prix: "14 000 € à 19 000 €",
-        description: "Le 12 kWc s'adresse aux très gros consommateurs : maisons tout électrique avec PAC + voiture électrique + piscine, ou petites entreprises. Il nécessite un raccordement triphasé.",
+        production: "10 800 à 14 400 kWh/an",
+        prix: "21 500 CHF à 27 500 CHF",
+        description: "Le 12 kWc s'adresse aux très gros consommateurs : maisons tout électrique avec pompe à chaleur, voiture électrique et piscine, ou petites entreprises. La production dépasse largement la consommation d'un ménage, donc le dimensionnement doit être validé par une étude.",
         points: [
             "26 à 27 panneaux, soit plus de 50 m² de toiture",
-            "Production annuelle de 12 000 à 16 800 kWh selon la région",
-            "Raccordement triphasé obligatoire",
+            "Production annuelle de 10 800 à 14 400 kWh selon le canton",
+            "Raccordement généralement triphasé selon le gestionnaire de réseau",
             "Option batterie de 10 à 20 kWh pour maximiser l'autoconsommation"
         ],
-        expertTip: "À 12 kWc, la batterie devient presque indispensable : sans stockage, une grande partie du surplus serait vendue à bas prix au lieu d'être consommée."
+        expertTip: "À 12 kWc, l'écart entre le prix d'achat du kWh (environ 30 ct) et la reprise de l'injection (environ 11 ct) rend le stockage réellement attractif."
     },
 ];
 

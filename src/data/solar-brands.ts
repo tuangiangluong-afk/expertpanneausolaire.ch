@@ -1,7 +1,7 @@
 // ========================================
-// SOLAR BRANDS - Top 6 marques installées en France
-// Prix fourniture + pose, avant aides, cohérents avec
-// la fourchette annoncée sur le site (4 990 € à 12 000 €)
+// SOLAR BRANDS - Top 6 marques les plus posées en Suisse romande
+// Prix fourniture + pose, avant subvention, cohérents avec la fourchette
+// suisse annoncée sur le site (1 800 à 2 200 CHF par kWc installé)
 // ========================================
 
 export interface SolarBrand {
@@ -36,14 +36,14 @@ export const SOLAR_BRANDS: SolarBrand[] = [
         rendement: "22,6% (Flash 500)",
         gamme: "400 à 500 Wc",
         surface: "jusqu'à 9 kWc",
-        prix: "4 990 € à 11 000 €",
+        prix: "8 500 CHF à 15 000 CHF",
         modeles: ["Flash 500 Half-Cut Glass-Glass TOPCon", "Flash 425", "Spring 420"],
         image: IMG.dualsun,
         atouts: [
-            "Le champion français : panneaux hybrides qui produisent électricité ET eau chaude",
-            "Le panneau le plus installé sur les toitures françaises",
+            "Fabricant suisse de référence : panneaux hybrides qui produisent électricité ET eau chaude",
+            "L'un des panneaux les plus posés sur les toitures européennes",
             "Verre-verre : très grande durabilité et garantie de 30 ans",
-            "Made in France, éligible aux aides sans surcoût"
+            "Fabriqué en Suisse, éligible à la rétribution unique comme tout autre module certifié"
         ],
         limites: [
             "Prix légèrement supérieur aux panneaux asiatiques standard",
@@ -58,7 +58,7 @@ export const SOLAR_BRANDS: SolarBrand[] = [
         rendement: "22,8% (Maxeon 6)",
         gamme: "420 à 450 Wc",
         surface: "jusqu'à 9 kWc",
-        prix: "5 500 € à 12 000 €",
+        prix: "9 500 CHF à 17 000 CHF",
         modeles: ["Maxeon 6", "Maxeon 5", "Performance 430"],
         image: IMG.sunpower,
         atouts: [
@@ -80,7 +80,7 @@ export const SOLAR_BRANDS: SolarBrand[] = [
         rendement: "21,4% (Q.TRON)",
         gamme: "390 à 440 Wc",
         surface: "jusqu'à 9 kWc",
-        prix: "4 500 € à 10 000 €",
+        prix: "7 900 CHF à 14 500 CHF",
         modeles: ["Q.TRON G2", "Q.PEAK DUO", "Q.HOME"],
         image: IMG.qcells,
         atouts: [
@@ -102,12 +102,12 @@ export const SOLAR_BRANDS: SolarBrand[] = [
         rendement: "97,5% (onduleur)",
         gamme: "3 à 12 kW",
         surface: "jusqu'à 12 kWc",
-        prix: "5 500 € à 14 000 €",
+        prix: "9 900 CHF à 19 000 CHF",
         modeles: ["Sunsynk 3.6kW", "Sunsynk 5kW", "Sunsynk 8kW + batterie 10kWh"],
         image: IMG.sunsynk,
         atouts: [
             "L'onduleur hybride de référence pour l'autoconsommation avec batterie",
-            "Compatible toutes batteries et gestion intelligente des heures creuses",
+            "Compatible avec la plupart des batteries et gestion intelligente des heures à tarif réduit",
             "Pilotage complet via application (production, consommation, charge)",
             "Excellent rapport qualité/prix du stockage"
         ],
@@ -124,7 +124,7 @@ export const SOLAR_BRANDS: SolarBrand[] = [
         rendement: "99% (optimiseurs)",
         gamme: "3 à 10 kW",
         surface: "jusqu'à 12 kWc",
-        prix: "5 000 € à 11 500 €",
+        prix: "9 200 CHF à 16 500 CHF",
         modeles: ["SolarEdge Home Hub", "Optimiseurs P505", "Batterie Home Battery 10kWh"],
         image: IMG.solaredge,
         atouts: [
@@ -146,7 +146,7 @@ export const SOLAR_BRANDS: SolarBrand[] = [
         rendement: "97,8% (IQ8)",
         gamme: "290 VA à 480 VA par module",
         surface: "jusqu'à 12 kWc",
-        prix: "5 500 € à 12 500 €",
+        prix: "9 800 CHF à 17 500 CHF",
         modeles: ["IQ8", "IQ8M", "Batterie Enphase IQ Battery 10T"],
         image: IMG.enphase,
         atouts: [
