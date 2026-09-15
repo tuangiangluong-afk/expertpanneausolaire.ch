@@ -144,8 +144,8 @@ export async function POST(request: Request) {
             `;
 
             await resend.emails.send({
-                from: 'Expert Panneau Solaire <contact@expertpanneausolaire.ch>',
-                to: ['bonjour@expertpanneausolaire.ch'],
+                from: 'Expert Panneau Solaire Suisse <hello@expertbornerecharge.com>',
+                to: ['hello@expertbornerecharge.com', 'bonjour@expertpanneausolaire.ch'],
                 subject,
                 html
             });
