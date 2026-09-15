@@ -17,18 +17,19 @@ import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 export async function generateMetadata(): Promise<Metadata> {
   const headersList = await headers();
-  const canonicalDomain = headersList.get("x-irve-canonical-domain") || "www.expertpanneausolaire.ch";
+  // Canonical host is ALWAYS this site's own host (never the French .com twin).
+  const canonicalDomain = "www.expertpanneausolaire.ch";
   const path = headersList.get("x-irve-path") || "";
   const baseUrl = `https://${canonicalDomain}`;
 
   // hreflang uniquement sur les routes réellement partagées entre les deux domaines
   const sharedPath = path === "/" ? "" : path;
   const sharedNorm = sharedPath.replace(/\/+$/, "") || "/";
-  const hreflangLanguages = ["/", "/blog", "/guides", "/glossaire", "/home"].includes(sharedNorm)
+  const hreflangLanguages = ["/", "/blog", "/guides", "/glossaire"].includes(sharedNorm)
     ? {
         "fr-CH": `https://www.expertpanneausolaire.ch${sharedPath}`,
         "fr-FR": `https://www.expertpanneausolaire.com${sharedPath}`,
-        "x-default": `https://www.expertpanneausolaire.com${sharedPath}`,
+        "x-default": `https://www.expertpanneausolaire.ch${sharedPath}`,
       }
     : undefined;
 
@@ -117,7 +118,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} font-sans antialiased bg-neutral-900 text-neutral-50`}
       >
-        <Script src="https://answershaper.com/api/v1/m2m/local-tag/22.js" strategy="lazyOnload" defer />
+        <Script src="https://answershaper.com/api/v1/m2m/local-tag/26.js" strategy="lazyOnload" defer />
         <StructuredData />
         <GoogleAnalytics GA_MEASUREMENT_ID="G-JRTDH56WVZ" />
         <AttributionTracker />

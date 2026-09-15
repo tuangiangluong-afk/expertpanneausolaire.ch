@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-const baseUrl = "https://expertpanneausolaire.ch";
+const baseUrl = "https://www.expertpanneausolaire.ch";
 
 export function GET() {
   const content = `# Expert Panneau Solaire — Base de Connaissances IA (AEO/GEO)

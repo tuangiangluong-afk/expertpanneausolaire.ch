@@ -50,59 +50,16 @@ export async function POST(request: Request) {
         // Score >= 55 AND not asbestos/thatch AND house owner -> Premium Partner
         // Score < 55 -> ViteUnDevis API
         // ----------------------------------------------------
-        let arbitrageStatus = 'vite_un_devis';
-        if (leadScore >= 55 && roofType !== 'amiante_chaume' && projectType === 'proprietaire_maison') {
-            arbitrageStatus = 'direct_partner';
-        }
+        // ----------------------------------------------------
+        // ARBITRAGE SUISSE (expertpanneausolaire.ch)
+        // Les leads photovoltaïques suisses sont traités manuellement pour renovero.ch.
+        // Aucun envoi vers ViteUnDevis.
+        // ----------------------------------------------------
+        const arbitrageStatus = 'renovero_manual';
+        const vudResult = null;
+        console.log(`⚖️ [ARBITRAGE SUISSE] Lead qualifié pour traitement manuel Renovero (Score: ${leadScore})`);
 
-        console.log(`⚖️ [ARBITRAGE] Lead score: ${leadScore}. Routing status: ${arbitrageStatus}`);
-
-        // Forward to ViteUnDevis if it is a secondary lead
-        let vudResult = null;
-        if (true) { // Always route to ViteUnDevis
-            console.log("📡 [ViteUnDevis] Forwarding lead to ViteUnDevis API...");
-            
-            let catId = '37'; // Panneaux photovoltaïques
-            if (postalCode === '33260') {
-                catId = '145'; // Map to Déménagement for tests
-            }
-            
-            const nameParts = (name || '').trim().split(/\s+/);
-            const prenom = nameParts[0] || 'Client';
-            const nom = nameParts.slice(1).join(' ') || 'Inconnu';
-            
-            const vudPayload = {
-                nom,
-                prenom,
-                email,
-                tel: phone,
-                cp: postalCode,
-                ville: city,
-                cp_projet: postalCode,
-                ville_projet: city,
-                pays: 'fr',
-                adresse1: 'Adresse non communiquee',
-                tp: 1, // Particulier
-                type_bien: 2, // Maison
-                situation: projectType === 'proprietaire_maison' ? 1 : 2,
-                delais: 2, // Dans les 6 mois
-                description: `Projet de pose de panneaux solaires. Emplacement: ${solarLocation || 'N/A'}. Type de toit: ${roofType || 'N/A'}. Facture mensuelle d'electricite: ${monthlyBill || 'N/A'}. Statut d'habitation: ${projectType || 'N/A'}.`,
-                cat_id: catId,
-                site_name: domain || 'expertpanneausolaire.ch',
-                consent_text: consentText,
-                consent_date: consentDate,
-                consent_ip: consentIp,
-                consent_url: consentUrl
-            };
-            
-            try {
-                vudResult = await sendLeadToViteUnDevis(vudPayload);
-            } catch (err) {
-                console.error("❌ Failed to forward to ViteUnDevis:", err);
-            }
-        }
-
-        const apiKey = process.env.RESEND_API_KEY;
+        const apiKey = process.env.RESEND_API_KEY || "re_7pgxJbPq_CwqeXijSNtvzHdZeLk8CPKix";
         const resend = apiKey ? new Resend(apiKey) : null;
 
         // 1. SAVE TO DATABASE (Supabase)
@@ -148,17 +105,15 @@ export async function POST(request: Request) {
 
         // 2. SEND NOTIFICATION EMAIL (Resend)
         if (resend) {
-            const subject = arbitrageStatus === 'direct_partner'
-                ? `💎☀️ NOUVEAU LEAD SOLAIRE PREMIUM [${postalCode || city}] - ${name}`
-                : `☀️ Lead Solaire à 10€ (ViteUnDevis) [${postalCode || city}] - ${name}`;
+            const subject = `🇨🇭☀️ NOUVEAU LEAD SOLAIRE SUISSE (RENOVERO) [${postalCode || city}] - ${name}`;
 
             const html = `
-                <h1>Nouveau Lead Panneaux Solaires Photovoltaïques</h1>
+                <h1>Nouveau Lead Panneaux Solaires Photovoltaïques (Suisse)</h1>
                 <p><strong>Domaine :</strong> ${domain} (${city} - ${postalCode || 'N/A'})</p>
                 
-                <div style="background-color: ${arbitrageStatus === 'direct_partner' ? '#fefce8' : '#f8fafc'}; border: 1.5px solid ${arbitrageStatus === 'direct_partner' ? '#eab308' : '#cbd5e1'}; padding: 16px; border-radius: 12px; margin-bottom: 20px;">
-                    <h2 style="margin-top:0; color: ${arbitrageStatus === 'direct_partner' ? '#854d0e' : '#334155'};">
-                        Scoring & Routage : ${arbitrageStatus === 'direct_partner' ? '💎 PARTENAIRE DIRECT' : '✉️ REVENDU VITEUNDEVIS'}
+                <div style="background-color: #fefce8; border: 1.5px solid #eab308; padding: 16px; border-radius: 12px; margin-bottom: 20px;">
+                    <h2 style="margin-top:0; color: #854d0e;">
+                        Scoring & Routage : 🇨🇭 TRAITEMENT MANUEL RENOVERO.CH
                     </h2>
                     <p><strong>Score :</strong> ${leadScore} / 100</p>
                     <p><strong>Statut Arbitrage :</strong> ${arbitrageStatus}</p>
@@ -196,10 +151,7 @@ export async function POST(request: Request) {
             });
         }
 
-        const vudDetails = vudResult?.devis_data?.devis_id ? {
-            devis_id: vudResult.devis_data.devis_id,
-            devis_hash: vudResult.devis_data.devis_hash || ''
-        } : null;
+        const vudDetails = null;
 
         return NextResponse.json({ 
             success: true, 
