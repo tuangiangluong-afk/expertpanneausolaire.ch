@@ -252,7 +252,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
     },
     {
-        slug: "grand-saconnex",
+        slug: "le-grand-saconnex",
         name: "Le Grand-Saconnex",
         heroTitle: "Panneaux Solaires",
         geo: { lat: 46.23624, lng: 6.11858 },
@@ -392,7 +392,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
     },
     {
-        slug: "estavayer",
+        slug: "estavayer-le-lac",
         name: "Estavayer-le-Lac",
         heroTitle: "Panneaux Solaires",
         geo: { lat: 46.86704, lng: 6.85192 },
@@ -422,7 +422,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
     },
     {
-        slug: "yverdon",
+        slug: "yverdon-les-bains",
         name: "Yverdon-les-Bains",
         heroTitle: "Panneaux Solaires",
         geo: { lat: 46.7681, lng: 6.63288 },
@@ -548,7 +548,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         tier: 'HUB'
     },
     {
-        slug: "collonge",
+        slug: "collonge-bellerive",
         name: "Collonge-Bellerive",
         heroTitle: "Panneaux Solaires",
         geo: { lat: 46.25288, lng: 6.20264 },
@@ -566,7 +566,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         tier: 'HUB'
     },
     {
-        slug: "vandoeuvres",
+        slug: "vanduvres",
         name: "Vandœuvres",
         heroTitle: "Panneaux Solaires",
         geo: { lat: 46.22005, lng: 6.20349 },
@@ -629,7 +629,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         tier: 'HUB'
     },
     {
-        slug: "perly",
+        slug: "perly-certoux",
         name: "Perly-Certoux",
         heroTitle: "Panneaux Solaires",
         geo: { lat: 46.1582, lng: 6.08795 },
@@ -638,7 +638,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         tier: 'HUB'
     },
     {
-        slug: "pregny",
+        slug: "pregny-chambesy",
         name: "Pregny-Chambésy",
         heroTitle: "Panneaux Solaires",
         geo: { lat: 46.23775, lng: 6.15353 },
@@ -665,7 +665,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         tier: 'HUB'
     },
     {
-        slug: "collex",
+        slug: "collex-bossy",
         name: "Collex-Bossy",
         heroTitle: "Panneaux Solaires",
         geo: { lat: 46.27914, lng: 6.12076 },
@@ -746,7 +746,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         tier: 'HUB'
     },
     {
-        slug: "chavannes",
+        slug: "chavannes-pres-renens",
         name: "Chavannes-près-Renens",
         heroTitle: "Panneaux Solaires",
         geo: { lat: 46.5293, lng: 6.57296 },
@@ -755,7 +755,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         tier: 'HUB'
     },
     {
-        slug: "mont-sur-lausanne",
+        slug: "le-mont-sur-lausanne",
         name: "Le Mont-sur-Lausanne",
         heroTitle: "Panneaux Solaires",
         geo: { lat: 46.55898, lng: 6.63969 },
@@ -962,7 +962,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         tier: 'HUB'
     },
     {
-        slug: "l-isle",
+        slug: "lisle",
         name: "L'Isle",
         heroTitle: "Panneaux Solaires",
         geo: { lat: 46.62106, lng: 6.40625 },
@@ -989,7 +989,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         tier: 'HUB'
     },
     {
-        slug: "chateau-d-oex",
+        slug: "chateau-dx",
         name: "Château-d'Œx",
         heroTitle: "Panneaux Solaires",
         geo: { lat: 46.45373, lng: 7.13922 },
@@ -1205,7 +1205,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         tier: 'HUB'
     },
     {
-        slug: "vollleges",
+        slug: "volleges",
         name: "Vollèges",
         heroTitle: "Panneaux Solaires",
         geo: { lat: 47.58341, lng: 8.60194 },
@@ -1277,7 +1277,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         tier: 'HUB'
     },
     {
-        slug: "collombey",
+        slug: "collombey-muraz",
         name: "Collombey-Muraz",
         heroTitle: "Panneaux Solaires",
         geo: { lat: 46.2869, lng: 6.92468 },
@@ -1304,7 +1304,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         tier: 'HUB'
     },
     {
-        slug: "val-d-illiez",
+        slug: "val-dilliez",
         name: "Val-d'Illiez",
         heroTitle: "Panneaux Solaires",
         geo: { lat: 46.18711, lng: 6.91629 },
@@ -1376,7 +1376,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         tier: 'HUB'
     },
     {
-        slug: "saint-aubin",
+        slug: "saint-aubin-sauges",
         name: "Saint-Aubin-Sauges",
         heroTitle: "Panneaux Solaires",
         geo: { lat: 46.89183, lng: 6.9824 },
@@ -1736,7 +1736,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         tier: 'HUB'
     },
     {
-        slug: "sonceboz",
+        slug: "sonceboz-sombeval",
         name: "Sonceboz-Sombeval",
         heroTitle: "Panneaux Solaires",
         geo: { lat: 47.19105, lng: 7.17875 },

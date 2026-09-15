@@ -111,12 +111,12 @@ export function Footer({ config }: FooterProps) {
                             <ul className="space-y-3 text-sm">
                                 {config.slug === 'home' ? (
                                     <>
-                                        <li><Link href="/ville/paris" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-neutral-600 group-hover:bg-amber-500 transition"></span>Île-de-Suisse</Link></li>
-                                        <li><Link href="/ville/lyon" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-neutral-600 group-hover:bg-amber-500 transition"></span>Auvergne-Rhône-Alpes</Link></li>
-                                        <li><Link href="/ville/marseille" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-neutral-600 group-hover:bg-amber-500 transition"></span>Provence-Alpes-Côte d&apos;Azur</Link></li>
-                                        <li><Link href="/ville/bordeaux" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-neutral-600 group-hover:bg-amber-500 transition"></span>Nouvelle-Aquitaine</Link></li>
-                                        <li><Link href="/ville/toulouse" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-neutral-600 group-hover:bg-amber-500 transition"></span>Occitanie</Link></li>
-                                        <li><Link href="/ville/nantes" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-neutral-600 group-hover:bg-amber-500 transition"></span>Pays de la Loire</Link></li>
+                                        <li><Link href="/ville/geneve" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-neutral-600 group-hover:bg-amber-500 transition"></span>Canton de Genève</Link></li>
+                                        <li><Link href="/ville/lausanne" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-neutral-600 group-hover:bg-amber-500 transition"></span>Canton de Vaud</Link></li>
+                                        <li><Link href="/ville/sion" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-neutral-600 group-hover:bg-amber-500 transition"></span>Canton du Valais</Link></li>
+                                        <li><Link href="/ville/neuchatel" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-neutral-600 group-hover:bg-amber-500 transition"></span>Canton de Neuchâtel</Link></li>
+                                        <li><Link href="/ville/fribourg" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-neutral-600 group-hover:bg-amber-500 transition"></span>Canton de Fribourg</Link></li>
+                                        <li><Link href="/ville/delemont" className="text-neutral-400 hover:text-white transition flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-neutral-600 group-hover:bg-amber-500 transition"></span>Canton du Jura</Link></li>
                                     </>
                                 ) : (
                                     <>
@@ -160,7 +160,7 @@ export function Footer({ config }: FooterProps) {
                                     const currentSite = config as SiteConfig;
 
                                     if (config.slug === 'home') {
-                                        const topSlugs = ['paris', 'marseille', 'lyon', 'bordeaux', 'nice'];
+                                        const topSlugs = ['geneve', 'lausanne', 'sion', 'neuchatel', 'fribourg'];
                                         nearbySites = uniqueSites.filter(s => topSlugs.includes(s.slug));
                                     } else {
                                         const sameDept = uniqueSites.filter(s => s.slug !== 'home' && s.slug !== currentSite.slug && s.department === currentSite.department);
