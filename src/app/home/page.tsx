@@ -1,5 +1,6 @@
 export const revalidate = 86400; // 24h ISR cache
 import { getHubConfig, SITES, SiteConfig } from "@/lib/sites-config";
+import { slugify } from "@/lib/slugify";
 import { NATIONAL_TARGETS } from "@/config/national-targets";
 import { Zap, Award, ArrowRight, Home, CheckCircle, TrendingDown, ShieldCheck, Sun } from "lucide-react";
 import LocalLinker from "@/components/blog/LocalLinker";
@@ -30,7 +31,7 @@ export default function HomePage() {
     const cities = NATIONAL_TARGETS.map(target => ({
         name: target.name,
         department: target.zip.substring(0, 2),
-        slug: target.slug,
+        slug: slugify(target.name),
         available: true
     }));
 
