@@ -7,7 +7,7 @@ export const NATIONAL_CONFIG: CityConfig = {
     city: "Suisse",
     phoneNumber: "+41 22 000 00 00",
     email: "contact@expertpanneausolaire.ch",
-    heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop",
+    heroImage: "/images/generated/solar-hero.webp",
     description: "Le réseau n°1 d'installateurs de panneaux solaires photovoltaïques en Suisse romande. Offre gratuite, étude de rentabilité et partenaires certifiés.",
     meta: {
         title: "Expert Panneau Solaire | Photovoltaïque & Autoconsommation Suisse",

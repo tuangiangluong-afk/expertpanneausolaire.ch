@@ -20,12 +20,12 @@ export interface SolarBrand {
 }
 
 const IMG = {
-    dualsun: "https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=2670&auto=format&fit=crop",
-    sunpower: "https://images.unsplash.com/photo-1559825481-12a05cc00018?q=80&w=2670&auto=format&fit=crop",
-    qcells: "https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?q=80&w=2670&auto=format&fit=crop",
-    sunsynk: "https://images.unsplash.com/photo-1559087867-ce4c91325525?q=80&w=2670&auto=format&fit=crop",
-    solaredge: "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?q=80&w=2670&auto=format&fit=crop",
-    enphase: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=2670&auto=format&fit=crop",
+    dualsun: "/images/generated/solar-hero.webp",
+    sunpower: "/images/generated/solar-realization-1.webp",
+    qcells: "/images/generated/solar-realization-2.webp",
+    sunsynk: "/images/generated/solar-realization-3.webp",
+    solaredge: "/images/generated/solar-realization-4.webp",
+    enphase: "/images/generated/solar-hero.webp",
 };
 
 export const SOLAR_BRANDS: SolarBrand[] = [

@@ -154,10 +154,10 @@ export default function LocalAeoSection({ site, pseo }: LocalAeoSectionProps) {
                                 <span className="grid h-10 w-10 place-items-center rounded-xl bg-blue-50 text-blue-600">
                                     <Landmark size={20} />
                                 </span>
-                                <h3 className="font-bold text-slate-900 text-base">Urbanisme, Mairie & ABF à {city}</h3>
+                                <h3 className="font-bold text-slate-900 text-base">Urbanisme, commune & patrimoine à {city}</h3>
                             </div>
                             <p className="text-sm text-slate-600 leading-relaxed">
-                                Toute installation photovoltaïque sur toiture à {city}{dept} requiert le dépôt préalable d'une Déclaration Préalable de Travaux (DP) en mairie. Si votre maison se situe dans le périmètre d'un monument historique ou en zone protégée par l'Architecte des Bâtiments de Suisse (ABF), des prescriptions esthétiques peuvent s'appliquer (ex: panneaux full-black homogènes, intégration géométrique). Nos équipes constituent l'intégralité du dossier d'urbanisme avec plans d'insertion paysagère pour obtenir votre autorisation sans délai.
+                                Toute installation photovoltaïque sur toiture à {city}{dept} suppose le dépôt d'une demande d'autorisation de construire auprès de la commune. Si votre bâtiment est inscrit à l'inventaire cantonal des monuments ou situé dans un site protégé, le service cantonal des monuments et des sites peut imposer des prescriptions esthétiques (ex: panneaux full-black homogènes, intégration géométrique). Nos équipes constituent l'intégralité du dossier avec plans d'insertion paysagère pour obtenir votre autorisation sans délai.
                             </p>
                         </div>
 

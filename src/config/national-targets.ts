@@ -25,7 +25,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         zip: "1201",
         tier: 'BIG5',
         unique_intro: "À Genève et dans les communes du canton, les toitures bien exposées et le fort ensoleillement du bassin lémanique rendent le photovoltaïque particulièrement rentable. Nos installateurs partenaires étudient votre toiture, dimensionnent l'installation et montent le dossier de rétribution unique auprès de Pronovo.",
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "lausanne",
@@ -36,7 +36,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         zip: "1003",
         tier: 'BIG5',
         unique_intro: "À Lausanne et dans le canton de Vaud, la rétribution unique de Pronovo et les programmes cantonaux soutiennent l'autoconsommation solaire. Nos partenaires réalisent l'étude de toiture, le dimensionnement et la mise en service de votre centrale photovoltaïque.",
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "fribourg",
@@ -47,7 +47,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         zip: "1700",
         tier: 'BIG5',
         unique_intro: "Dans le canton de Fribourg, l'ensoleillement et les subventions cantonales complémentaires favorisent les installations photovoltaïques résidentielles. Nos installateurs partenaires vous accompagnent de l'étude à la mise en service, dossier Pronovo inclus.",
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "neuchatel",
@@ -58,7 +58,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         zip: "2000",
         tier: 'BIG5',
         unique_intro: "Dans le canton de Neuchâtel, le potentiel solaire des toitures est élevé et les aides cantonales s'ajoutent à la rétribution unique fédérale. Nos partenaires dimensionnent votre installation solaire et gèrent les démarches administratives.",
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "sion",
@@ -69,7 +69,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         zip: "1950",
         tier: 'BIG5',
         unique_intro: "En Valais, l'un des cantons les plus ensoleillés de Suisse, une installation photovoltaïque s'amortit souvent en moins de dix ans. Nos partenaires à Sion et dans le Valais romand étudient votre projet et montent le dossier de subvention.",
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "montreux",
@@ -79,7 +79,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "1820",
         tier: 'GOLDEN',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "vevey",
@@ -89,7 +89,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "1800",
         tier: 'GOLDEN',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "yverdon-les-bains",
@@ -99,7 +99,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "1400",
         tier: 'GOLDEN',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "la-chaux-de-fonds",
@@ -109,7 +109,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "2300",
         tier: 'GOLDEN',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "bienne",
@@ -119,7 +119,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "2502",
         tier: 'GOLDEN',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "sierre",
@@ -129,7 +129,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "3960",
         tier: 'STRATEGIC',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "martigny",
@@ -139,7 +139,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "1920",
         tier: 'STRATEGIC',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "nyon",
@@ -149,7 +149,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "1260",
         tier: 'STRATEGIC',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "morges",
@@ -159,7 +159,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "1110",
         tier: 'STRATEGIC',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "renens",
@@ -169,7 +169,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "1020",
         tier: 'STRATEGIC',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "pully",
@@ -179,7 +179,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "1009",
         tier: 'STRATEGIC',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "carouge",
@@ -189,7 +189,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "1227",
         tier: 'STRATEGIC',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "vernier",
@@ -199,7 +199,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "1214",
         tier: 'STRATEGIC',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "lancy",
@@ -209,7 +209,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "1212",
         tier: 'STRATEGIC',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "meyrin",
@@ -219,7 +219,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "1217",
         tier: 'STRATEGIC',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "onex",
@@ -229,7 +229,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "1213",
         tier: 'HUB',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "thonex",
@@ -239,7 +239,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "1226",
         tier: 'HUB',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "chene-bougeries",
@@ -249,7 +249,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "1224",
         tier: 'HUB',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "le-grand-saconnex",
@@ -259,7 +259,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "1218",
         tier: 'HUB',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "versoix",
@@ -269,7 +269,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "1290",
         tier: 'HUB',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "gland",
@@ -279,7 +279,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "1196",
         tier: 'HUB',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "rolle",
@@ -289,7 +289,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "1180",
         tier: 'HUB',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "prilly",
@@ -299,7 +299,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "1008",
         tier: 'HUB',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "le-locle",
@@ -309,7 +309,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "2400",
         tier: 'HUB',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "bulle",
@@ -319,7 +319,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "1630",
         tier: 'HUB',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "conthey",
@@ -329,7 +329,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "1964",
         tier: 'HUB',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "monthey",
@@ -339,7 +339,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "1870",
         tier: 'HUB',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "saint-maurice",
@@ -349,7 +349,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "1890",
         tier: 'HUB',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "delemont",
@@ -359,7 +359,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "2800",
         tier: 'HUB',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "porrentruy",
@@ -369,7 +369,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "2900",
         tier: 'HUB',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "payerne",
@@ -379,7 +379,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "1530",
         tier: 'HUB',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "avenches",
@@ -389,7 +389,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "1580",
         tier: 'HUB',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "estavayer-le-lac",
@@ -399,7 +399,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "1470",
         tier: 'HUB',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "saxon",
@@ -409,7 +409,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "1907",
         tier: 'HUB',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "fully",
@@ -419,7 +419,7 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         top_places: ["Centre-ville", "Quartier Nord", "Quartier Sud", "Périphérie"],
         zip: "1926",
         tier: 'HUB',
-        heroImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop"
+        heroImage: "/images/generated/solar-hero.webp"
     },
     {
         slug: "yverdon-les-bains",
@@ -1783,7 +1783,7 @@ export function getTargetAsCityConfig(slug: string): CityConfig | undefined {
         city: target.name,
         name: `Solaire ${target.name}`,
         domain: `expertpanneausolaire.ch/ville/${target.slug}`,
-        heroImage: target.heroImage || "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=2672&auto=format&fit=crop",
+        heroImage: target.heroImage || "/images/generated/solar-hero.webp",
 
         postalCode: target.zip,
         // `department` = code canton (utilisé par le maillage interne)

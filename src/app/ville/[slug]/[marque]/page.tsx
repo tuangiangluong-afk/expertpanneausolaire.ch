@@ -149,8 +149,8 @@ export default async function CityMarquePage({ params }: { params: Params }) {
                 <ul class="list-disc pl-5 space-y-1.5">
                     <li><strong>Rétribution unique :</strong> Versée en une seule fois à la date anniversaire de la mise en service le gestionnaire de réseau.</li>
                     <li><strong>Tarif d'achat garanti la rétribution de l'injection :</strong> Vente du surplus non consommé réinjecté sur le réseau au tarif réglementé fixé par directive de Pronovo sur 20 ans.</li>
-                    <li><strong>Exonération fiscale :</strong> Les revenus de la revente d'électricité solaire sont 100% exonérés d'impôt sur le revenu pour les installations &le; 3 kWc.</li>
-                    <li><strong>TVA réduite :</strong> 10% pour les puissances jusqu'à 3 kWc raccordées au réseau.</li>
+                    <li><strong>Traitement fiscal :</strong> la rémunération de l'injection est en principe imposable comme revenu, mais les petites installations bénéficient d'un régime de faveur au niveau fédéral. À valider avec votre fiduciaire selon votre canton.</li>
+                    <li><strong>TVA :</strong> les installations photovoltaïques d'une puissance jusqu'à 3 kW raccordées au réseau ne sont pas soumises à la TVA. Au-delà, le taux normal de 8,1% s'applique.</li>
                 </ul>
             </div>`,
         },

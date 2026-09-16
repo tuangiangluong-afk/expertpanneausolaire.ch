@@ -19,10 +19,10 @@ export interface SolarType {
 }
 
 const IMG = {
-    auto: "https://images.unsplash.com/photo-1559825481-12a05cc00018?q=80&w=2670&auto=format&fit=crop",
-    surplus: "https://images.unsplash.com/photo-1559087867-ce4c91325525?q=80&w=2670&auto=format&fit=crop",
-    batterie: "https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=2670&auto=format&fit=crop",
-    carport: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=2670&auto=format&fit=crop",
+    auto: "/images/generated/solar-hero.webp",
+    surplus: "/images/generated/solar-realization-1.webp",
+    batterie: "/images/generated/solar-realization-2.webp",
+    carport: "/images/generated/solar-realization-3.webp",
 };
 
 export const SOLAR_TYPES: SolarType[] = [

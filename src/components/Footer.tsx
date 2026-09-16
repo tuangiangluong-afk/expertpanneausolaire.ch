@@ -91,7 +91,7 @@ export function Footer({ config }: FooterProps) {
             <div className="container mx-auto px-4 text-center">
                 <h4 className="text-white font-bold mb-4">À propos de {config.name}</h4>
                 <p className="max-w-2xl mx-auto text-sm mb-8">
-                    {config.name} est le comparateur de référence pour l&apos;installation de panneaux solaires à {config.city}.
+                    {config.name} est le comparateur de référence pour l&apos;installation de panneaux solaires en {config.city}.
                     Nous sélectionnons les meilleurs artisans certifiés Les Pros du Solaire pour vos projets d&apos;autoconsommation et de revente de surplus.
                     Obtenez jusqu&apos;à 3 devis gratuits pour comparer.
                 </p>

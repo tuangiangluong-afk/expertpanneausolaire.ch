@@ -25,9 +25,9 @@ export interface SolarComparatif {
 }
 
 const IMG = {
-    c1: "https://images.unsplash.com/photo-1559825481-12a05cc00018?q=80&w=2670&auto=format&fit=crop",
-    c2: "https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=2670&auto=format&fit=crop",
-    c3: "https://images.unsplash.com/photo-1559087867-ce4c91325525?q=80&w=2670&auto=format&fit=crop",
+    c1: "/images/generated/solar-hero.webp",
+    c2: "/images/generated/solar-realization-1.webp",
+    c3: "/images/generated/solar-realization-2.webp",
 };
 
 export const SOLAR_COMPARATIFS: SolarComparatif[] = [
