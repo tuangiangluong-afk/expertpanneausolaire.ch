@@ -73,16 +73,6 @@ export default function SolaireContentPage({
     };
 
     
-    // Fourchette de prix lue sur les faits affichés (Prix / Budget / Tarif)
-    const priceFact = facts.find(f => {
-        const l = f.label.toLowerCase();
-        return l.includes('prix') || l.includes('budget') || l.includes('tarif');
-    });
-    const priceStr = priceFact?.value || "5000";
-    const prices = priceStr.match(/\d+(?:[.,\s]\d+)?/g)?.map(p => parseInt(p.replace(/\D/g, ''), 10)) || [5000, 15000];
-    const hasVisiblePrice = !!priceFact;
-    const lowPrice = Math.min(...prices) || 5000;
-    const highPrice = prices.length > 1 ? Math.max(...prices) : Math.floor(lowPrice * 1.2);
 
         // « Service » et non « Product » : ces pages mettent en relation avec des
     // professionnels, elles ne vendent pas un article de catalogue. Un balisage
@@ -102,21 +92,7 @@ export default function SolaireContentPage({
         "areaServed": {
             "@type": "Country",
             "name": "CH"
-        },
-        // La fourchette n'est déclarée que si elle figure réellement sur la page.
-        ...(hasVisiblePrice ? {
-            "offers": {
-                "@type": "Offer",
-                "url": `https://www.expertpanneausolaire.ch/#simulateur`,
-                "priceCurrency": MARKET.currencyCode,
-                "priceSpecification": {
-                    "@type": "PriceSpecification",
-                    "priceCurrency": MARKET.currencyCode,
-                    "minPrice": lowPrice.toString(),
-                    "maxPrice": highPrice.toString()
-                }
-            }
-        } : {})
+        }
     };
 
     return (

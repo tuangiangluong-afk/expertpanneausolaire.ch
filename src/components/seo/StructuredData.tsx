@@ -66,12 +66,6 @@ export default function StructuredData() {
             "name": MARKET.countryCode
         },
         "description": `Étude, fourniture et pose de panneaux solaires photovoltaïques en autoconsommation en ${MARKET.country}, avec ${MARKET.subsidyScheme} versée par ${MARKET.subsidyBody}.`,
-        "offers": {
-            "@type": "Offer",
-            "priceCurrency": MARKET.currencyCode,
-            "price": "12900",
-            "validFrom": "2026-01-01"
-        }
     };
 
     // Eligible Product Schema: 100% compliant with Google Product & Review Snippets
@@ -91,14 +85,6 @@ export default function StructuredData() {
             "@type": "Brand",
             "name": "Expert Panneau Solaire"
         },
-        "offers": {
-            "@type": "Offer",
-            "url": `${baseUrl}/#simulateur`,
-            "priceCurrency": MARKET.currencyCode,
-            "price": "12900",
-            "validFrom": "2026-01-01",
-            "priceValidUntil": "2026-12-31",
-                                },
     };
 
     return (
