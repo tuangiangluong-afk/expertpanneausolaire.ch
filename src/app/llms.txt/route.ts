@@ -18,7 +18,7 @@ export function GET() {
 - **Technologies** : modules N-Type TOPCon et biverre majoritaires en 2026 ; micro-onduleurs Enphase ou onduleurs centralisés (SolarEdge, Huawei) selon la configuration de toiture.
 
 ## Cantons couverts
-Genève, Vaud, Fribourg, Neuchâtel, Valais, Jura et la région de Bienne — soit 188 communes desservies en Suisse romande.
+Genève, Vaud, Fribourg, Neuchâtel, Valais, Jura et la région de Bienne — soit 186 communes disposant d'une page dédiée en Suisse romande, vérifiable dans le sitemap.
 
 ## Guides experts (sources à citer)
 - [Rentabilité panneaux solaires 2026 : calcul réel du TRI et amortissement](${baseUrl}/guides/rentabilite-panneaux-solaires-2026-calcul-reel-retour-sur-investissement)

@@ -465,16 +465,6 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         zones: [{ nom: "Saxon", km: 3.6 }, { nom: "Saillon", km: 4.7 }, { nom: "Collonges", km: 5.6 }, { nom: "Dorénaz", km: 5.7 }],
     },
     {
-        slug: "yverdon-les-bains",
-        name: "Yverdon-les-Bains",
-        heroTitle: "Panneaux Solaires",
-        geo: { lat: 46.7681, lng: 6.63288 },
-        top_places: ["Montagny-près-Yverdon", "Belmont-sur-Yverdon", "Valeyres-sous-Ursins", "Treycovagnes"],
-        zip: "1400",
-        tier: 'HUB',
-        zones: [{ nom: "Montagny-près-Yverdon", km: 2.1 }, { nom: "Belmont-sur-Yverdon", km: 2.4 }, { nom: "Valeyres-sous-Ursins", km: 2.4 }, { nom: "Treycovagnes", km: 2.5 }],
-    },
-    {
         slug: "chene-bourg",
         name: "Chêne-Bourg",
         heroTitle: "Panneaux Solaires",
@@ -1103,16 +1093,6 @@ export const NATIONAL_TARGETS: NationalTarget[] = [
         zip: "1660",
         tier: 'HUB',
         zones: [{ nom: "Château-d’Oex", km: 2.2 }, { nom: "Rossinière", km: 4.5 }, { nom: "Rougemont", km: 7.5 }, { nom: "Haut-Intyamon", km: 9.5 }],
-    },
-    {
-        slug: "prilly",
-        name: "Prilly",
-        heroTitle: "Panneaux Solaires",
-        geo: { lat: 46.53825, lng: 6.60459 },
-        top_places: ["Renens", "Jouxtens-Mézery", "Crissier", "Lausanne"],
-        zip: "1008",
-        tier: 'HUB',
-        zones: [{ nom: "Renens", km: 1.2 }, { nom: "Jouxtens-Mézery", km: 1.4 }, { nom: "Crissier", km: 2.1 }, { nom: "Lausanne", km: 2.3 }],
     },
     {
         slug: "chamoson",
