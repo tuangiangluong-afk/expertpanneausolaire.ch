@@ -27,8 +27,8 @@ export async function POST(req: Request) {
         }
 
         const data = await resend.emails.send({
-            from: 'Expert Panneau Solaire <contact@expertpanneausolaire.ch>',
-            to: ['bonjour@expertpanneausolaire.ch'],
+            from: 'Expert Panneau Solaire Suisse <hello@expertbornerecharge.com>',
+            to: ['hello@expertbornerecharge.com', 'bonjour@expertpanneausolaire.ch'],
             replyTo: email,
             subject: `[${postalCode || city}] Contact: ${subject} - ${name}`,
             html: `
