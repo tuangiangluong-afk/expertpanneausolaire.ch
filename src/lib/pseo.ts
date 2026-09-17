@@ -1,6 +1,7 @@
 import type { CityConfig } from "@/lib/db";
 import { CANTONS, cantonFromNpa, type Canton } from "@/data/ch-cantons";
 import { composeLocalIntro } from "@/lib/pseo-local";
+import { getLocalFacts, type LocalFacts } from "@/data/local-facts";
 
 export interface PseoPageContent {
     meta_title: string;
@@ -28,6 +29,8 @@ const GUARANTEE = "Garantie de 10 ans sur l'onduleur";
 // CONTEXTE LOCAL RÉEL
 // ========================================
 interface LocalContext {
+    /** Slug de la commune, sert à retrouver ses mesures réelles */
+    slug: string;
     city: string;
     npa: string;
     zones: string[];
@@ -47,6 +50,7 @@ function buildContext(c: CityConfig): LocalContext {
     const code = cantonFromNpa(npa) || c.department || "";
     const canton = CANTONS[code];
     return {
+        slug: c.slug,
         city: c.city,
         npa,
         /** Communes limitrophes réelles, et non la liste de quartiers du maillage */
@@ -116,6 +120,36 @@ function riskParagraph(c: LocalContext): string {
 // ========================================
 // CONSEILS D'EXPERT (ancrés localement, jamais inventés)
 // ========================================
+/** Énumération à la française : « a, b et c ». */
+function joinFr(items: string[]): string {
+    if (items.length <= 1) return items.join("");
+    return `${items.slice(0, -1).join(", ")} et ${items[items.length - 1]}`;
+}
+
+/**
+ * Paragraphe bâti sur des mesures réelles : productible calculé par le JRC
+ * (PVGIS-SARAH2) et climatologie NASA POWER sur vingt ans. Le chiffre change
+ * d'une commune à l'autre, donc le texte aussi.
+ */
+function measuredLocalParagraph(c: LocalContext, local: LocalFacts | undefined): string {
+    if (!local) return "";
+    const items: string[] = [];
+    if (local.pvYield) {
+        items.push(`1 kWc installé y produit ${local.pvYield.toLocaleString("fr-FR")} kWh par an`);
+    }
+    if (local.pvSlope) {
+        items.push(`l'inclinaison optimale des modules y est de ${local.pvSlope} degrés`);
+    }
+    if (local.sunKwh !== null) {
+        items.push(`le rayonnement horizontal reçu atteint ${local.sunKwh.toLocaleString("fr-FR")} kWh/m² par an`);
+    }
+    if (local.tminJan !== null) {
+        items.push(`le minimum moyen de janvier y est de ${local.tminJan.toLocaleString("fr-FR")} °C`);
+    }
+    if (items.length === 0) return "";
+    return `<p class="leading-relaxed">Données locales : à ${c.city}, ${joinFr(items)}. Ces valeurs déterminent le dimensionnement de l'onduleur et l'intérêt réel du stockage en autoconsommation.</p>`;
+}
+
 const TIPS: ((c: LocalContext) => string)[] = [
     (c) => `À ${c.city}, l'autoconsommation est le premier levier de rentabilité : chaque kWh consommé sur place évite l'achat d'électricité au réseau, alors que le surplus est repris à un tarif nettement inférieur.`,
     (c) => `La rétribution unique de Pronovo est versée en une seule fois après la mise en service, sur la base de la puissance installée ; le dossier est monté par l'installateur avant les travaux.`,
@@ -180,16 +214,26 @@ export async function getPseoContent(cityConfig: CityConfig, _targetType: string
         },
         { openers: OPENERS.map((fn) => () => fn(c)), middles: MIDDLES.map((fn) => () => fn(c)) },
         h,
-    ) + riskParagraph(c);
+    ) + riskParagraph(c) + measuredLocalParagraph(c, getLocalFacts(c.slug, c.city));
     const expert_tip = pick(TIPS, h >> 7)(c);
 
-    // --- Faits locaux vérifiables ---
+    // --- Faits locaux vérifiables, en tête de bloc ---
+    // Productible et ensoleillement ne sont plus des appréciations : ce sont les
+    // valeurs calculées par le JRC (PVGIS-SARAH2) et mesurées par NASA POWER.
+    const local = getLocalFacts(c.slug, c.city);
     const local_facts: { label: string; value: string }[] = [];
+    if (local) {
+        if (local.pvYield) local_facts.push({ label: "Productible réel", value: `${local.pvYield.toLocaleString("fr-FR")} kWh/kWc/an` });
+        if (local.pvSlope) local_facts.push({ label: "Inclinaison optimale", value: `${local.pvSlope}°` });
+        if (local.pvSun) local_facts.push({ label: "Irradiation dans le plan", value: `${local.pvSun.toLocaleString("fr-FR")} kWh/m²/an` });
+        if (local.sunKwh !== null) local_facts.push({ label: "Rayonnement horizontal", value: `${local.sunKwh.toLocaleString("fr-FR")} kWh/m²/an` });
+        if (local.tminJan !== null) local_facts.push({ label: "Minimum moyen de janvier", value: `${local.tminJan.toLocaleString("fr-FR")} °C` });
+        if (local.rainMm !== null) local_facts.push({ label: "Précipitations annuelles", value: `${local.rainMm.toLocaleString("fr-FR")} mm` });
+        if (local.windDir) local_facts.push({ label: "Vent dominant", value: `${local.windDir} — ${(local.windKmh ?? 0).toLocaleString("fr-FR")} km/h` });
+    }
     if (c.cantonCode) local_facts.push({ label: "Canton", value: `${c.cantonName} (${c.cantonCode})` });
     if (c.chefLieu) local_facts.push({ label: "Chef-lieu", value: c.chefLieu });
     local_facts.push({ label: "Langue", value: c.langue });
-    local_facts.push({ label: "Ensoleillement", value: c.soleil });
-    local_facts.push({ label: "Vent dominant", value: c.vent });
     if (c.npa) local_facts.push({ label: "NPA", value: c.npa });
     local_facts.push({ label: "Aide fédérale", value: "Rétribution unique Pronovo" });
     if (c.neige) local_facts.push({ label: "Charge de neige", value: "Dimensionnement renforcé" });
