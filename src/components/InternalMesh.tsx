@@ -71,10 +71,10 @@ export function InternalMesh({ city, config }: InternalMeshProps) {
                         </ul>
                     </div>
 
-                    {/* 3. Quartiers / Zones (SEO Local) */}
+                    {/* 3. Zones desservies (quartiers + communes limitrophes réelles) */}
                     <div>
                         <h4 className="text-white font-bold mb-6 text-lg">
-                            {config ? `Quartiers de ${config.city}` : "Zones d'intervention"}
+                            {config ? `Zones desservies autour de ${config.city}` : "Zones d'intervention"}
                         </h4>
                         <ul className="space-y-3">
                             {neighborhoods.slice(0, 8).map((quartier: string, i: number) => (

@@ -91,9 +91,10 @@ export function getPseoSolaireContent(city: CityConfig, brand: SolarBrand): Pseo
     const canton = CANTONS[cantonCode];
     const yieldInfo = CANTON_YIELD[cantonCode] || DEFAULT_YIELD;
     const cantonName = canton?.name || "Suisse romande";
-    const quartiers = city.neighborhoods || [];
-    const quartierMention = quartiers.length >= 2
-        ? `Nous intervenons dans tous les secteurs : ${quartiers.slice(0, 3).join(", ")} et communes environnantes.`
+    // Communes limitrophes réelles (avec distance), et non la liste de quartiers du maillage.
+    const zones = (city.zones || []).map((z) => z.nom);
+    const quartierMention = zones.length >= 2
+        ? `Nous intervenons à ${city.city} et dans les communes voisines : ${zones.slice(0, 3).join(", ")}.`
         : "";
     const neige = !!canton?.neige;
     const snowNote = neige
@@ -120,7 +121,7 @@ export function getPseoSolaireContent(city: CityConfig, brand: SolarBrand): Pseo
             city: city.city,
             postal: npa,
             deptName: cantonName,
-            quartiers,
+            zones,
             authority: `l'${MARKET.buildingAuthority}`,
         },
         {

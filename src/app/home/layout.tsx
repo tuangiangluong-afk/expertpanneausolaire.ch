@@ -8,7 +8,7 @@ export default function HomeLayout({
 }) {
     return (
         <>
-            <GoogleAnalytics GA_MEASUREMENT_ID="G-JRTDH56WVZ" />
+            <GoogleAnalytics GA_MEASUREMENT_ID="G-ZLY874WBJ2" />
             {children}
             <CookieBanner slug="home" cityName="Expert Panneau Solaire" />
         </>

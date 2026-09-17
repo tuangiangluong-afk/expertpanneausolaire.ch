@@ -16,6 +16,7 @@ export default function LocalAeoSection({ site, pseo }: LocalAeoSectionProps) {
     const city = site.city;
     const dept = site.department ? ` (${site.department})` : "";
     const neighborhoods = site.neighborhoods || [];
+    const zones = site.zones || [];
     const facts = pseo?.local_facts || [];
     const priceLine = pseo?.pricing_estimated && !pseo.pricing_estimated.includes("partir")
         ? pseo.pricing_estimated
@@ -24,9 +25,21 @@ export default function LocalAeoSection({ site, pseo }: LocalAeoSectionProps) {
     const chefLieu = facts.find(f => f.label === "Chef-lieu")?.value;
     const vent = facts.find(f => f.label === "Vent dominant")?.value;
     const soleil = facts.find(f => f.label === "Ensoleillement")?.value;
-    const neighborhoodsText = neighborhoods.length > 0 
-        ? `, notamment dans les quartiers ${neighborhoods.slice(0, 4).join(', ')}` 
+    // Deux ensembles distincts, tous deux réels :
+    // - `neighborhoods` = quartiers et communes du maillage propre à la ville ;
+    // - `zones` = communes limitrophes avec distance (Wikidata + coordonnées suisses).
+    const neighborhoodsText = neighborhoods.length > 0
+        ? `, ainsi que dans les secteurs suivants : ${neighborhoods.slice(0, 4).join(', ')}`
         : "";
+    const zonesText = zones
+        .slice(0, 4)
+        .map((z) => `${z.nom} (${z.km.toLocaleString("fr-CH")} km)`)
+        .join(", ");
+    const identityText = [
+        site.region ? `canton de ${site.region}` : null,
+        site.department ? `code ${site.department}` : null,
+        site.postalCode ? `NPA ${site.postalCode}` : null,
+    ].filter(Boolean).join(", ");
 
     return (
         <section className="py-12 bg-slate-50/50 border-t border-slate-200">
@@ -167,11 +180,18 @@ export default function LocalAeoSection({ site, pseo }: LocalAeoSectionProps) {
                                 <span className="grid h-10 w-10 place-items-center rounded-xl bg-emerald-50 text-emerald-600">
                                     <Building2 size={20} />
                                 </span>
-                                <h3 className="font-bold text-slate-900 text-base">Typologie de toiture & Quartiers à {city}</h3>
+                                <h3 className="font-bold text-slate-900 text-base">Typologie de toiture & zones desservies autour de {city}</h3>
                             </div>
                             <p className="text-sm text-slate-600 leading-relaxed">
-                                Nos partenaires installateurs certifiés Les Pros du Solaire interviennent dans tous les secteurs de {city}{neighborhoodsText}. Ils maîtrisent la pose sur tous types de couvertures suisses (tuiles béton, tuiles terre cuite, ardoises, bac acier ou toit plat) avec des crochets inox réglables et des abergements étanches conformes aux règles de l'art et aux normes SIA, garantissant l'étanchéité de votre charpente.
+                                Nos partenaires installateurs certifiés Les Pros du Solaire interviennent dans toute la commune de {city}{neighborhoodsText}. Ils maîtrisent la pose sur tous types de couvertures suisses (tuiles béton, tuiles terre cuite, ardoises, bac acier ou toit plat) avec des crochets inox réglables et des abergements étanches conformes aux règles de l'art et aux normes SIA, garantissant l'étanchéité de votre charpente.
                             </p>
+                            {(identityText || zonesText) && (
+                                <p className="mt-3 text-xs text-slate-500 leading-relaxed">
+                                    {identityText && <>{city} : {identityText}.</>}
+                                    {identityText && zonesText && " "}
+                                    {zonesText && <>Communes limitrophes : {zonesText}.</>}
+                                </p>
+                            )}
                         </div>
 
                         {/* Card 3: Climat, Performance & Aides */}

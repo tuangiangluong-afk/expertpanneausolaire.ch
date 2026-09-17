@@ -10,6 +10,8 @@ export interface CityConfig {
     postalCode?: string;
     department?: string;
     region?: string;
+    /** Communes limitrophes réelles avec distance — jamais des quartiers inventés */
+    zones?: { nom: string; km: number }[];
     phoneNumber: string;
     email: string;
     heroImage: string;

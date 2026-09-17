@@ -30,7 +30,7 @@ const GUARANTEE = "Garantie de 10 ans sur l'onduleur";
 interface LocalContext {
     city: string;
     npa: string;
-    quartiers: string[];
+    zones: string[];
     canton?: Canton;
     cantonCode: string;
     cantonName: string;
@@ -49,7 +49,8 @@ function buildContext(c: CityConfig): LocalContext {
     return {
         city: c.city,
         npa,
-        quartiers: c.neighborhoods || [],
+        /** Communes limitrophes réelles, et non la liste de quartiers du maillage */
+    zones: (c.zones || []).map((z) => z.nom),
         canton,
         cantonCode: code,
         cantonName: canton?.name || "Suisse romande",
@@ -88,15 +89,15 @@ const OPENERS: ((c: LocalContext) => string)[] = [
 ];
 
 // ========================================
-// PARAGRAPHES TECHNIQUES (quartiers réels + prestations)
+// PARAGRAPHES TECHNIQUES (communes limitrophes réelles + prestations)
 // ========================================
 const MIDDLES: ((c: LocalContext) => string)[] = [
-    (c) => `<p class="mb-4 leading-relaxed">${c.quartiers.length >= 2 ? `Nos partenaires installateurs interviennent dans les secteurs de <strong>${c.quartiers.slice(0, 3).join(", ")}</strong> et dans les communes voisines.` : "Nos partenaires installateurs couvrent la commune et les communes voisines."} Étude de toiture, dimensionnement, montage du dossier Pronovo, raccordement et mise en service.</p>`,
-    (c) => `<p class="mb-4 leading-relaxed">${c.quartiers.length >= 2 ? `Interventions régulières à <strong>${c.quartiers.slice(0, 3).join(", ")}</strong>.` : "Interventions régulières sur la commune."} Modules N-Type TOPCon ou biverre, onduleur centralisé ou micro-onduleurs selon la configuration et l'ombrage réel du toit.</p>`,
-    (c) => `<p class="mb-4 leading-relaxed">${c.quartiers.length >= 2 ? `Du centre de ${c.city} aux quartiers <strong>${c.quartiers.slice(0, 3).join(", ")}</strong>,` : `Sur toute la commune de ${c.city},`} nous analysons l'orientation, l'inclinaison et l'ombrage avant de fixer la puissance en kWc. Un chiffrage précis évite le surdimensionnement, principal poste de perte de rentabilité.</p>`,
-    (c) => `<p class="mb-4 leading-relaxed">Installateurs actifs dans le canton de ${c.cantonName} : ${c.quartiers.length >= 2 ? `nous suivons en priorité les zones de <strong>${c.quartiers.slice(0, 3).join(", ")}</strong>.` : "nous suivons les zones résidentielles de la commune."} Batterie physique ou virtuelle selon votre profil de consommation.</p>`,
-    (c) => `<p class="mb-4 leading-relaxed">${c.quartiers.length >= 2 ? `Déjà installés à <strong>${c.quartiers.slice(0, 3).join(", ")}</strong>.` : "Déjà installés sur la commune."} Montage du dossier de rétribution unique auprès de Pronovo, attestation de sécurité (NIBT) et mise en service par un électricien autorisé.</p>`,
-    (c) => `<p class="mb-4 leading-relaxed">${c.quartiers.length >= 2 ? `Secteurs couverts : <strong>${c.quartiers.slice(0, 3).join(", ")}</strong> et environs.` : "Couverture communale complète."} Suivi de production après mise en service, pour détecter immédiatement toute baisse de rendement anormale.</p>`,
+    (c) => `<p class="mb-4 leading-relaxed">${c.zones.length >= 2 ? `Nos partenaires installateurs interviennent à ${c.city} et dans les communes voisines : <strong>${c.zones.slice(0, 3).join(", ")}</strong>.` : "Nos partenaires installateurs couvrent la commune et les communes voisines."} Étude de toiture, dimensionnement, montage du dossier Pronovo, raccordement et mise en service.</p>`,
+    (c) => `<p class="mb-4 leading-relaxed">${c.zones.length >= 2 ? `Interventions régulières à <strong>${c.zones.slice(0, 3).join(", ")}</strong>.` : "Interventions régulières sur la commune."} Modules N-Type TOPCon ou biverre, onduleur centralisé ou micro-onduleurs selon la configuration et l'ombrage réel du toit.</p>`,
+    (c) => `<p class="mb-4 leading-relaxed">${c.zones.length >= 2 ? `À ${c.city} comme dans les communes voisines : <strong>${c.zones.slice(0, 3).join(", ")}</strong>,` : `Sur toute la commune de ${c.city},`} nous analysons l'orientation, l'inclinaison et l'ombrage avant de fixer la puissance en kWc. Un chiffrage précis évite le surdimensionnement, principal poste de perte de rentabilité.</p>`,
+    (c) => `<p class="mb-4 leading-relaxed">Installateurs actifs dans le canton de ${c.cantonName} : ${c.zones.length >= 2 ? `nous suivons en priorité les zones de <strong>${c.zones.slice(0, 3).join(", ")}</strong>.` : "nous suivons les zones résidentielles de la commune."} Batterie physique ou virtuelle selon votre profil de consommation.</p>`,
+    (c) => `<p class="mb-4 leading-relaxed">${c.zones.length >= 2 ? `Zones déjà couvertes par nos partenaires : <strong>${c.zones.slice(0, 3).join(", ")}</strong>.` : "Déjà installés sur la commune."} Montage du dossier de rétribution unique auprès de Pronovo, attestation de sécurité (NIBT) et mise en service par un électricien autorisé.</p>`,
+    (c) => `<p class="mb-4 leading-relaxed">${c.zones.length >= 2 ? `Secteurs couverts : <strong>${c.zones.slice(0, 3).join(", ")}</strong> et environs.` : "Couverture communale complète."} Suivi de production après mise en service, pour détecter immédiatement toute baisse de rendement anormale.</p>`,
 ];
 
 // ========================================
@@ -120,7 +121,7 @@ const TIPS: ((c: LocalContext) => string)[] = [
     (c) => `La rétribution unique de Pronovo est versée en une seule fois après la mise en service, sur la base de la puissance installée ; le dossier est monté par l'installateur avant les travaux.`,
     (c) => `Dans le canton de ${c.cantonName}, la rétribution fédérale est complétée selon le lieu par un programme cantonal ou communal : il faut vérifier les conditions avant de signer.`,
     (c) => `À ${c.city}, l'orientation et l'inclinaison réelles du toit pèsent plus lourd que la technologie des modules : une toiture mal orientée produira moins, même avec du matériel haut de gamme.`,
-    (c) => `${c.quartiers.length ? `Dans les secteurs de ${c.quartiers[0]} (${c.city}), ` : `À ${c.city}, `}un ombrage partiel en milieu de journée justifie souvent des micro-onduleurs plutôt qu'un onduleur centralisé, pour limiter la perte de l'ensemble de la chaîne.`,
+    (c) => `${c.zones.length ? `À ${c.city} comme dans les communes voisines : ${c.zones.slice(0, 2).join(" et ")}, ` : `À ${c.city}, `}un ombrage partiel en milieu de journée justifie souvent des micro-onduleurs plutôt qu'un onduleur centralisé, pour limiter la perte de l'ensemble de la chaîne.`,
     (c) => `${c.vent === "le foehn" ? `Face au foehn du ${c.cantonName}, les fixations de toiture doivent être calculées pour des pointes de vent élevées : cette vérification figure dans l'étude technique.` : `La ${c.vent.replace("la ", "")} sollicite mécaniquement les fixations à ${c.city} : le calepinage et l'ancrage doivent être calculés, pas improvisés.`}`,
     (c) => `La rentabilité d'une installation à ${c.city} se calcule sur 25 à 30 ans : un devis sérieux indique la production annuelle estimée, le taux d'autoconsommation et le temps de retour.`,
     (c) => `Le prix d'une installation en Suisse dépend surtout de la complexité de la toiture (échafaudage, accès, remplacement de couverture) plus que du prix des modules.`,
@@ -164,7 +165,7 @@ export async function getPseoContent(cityConfig: CityConfig, _targetType: string
     const intro_html = composeLocalIntro(
         {
             city: c.city, postal: c.npa, deptCode: c.cantonCode, deptName: c.cantonName,
-            region: "Suisse romande", prefecture: c.chefLieu, quartiers: c.quartiers,
+            region: "Suisse romande", prefecture: c.chefLieu, zones: c.zones,
             authority: "le gestionnaire de réseau de distribution local",
             montagne: c.neige,
         },
