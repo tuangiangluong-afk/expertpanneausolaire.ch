@@ -36,9 +36,9 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
   title: {
     template: "%s",
-    default: `Expert Panneau Solaire - Panneaux Photovoltaïques & Aides ${getCurrentYearSEO()}`,
+    default: `Panneaux solaires en Suisse | Aides ${getCurrentYearSEO()}`,
   },
-  description: `Installation de panneaux solaires photovoltaïques et autoconsommation en ${MARKET.country}. Installateurs porteurs du label ${MARKET.installerLabelShort}. Simulateur de ${MARKET.subsidyScheme} gratuit en 24h.`,
+  description: `Panneaux solaires et autoconsommation en ${MARKET.country}. Installateurs ${MARKET.installerLabelShort}. Devis et aides en 24h.`,
   metadataBase: new URL(baseUrl),
   alternates: {
     canonical: `${baseUrl}${path}`,

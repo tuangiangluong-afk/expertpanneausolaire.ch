@@ -3,6 +3,7 @@ import type { SolarBrand } from "@/data/solar-brands";
 import { CANTONS, cantonFromNpa } from "@/data/ch-cantons";
 import { MARKET, CH_FACTS } from "@/config/market";
 import { composeLocalIntro } from "@/lib/pseo-local";
+import { clampTitle, clampDescription } from "@/lib/seo-meta";
 
 /**
  * Production solaire réelle par canton (kWh/kWc/an) et contrainte locale.
@@ -186,8 +187,8 @@ export function getPseoSolaireContent(city: CityConfig, brand: SolarBrand): Pseo
     ];
 
     return {
-        meta_title,
-        meta_description,
+        meta_title: clampTitle(meta_title),
+        meta_description: clampDescription(meta_description),
         hero_title,
         intro_html,
         prix: brand.prix,
