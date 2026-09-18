@@ -2,6 +2,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Keep title, description and robots metadata in <head> for SEO crawlers.
+  htmlLimitedBots: /.*/,
   images: {
     minimumCacheTTL: 2592000, // 30 days
     formats: ['image/avif', 'image/webp'],
