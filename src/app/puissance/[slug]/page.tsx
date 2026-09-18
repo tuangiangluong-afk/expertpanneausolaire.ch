@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 
     const canonicalUrl = `${BASE_URL}/puissance/${slug}`;
     return {
-        title: `Installation Panneaux Solaires ${p.puissance} : Prix & Production | Expert Panneau Solaire`,
+        title: `Solaire ${p.puissance} : prix & production`,
         description: `Installation photovoltaïque ${p.puissance} : ${p.panneaux}, ${p.surface} de toiture, ${p.production}. ${p.prix} avant aides. Devis gratuit sous 24h.`,
         alternates: { canonical: canonicalUrl },
         openGraph: {

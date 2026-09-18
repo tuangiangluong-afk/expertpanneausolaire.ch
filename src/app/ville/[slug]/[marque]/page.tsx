@@ -4,6 +4,7 @@ import { SOLAR_BRANDS, getSolarBrandBySlug } from "@/data/solar-brands";
 import { slugify } from "@/lib/slugify";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { clampTitle, clampDescription } from "@/lib/seo-meta";
 import { getPseoSolaireContent } from "@/lib/pseo-solaire";
 import SolaireContentPage from "@/components/SolaireContentPage";
 
@@ -31,12 +32,12 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     const canonicalUrl = `https://www.expertpanneausolaire.ch/ville/${slug}/${marqueSlug}`;
 
     return {
-        title: pseo.meta_title,
-        description: pseo.meta_description,
+        title: clampTitle(pseo.meta_title),
+        description: clampDescription(pseo.meta_description),
         alternates: { canonical: canonicalUrl },
         openGraph: {
-            title: pseo.meta_title,
-            description: pseo.meta_description,
+            title: clampTitle(pseo.meta_title),
+            description: clampDescription(pseo.meta_description),
             locale: "fr_FR",
             type: "website",
             url: canonicalUrl,

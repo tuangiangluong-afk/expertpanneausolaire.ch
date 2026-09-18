@@ -6,6 +6,7 @@ import { getPseoContent } from "@/lib/pseo";
 import { CheckCircle, Zap, TrendingDown, Home, Building2, Briefcase, Award, ArrowRight, Shield, Calendar } from "lucide-react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { clampTitle, clampDescription } from "@/lib/seo-meta";
 import Image from "next/image";
 import Link from "next/link";
 import LeadForm from "@/components/LeadForm";
@@ -44,8 +45,8 @@ export async function generateMetadata({
     const pseo = await getPseoContent(site);
 
     return {
-        title: pseo.meta_title,
-        description: pseo.meta_description,
+        title: clampTitle(pseo.meta_title),
+        description: clampDescription(pseo.meta_description),
         // Canonical is handled by root layout.tsx
         alternates: {
             canonical: `https://www.expertpanneausolaire.ch/ville/${resolvedParams.slug}`,
@@ -55,8 +56,8 @@ export async function generateMetadata({
             },
         },
         openGraph: {
-            title: pseo.meta_title,
-            description: pseo.meta_description,
+            title: clampTitle(pseo.meta_title),
+            description: clampDescription(pseo.meta_description),
             siteName: site.name,
             images: [
                 {

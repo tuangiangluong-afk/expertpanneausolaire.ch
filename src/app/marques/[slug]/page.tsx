@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 
     const canonicalUrl = `${BASE_URL}/marques/${slug}`;
     return {
-        title: `Panneaux Solaires ${marque.name} : Prix, Avis & Installation | Expert Panneau Solaire`,
+        title: `Solaire ${marque.name} : prix & avis`,
         description: `Installation de panneaux solaires ${marque.name} (${marque.modeles.join(", ")}) par des installateurs Les Pros du Solaire. ${marque.prix} avant aides. Devis gratuit sous 24h.`,
         alternates: { canonical: canonicalUrl },
         openGraph: {

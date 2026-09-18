@@ -610,7 +610,7 @@ export default function LeadForm({
                             </button>
 
                             <p className="text-xs text-slate-400 text-center mt-4 px-4 leading-relaxed">
-                                En cliquant sur ce bouton, vous acceptez nos <Link href="/cgv" className="underline hover:text-amber-600">CGV</Link> et acceptez d&apos;être recontacté par nos experts Les Pros du Solaire partenaires pour votre projet solaire.
+                                En cliquant sur ce bouton, vous acceptez nos <Link href="/home/cgv" className="underline hover:text-amber-600">CGV</Link> et acceptez d&apos;être recontacté par nos experts Les Pros du Solaire partenaires pour votre projet solaire.
                             </p>
                         </div>
                     )}

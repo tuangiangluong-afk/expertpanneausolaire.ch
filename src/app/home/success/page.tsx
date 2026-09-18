@@ -74,7 +74,7 @@ export default async function SuccessPage({ searchParams }: PageProps) {
                     <span className="text-lg font-bold text-slate-900">{siteName}</span>
                 </Link>
                 <Link
-                    href="/contact"
+                    href="/home/contact"
                     className="text-sm font-medium text-slate-600 hover:text-amber-600 transition-colors"
                 >
                     Centre d&apos;aide

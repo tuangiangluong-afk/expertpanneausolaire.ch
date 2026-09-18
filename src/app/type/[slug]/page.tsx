@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 
     const canonicalUrl = `${BASE_URL}/type/${slug}`;
     return {
-        title: `${type.name} : Prix, Aides & Installation | Expert Panneau Solaire`,
+        title: `${type.name} : prix & aides`,
         description: `${type.name} : ${type.prix} fourniture et pose, ${type.aides}. Installateurs certifiés Les Pros du Solaire. Devis gratuit sous 24h.`,
         alternates: { canonical: canonicalUrl },
         openGraph: {
