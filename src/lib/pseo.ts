@@ -145,7 +145,7 @@ function measuredLocalParagraph(c: LocalContext, local: LocalFacts | undefined):
         items.push(`le rayonnement horizontal reçu atteint ${local.sunKwh.toLocaleString("fr-FR")} kWh/m² par an`);
     }
     if (local.tminJan !== null) {
-        items.push(`le minimum moyen de janvier y est de ${local.tminJan.toLocaleString("fr-FR")} °C`);
+        items.push(`la température de base hivernale y est de ${local.tminJan.toLocaleString("fr-FR")} °C`);
     }
     if (items.length === 0) return "";
     return `<p class="leading-relaxed">Données locales : à ${c.city}, ${joinFr(items)}. Ces valeurs déterminent le dimensionnement de l'onduleur et l'intérêt réel du stockage en autoconsommation.</p>`;
@@ -228,7 +228,7 @@ export async function getPseoContent(cityConfig: CityConfig, _targetType: string
         if (local.pvSlope) local_facts.push({ label: "Inclinaison optimale", value: `${local.pvSlope}°` });
         if (local.pvSun) local_facts.push({ label: "Irradiation dans le plan", value: `${local.pvSun.toLocaleString("fr-FR")} kWh/m²/an` });
         if (local.sunKwh !== null) local_facts.push({ label: "Rayonnement horizontal", value: `${local.sunKwh.toLocaleString("fr-FR")} kWh/m²/an` });
-        if (local.tminJan !== null) local_facts.push({ label: "Minimum moyen de janvier", value: `${local.tminJan.toLocaleString("fr-FR")} °C` });
+        if (local.tminJan !== null) local_facts.push({ label: "Température de base hivernale", value: `${local.tminJan.toLocaleString("fr-FR")} °C` });
         if (local.rainMm !== null) local_facts.push({ label: "Précipitations annuelles", value: `${local.rainMm.toLocaleString("fr-FR")} mm` });
         if (local.windDir) local_facts.push({ label: "Vent dominant", value: `${local.windDir} — ${(local.windKmh ?? 0).toLocaleString("fr-FR")} km/h` });
     }
