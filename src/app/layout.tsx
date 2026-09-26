@@ -118,6 +118,10 @@ export default function RootLayout({
       <body
         className={`${inter.variable} font-sans antialiased bg-neutral-900 text-neutral-50`}
       >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://www.expertpanneausolaire.ch/#organization", "name": "Expert Panneau Solaire Suisse", "url": "https://www.expertpanneausolaire.ch", "logo": {"@type": "ImageObject", "url": "https://www.expertpanneausolaire.ch/favicon.ico"}, "sameAs": ["https://www.youtube.com/@Expertpanneausolaire", "https://www.instagram.com/expertpanneausolaire", "https://www.tiktok.com/@expertpanneausolaire", "https://www.facebook.com/expertpanneausolaire"]}, {"@type": "WebSite", "@id": "https://www.expertpanneausolaire.ch/#website", "url": "https://www.expertpanneausolaire.ch", "name": "Expert Panneau Solaire Suisse", "inLanguage": "fr", "publisher": {"@id": "https://www.expertpanneausolaire.ch/#organization"}}, {"@type": "WebPage", "@id": "https://www.expertpanneausolaire.ch/#webpage", "url": "https://www.expertpanneausolaire.ch", "name": "Expert Panneau Solaire Suisse", "isPartOf": {"@id": "https://www.expertpanneausolaire.ch/#website"}, "about": {"@id": "https://www.expertpanneausolaire.ch/#organization"}, "publisher": {"@id": "https://www.expertpanneausolaire.ch/#organization"}, "datePublished": "2026-09-15T00:00:00Z", "dateModified": "2026-09-26T00:00:00Z"}]}).replace(/</g, '\\u003c') }}
+      />
         <Script src="https://answershaper.com/api/v1/m2m/local-tag/26.js" strategy="lazyOnload" defer />
         <StructuredData />
         <GoogleAnalytics GA_MEASUREMENT_ID="G-ZLY874WBJ2" />
