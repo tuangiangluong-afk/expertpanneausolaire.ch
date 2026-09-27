@@ -36,7 +36,7 @@ export default function HomePage() {
     }));
 
     return (
-        <div className="min-h-screen font-sans text-slate-900 bg-white">
+        <div role="main" className="min-h-screen font-sans text-slate-900 bg-white">
             {/* NAVIGATION - Amber theme */}
             <Header isHub={true} variant="default" themeColor="amber" />
 
