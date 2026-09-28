@@ -2,10 +2,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Keep title, description and robots metadata in <head> for SEO crawlers.
-  htmlLimitedBots: /.*/,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production" ? { exclude: ["error"] } : false,
+  },
   images: {
-    minimumCacheTTL: 2592000, // 30 days
+    minimumCacheTTL: 31536000,
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       {

@@ -302,7 +302,7 @@ export default function LeadForm({
                     </div>
                     <div>
                         <h3 className="font-bold text-lg">Simulateur Solaire 2026</h3>
-                        <p className="text-slate-700 text-sm">Rentabilité & Primes à l&apos;Autoconsommation</p>
+                        <p className="text-slate-700 text-sm">Rentabilité & Primes à l&apos;Autoconsommation<span className="sr-only">.</span></p>
                     </div>
                 </div>
 

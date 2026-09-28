@@ -36,9 +36,10 @@ export default function HomePage() {
     }));
 
     return (
-        <div role="main" className="min-h-screen font-sans text-slate-900 bg-white">
+        <div className="min-h-screen font-sans text-slate-900 bg-white">
             {/* NAVIGATION - Amber theme */}
             <Header isHub={true} variant="default" themeColor="amber" />
+            <main>
 
             {/* HERO */}
             <section className="relative pt-20 pb-12 lg:pt-24 lg:pb-32 overflow-hidden bg-slate-50">
@@ -82,7 +83,7 @@ export default function HomePage() {
                                     <div className="p-1 bg-gradient-to-r from-amber-500 to-yellow-400"></div>
                                     <div className="p-6 md:p-8">
                                         <div className="mb-6">
-                                            <h3 className="text-lg font-bold text-slate-900">Simuler mes subventions &amp; Gains Solaires</h3>
+                                            <h3 className="text-lg font-bold text-slate-900">Simuler mes subventions &amp; Gains Solaires<span className="sr-only">.</span></h3>
                                             <p className="text-sm text-slate-500">Gratuit • Sans engagement • Résultats en 2 min</p>
                                         </div>
                                         <LeadForm
@@ -154,7 +155,7 @@ export default function HomePage() {
                         </div>
                         <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
                             Abonnement Classique vs Autoconsommation Solaire
-                        </h2>
+                        <span className="sr-only">.</span></h2>
                         <p className="text-slate-600 text-lg max-w-2xl mx-auto">
                             Reprenez le contrôle de votre facture d&apos;énergie face à l&apos;augmentation continue des tarifs de l&apos;électricité.
                         </p>
@@ -170,7 +171,7 @@ export default function HomePage() {
                                             <span className="text-2xl">🔌</span>
                                         </div>
                                         <div>
-                                            <h3 className="font-bold text-lg text-red-900">Réseau Traditionnel</h3>
+                                            <h3 className="font-bold text-lg text-red-900">Réseau Traditionnel<span className="sr-only">.</span></h3>
                                             <p className="text-sm text-red-600">Dépendance Énergétique</p>
                                         </div>
                                     </div>
@@ -200,7 +201,7 @@ export default function HomePage() {
                                             <Sun className="text-amber-600" size={24} />
                                         </div>
                                         <div>
-                                            <h3 className="font-bold text-lg text-green-900">Autoconsommation</h3>
+                                            <h3 className="font-bold text-lg text-green-900">Autoconsommation<span className="sr-only">.</span></h3>
                                             <p className="text-sm text-green-600">Production Locale</p>
                                         </div>
                                     </div>
@@ -243,7 +244,7 @@ export default function HomePage() {
                     <div className="text-center mb-12">
                         <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
                             Nos installateurs par ville
-                        </h2>
+                        <span className="sr-only">.</span></h2>
                         <p className="text-slate-600 text-lg">
                             Trouvez un installateur du label Les Pros du Solaire près de chez vous
                         </p>
@@ -266,7 +267,7 @@ export default function HomePage() {
                 <div className="container mx-auto px-4 text-center">
                     <h2 className="text-3xl sm:text-4xl font-bold mb-6">
                         Commencez à produire votre propre électricité
-                    </h2>
+                    <span className="sr-only">.</span></h2>
                     <p className="text-slate-400 text-lg mb-8 max-w-xl mx-auto">
                         Faites le test d&apos;ensoleillement de votre toit en 2 minutes et recevez vos devis gratuits.
                     </p>
@@ -293,7 +294,7 @@ export default function HomePage() {
                                 </span>
                                 <h3 className="text-2xl font-bold text-slate-900">
                                     Augmentez votre autoconsommation grâce à votre propre électricité solaire
-                                </h3>
+                                <span className="sr-only">.</span></h3>
                                 <p className="text-slate-600 text-sm leading-relaxed">
                                     Associer production solaire, stockage et usages électriques peut augmenter l&apos;autoconsommation ; le résultat dépend du profil de consommation, de l&apos;orientation et du dimensionnement.
                                 </p>
@@ -313,6 +314,7 @@ export default function HomePage() {
             </section>
 
             {/* Footer */}
+            </main>
             <Footer config={hub} />
 
             {/* Mobile Sticky CTA */}

@@ -210,7 +210,7 @@ export default function SolaireContentPage({
                     <div className="max-w-3xl mx-auto bg-white p-8 rounded-3xl shadow-xl border border-slate-100">
                         <div className="text-center mb-10">
                             <h2 className="text-3xl font-bold text-slate-900 mb-4">Votre devis gratuit en 2 min</h2>
-                            <p className="text-slate-600">Estimation immédiate de vos aides et du coût d&apos;installation</p>
+                            <p className="text-slate-600">Estimation immédiate de vos aides et du coût d&apos;installation<span className="sr-only">.</span></p>
                         </div>
                         <LeadForm city={site.city} domain="expertpanneausolaire.ch" targetType="MIXED" themeColor={themeColor} />
                     </div>

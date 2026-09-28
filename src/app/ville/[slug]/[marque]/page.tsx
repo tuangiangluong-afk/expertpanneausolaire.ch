@@ -10,11 +10,15 @@ import SolaireContentPage from "@/components/SolaireContentPage";
 
 type Params = Promise<{ slug: string; marque: string }>;
 
-// Generate all combinations of City x Marque
+export const dynamicParams = true;
+
+// Pre-render top 6 combinations at build time; others are generated on-demand (ISR 24h)
 export async function generateStaticParams() {
     const params: { slug: string; marque: string }[] = [];
-    Object.values(CITIES).forEach((city) => {
-        SOLAR_BRANDS.forEach((marque) => {
+    const topCities = Object.values(CITIES).slice(0, 3);
+    const topMarques = SOLAR_BRANDS.slice(0, 2);
+    topCities.forEach((city) => {
+        topMarques.forEach((marque) => {
             params.push({ slug: slugify(city.city), marque: marque.slug });
         });
     });
