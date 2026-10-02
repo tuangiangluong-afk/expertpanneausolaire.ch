@@ -10,8 +10,10 @@ function GooglePreferredSourceButton() {
     return <a href="https://www.google.com/preferences/source?q=expertpanneausolaire.ch" target="_blank" rel="noopener noreferrer" aria-label="Ajouter aux sources préférées Google" className="inline-flex items-center gap-3 rounded-xl border-2 bg-neutral-800 text-white border-yellow-400 hover:bg-yellow-700 px-4 py-3 font-bold transition hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-current/30"><span aria-hidden="true" className="grid h-8 w-8 place-items-center rounded-full bg-white text-xl font-black text-[#4285F4]">G</span><span>Ajouter aux sources préférées Google</span></a>;
 }
 
+import { NATIONAL_CONFIG } from "@/config/national";
+
 interface FooterProps {
-    config: CityConfig | SiteConfig;
+    config?: CityConfig | SiteConfig;
 }
 
 function InstagramIcon({ className = "w-5 h-5" }: { className?: string }) {
@@ -53,7 +55,7 @@ const SOCIAL_NETWORKS = {
     facebook: "https://www.facebook.com/expertpanneausolaire"
 };
 
-export function Footer({ config }: FooterProps) {
+export function Footer({ config = NATIONAL_CONFIG }: FooterProps) {
     if (!config) return null;
 
     const neighborhoods = (config as any).neighborhoods || (config as any).quartiers || [];

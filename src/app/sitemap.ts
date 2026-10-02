@@ -6,6 +6,7 @@ import { SOLAR_BRANDS } from '@/data/solar-brands';
 import { SOLAR_TYPES } from '@/data/solar-types';
 import { SOLAR_PUISSANCES } from '@/data/solar-puissances';
 import { SOLAR_COMPARATIFS } from '@/data/solar-comparatifs';
+import { SOLAR_OPERATORS } from '@/data/operators';
 import { createClient } from '@supabase/supabase-js';
 
 // Base URL (Hub)
@@ -21,6 +22,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             lastModified: new Date(),
             changeFrequency: 'daily',
             priority: 1,
+        },
+        {
+            url: `${BASE_URL}/operateurs`,
+            lastModified: new Date(),
+            changeFrequency: 'daily',
+            priority: 0.95,
+        },
+        {
+            url: `${BASE_URL}/marques`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.9,
+        },
+        {
+            url: `${BASE_URL}/comparatifs`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.9,
         },
         {
             url: `${BASE_URL}/guides`,
@@ -142,7 +161,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.85,
     }));
 
-    return [...routes, ...guideRoutes, ...blogRoutes, ...cityRoutes, ...cityMarqueRoutes, ...marquesRoutes, ...typeRoutes, ...puissanceRoutes, ...comparatifRoutes].map(item => ({
+    // 10. Operateurs
+    const operateursRoutes: MetadataRoute.Sitemap = SOLAR_OPERATORS.map((op) => ({
+        url: `${BASE_URL}/operateurs/${op.slug}`,
+        lastModified: new Date(op.updatedAt),
+        changeFrequency: 'weekly' as const,
+        priority: 0.85,
+    }));
+
+    return [...routes, ...guideRoutes, ...blogRoutes, ...cityRoutes, ...cityMarqueRoutes, ...marquesRoutes, ...typeRoutes, ...puissanceRoutes, ...comparatifRoutes, ...operateursRoutes].map(item => ({
         ...item,
         url: item.url.toLowerCase()
     }));

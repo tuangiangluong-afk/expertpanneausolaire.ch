@@ -19,10 +19,26 @@ import InstallationSteps from "@/components/InstallationSteps";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import FloatingCTA from "@/components/FloatingCTA";
 
+import { ogImageUrl } from "@/lib/seo-meta";
+
 export const metadata: Metadata = {
-    title: "Installateur panneaux solaires en Suisse romande",
-    description: "Comparez les installateurs photovoltaïques en Suisse romande. Simulation d'autoconsommation et devis gratuits.",
-    keywords: ["installateur panneaux solaires", "panneaux solaires photovoltaïques", "simulation solaire", "devis panneau solaire", "autoconsommation photovoltaïque", "Les Pros du Solaire", "panneau solaire maison prix", "panneau solaire rentable ou pas", "combien de panneaux solaires pour une maison", "rétribution unique 2026", "panneau solaire 3kw prix", "panneau solaire 6kw prix", "panneau solaire 9kw prix", "installateur panneau solaire Suisse près de chez moi", "reprise du surplus photovoltaïque gestionnaire de réseau", "kit panneau solaire autoconsommation"],
+    title: "Installateur Panneaux Solaires Suisse Romande : Devis & Rétribution Pronovo 2026",
+    description: "Comparez les installateurs photovoltaïques certifiés Les Pros du Solaire en Suisse romande. Simulation d'autoconsommation, calcul Pronovo et devis sous 24h.",
+    keywords: ["installateur panneaux solaires suisse", "photovoltaique suisse romande", "rétribution unique pronovo", "autoconsommation suisse", "les pros du solaire", "devis panneau solaire suisse"],
+    openGraph: {
+        title: "Installateur Panneaux Solaires Suisse Romande | Expert Panneau Solaire",
+        description: "Comparez les installateurs photovoltaïques certifiés en Suisse romande. Simulation d'autoconsommation, calcul Pronovo et devis sous 24h.",
+        images: [{
+            url: ogImageUrl({
+                title: "Expert Panneau Solaire Suisse",
+                badge: "Photovoltaïque & Autoconsommation 2026",
+                description: "Subventions Pronovo • Normes OIBT / ESTI • 12 Installateurs Audités",
+            }),
+            width: 1200,
+            height: 630,
+            alt: "Expert Panneau Solaire Suisse",
+        }],
+    },
 };
 
 export default function HomePage() {
@@ -258,6 +274,88 @@ export default function HomePage() {
 
                     <div className="mb-16">
                         <CityCards cities={cities} themeColor="gold" />
+                    </div>
+                </div>
+            </section>
+
+            {/* BASE DE CONNAISSANCES & CLUSTERS */}
+            <section className="py-16 bg-slate-50 border-t border-slate-200">
+                <div className="container mx-auto px-4 max-w-6xl">
+                    <div className="text-center max-w-3xl mx-auto mb-12">
+                        <span className="text-xs font-bold text-amber-700 bg-amber-100/80 px-3 py-1 rounded-full uppercase tracking-wider">
+                            Ressources & Guides Marché Suisse 2026
+                        </span>
+                        <h2 className="text-3xl font-extrabold text-slate-900 mt-3">
+                            Base de Connaissances Photovoltaïque en Suisse Romande
+                        </h2>
+                        <p className="text-slate-600 text-sm sm:text-base mt-2">
+                            Consultez nos comparatifs impartiaux, le palmarès des installateurs audités et le répertoire des marques certifiées.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {/* Hub 1: Operateurs */}
+                        <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:border-amber-400 hover:shadow-md transition">
+                            <div>
+                                <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold mb-4">
+                                    <ShieldCheck className="w-5 h-5" />
+                                </div>
+                                <h3 className="text-lg font-bold text-slate-900 mb-2">
+                                    Top 12 Installateurs Solaires
+                                </h3>
+                                <p className="text-xs text-slate-600 leading-relaxed mb-4">
+                                    Helion, Solstis, Romande Energie, Groupe E, SIG, Soleol... Tarifs au kWc, délais, marges et certification Pronovo.
+                                </p>
+                            </div>
+                            <Link
+                                href="/operateurs"
+                                className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-600 hover:text-amber-700 pt-3 border-t border-slate-100"
+                            >
+                                Voir les 12 installateurs <ArrowRight className="w-3.5 h-3.5" />
+                            </Link>
+                        </div>
+
+                        {/* Hub 2: Marques */}
+                        <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:border-amber-400 hover:shadow-md transition">
+                            <div>
+                                <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold mb-4">
+                                    <Sun className="w-5 h-5" />
+                                </div>
+                                <h3 className="text-lg font-bold text-slate-900 mb-2">
+                                    Marques & Onduleurs
+                                </h3>
+                                <p className="text-xs text-slate-600 leading-relaxed mb-4">
+                                    DualSun (fabrication suisse), SunPower Maxeon, Q Cells, SolarEdge, micro-onduleurs Enphase : rendements et garanties.
+                                </p>
+                            </div>
+                            <Link
+                                href="/marques"
+                                className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-600 hover:text-amber-700 pt-3 border-t border-slate-100"
+                            >
+                                Explorer les marques <ArrowRight className="w-3.5 h-3.5" />
+                            </Link>
+                        </div>
+
+                        {/* Hub 3: Comparatifs */}
+                        <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:border-amber-400 hover:shadow-md transition">
+                            <div>
+                                <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold mb-4">
+                                    <Zap className="w-5 h-5" />
+                                </div>
+                                <h3 className="text-lg font-bold text-slate-900 mb-2">
+                                    Comparatifs Décisionnels
+                                </h3>
+                                <p className="text-xs text-slate-600 leading-relaxed mb-4">
+                                    6 duels techniques : DualSun vs Q Cells, batterie rentable ou non, Enphase vs SolarEdge, autoconsommation vs revente.
+                                </p>
+                            </div>
+                            <Link
+                                href="/comparatifs"
+                                className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-600 hover:text-amber-700 pt-3 border-t border-slate-100"
+                            >
+                                Consulter les comparatifs <ArrowRight className="w-3.5 h-3.5" />
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </section>

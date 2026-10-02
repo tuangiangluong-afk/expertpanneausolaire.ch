@@ -39,19 +39,12 @@ export default function Header({
     const hoverClass = hoverColors[themeColor] || "hover:text-blue-500";
 
     const navLinks = [
-        {
-                "href": "/blog/subvention-pronovo-retribution-unique-kleiv-montants-2026",
-                "text": "Subventions Pronovo"
-        },
-        {
-                "href": "/blog/rentabilite-panneaux-solaires-suisse-romande-calcul-tri-chf",
-                "text": "Rentabilité CHF"
-        },
-        {
-                "href": "/blog",
-                "text": "Guides & Blog"
-        }
-];
+        { href: "/operateurs", text: "Installateurs" },
+        { href: "/marques", text: "Marques" },
+        { href: "/comparatifs", text: "Comparatifs" },
+        { href: "/guides", text: "Guides & Aides" },
+        { href: "/blog", text: "Actualités" },
+    ];
 
     const pathname = usePathname();
 
@@ -109,8 +102,7 @@ export default function Header({
 
                     {/* Badge label (Desktop) */}
                     <div className="hidden lg:flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 px-3 py-1.5 rounded-full">
-                        <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
-                        <span className="text-xs font-bold text-amber-700">Artisan Les Pros du Solaire</span>
+                        <span className="text-xs font-semibold text-amber-700">Pros du Solaire • Agréé Pronovo</span>
                     </div>
 
                     {/* CTA Devis (Replaces Phone) - Hidden on mobile to avoid redundancy with sticky CTA */}
