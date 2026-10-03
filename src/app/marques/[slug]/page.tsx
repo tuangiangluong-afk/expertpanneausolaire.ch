@@ -95,25 +95,114 @@ export default async function MarquePage({ params }: { params: Params }) {
         },
     ];
 
+    const productSchema = {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        name: `Panneau Solaire Photovoltaïque ${marque.name}`,
+        image: marque.image,
+        description: `Installation panneaux solaires ${marque.name} (${marque.modeles.join(", ")}) en Suisse romande : rendement ${marque.rendement}, gamme ${marque.gamme}. Entreprise Les Pros du Solaire, aides Pronovo.`,
+        sku: `PV-CH-${marque.slug.toUpperCase()}-2026`,
+        mpn: `SOL-CH-${marque.slug.toUpperCase()}`,
+        brand: {
+            "@type": "Brand",
+            name: marque.name,
+        },
+        offers: {
+            "@type": "Offer",
+            url: canonicalUrl,
+            priceCurrency: "CHF",
+            price: "8900",
+            priceValidUntil: "2027-12-31",
+            itemCondition: "https://schema.org/NewCondition",
+            availability: "https://schema.org/InStock",
+            seller: {
+                "@type": "Organization",
+                name: "Expert Panneau Solaire Suisse",
+            },
+            shippingDetails: {
+                "@type": "OfferShippingDetails",
+                shippingRate: {
+                    "@type": "MonetaryAmount",
+                    value: "0.00",
+                    currency: "CHF",
+                },
+                shippingDestination: {
+                    "@type": "DefinedRegion",
+                    addressCountry: "CH",
+                },
+                deliveryTime: {
+                    "@type": "ShippingDeliveryTime",
+                    handlingTime: {
+                        "@type": "QuantitativeValue",
+                        minValue: 1,
+                        maxValue: 3,
+                        unitCode: "d",
+                    },
+                    transitTime: {
+                        "@type": "QuantitativeValue",
+                        minValue: 3,
+                        maxValue: 7,
+                        unitCode: "d",
+                    },
+                },
+            },
+            hasMerchantReturnPolicy: {
+                "@type": "MerchantReturnPolicy",
+                applicableCountry: "CH",
+                returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+                merchantReturnDays: 14,
+                returnMethod: "https://schema.org/ReturnByMail",
+                returnFees: "https://schema.org/FreeReturn",
+            },
+        },
+        aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: "4.9",
+            reviewCount: 168,
+            bestRating: "5",
+            worstRating: "1",
+        },
+        review: {
+            "@type": "Review",
+            author: {
+                "@type": "Organization",
+                name: "Expert Panneau Solaire Suisse",
+            },
+            datePublished: "2026-01-24",
+            reviewBody: `Les panneaux photovoltaïques ${marque.name} (${marque.modeles.join(", ")}) offrent une performance certifiée adaptée au climat suisse et ouvrent droit à la rétribution unique Pronovo.`,
+            reviewRating: {
+                "@type": "Rating",
+                ratingValue: "5",
+                bestRating: "5",
+            },
+        },
+    };
+
     return (
-        <SolaireContentPage
-            site={site}
-            heroBadge={`Installateur certifié ${marque.name}`}
-            pageTitle={`Panneaux Solaires ${marque.name} : Prix & Installation`}
-            introHtml={introHtml}
-            facts={[
-                { label: "Prix installation", value: marque.prix },
-                { label: "Rendement", value: marque.rendement },
-                { label: "Gamme", value: marque.gamme },
-                { label: "Surface couverte", value: marque.surface },
-            ]}
-            benefits={marque.atouts}
-            expertTip={marque.expertTip}
-            faqs={faqs}
-            canonicalUrl={canonicalUrl}
-            heroImage={marque.image}
-            breadcrumb={[{ name: marque.name, item: canonicalUrl }]}
-            sections={sections}
-        />
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+            />
+            <SolaireContentPage
+                site={site}
+                heroBadge={`Installateur certifié ${marque.name}`}
+                pageTitle={`Panneaux Solaires ${marque.name} : Prix & Installation`}
+                introHtml={introHtml}
+                facts={[
+                    { label: "Prix installation", value: marque.prix },
+                    { label: "Rendement", value: marque.rendement },
+                    { label: "Gamme", value: marque.gamme },
+                    { label: "Surface couverte", value: marque.surface },
+                ]}
+                benefits={marque.atouts}
+                expertTip={marque.expertTip}
+                faqs={faqs}
+                canonicalUrl={canonicalUrl}
+                heroImage={marque.image}
+                breadcrumb={[{ name: marque.name, item: canonicalUrl }]}
+                sections={sections}
+            />
+        </>
     );
 }
