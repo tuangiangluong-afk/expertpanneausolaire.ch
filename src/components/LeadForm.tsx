@@ -47,8 +47,8 @@ interface FormData {
     phoneConsent?: boolean;
 }
 
-const FRENCH_PHONE_REGEX = /^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/;
-const ZIP_CODE_REGEX = /^\d{5}$/;
+const SWISS_PHONE_REGEX = /^(?:(?:\+|00)41|0)\s*[1-9](?:[\s.-]*\d{1,4}){2,4}$|^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/;
+const ZIP_CODE_REGEX = /^\d{4,5}$/;
 
 export default function LeadForm({
     city,
@@ -103,6 +103,11 @@ export default function LeadForm({
             }
         }
         setFormData(prev => ({ ...prev, [field]: value }));
+        if (step < totalSteps) {
+            setTimeout(() => {
+                setStep(s => (s < totalSteps ? s + 1 : s));
+            }, 260);
+        }
     };
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -126,7 +131,7 @@ export default function LeadForm({
                     formData.email.includes("@") &&
                     ZIP_CODE_REGEX.test(formData.zipCode.trim()) &&
                     formData.phone.trim() !== "" &&
-                    FRENCH_PHONE_REGEX.test(formData.phone.replace(/\s/g, '')) && formData.phoneConsent === true
+                    SWISS_PHONE_REGEX.test(formData.phone.replace(/\s/g, '')) && formData.phoneConsent === true
                 );
             default: return false;
         }
@@ -150,9 +155,10 @@ export default function LeadForm({
             setStatus('error');
             const errors = [];
             if (formData.name.trim() === "") errors.push("votre Nom");
-            if (!ZIP_CODE_REGEX.test(formData.zipCode.trim())) errors.push("un Code Postal valide");
+            if (!ZIP_CODE_REGEX.test(formData.zipCode.trim())) errors.push("un Code Postal suisse valide (4 chiffres)");
             if (!formData.email.includes("@")) errors.push("un Email valide");
-            if (formData.phone.trim() === "" || !FRENCH_PHONE_REGEX.test(formData.phone.replace(/\s/g, '')) && formData.phoneConsent === true) errors.push("un Numéro de téléphone valide");
+            if (formData.phone.trim() === "" || !SWISS_PHONE_REGEX.test(formData.phone.replace(/\s/g, ''))) errors.push("un Numéro de téléphone valide (ex: 079 123 45 67)");
+            if (!formData.phoneConsent) errors.push("votre consentement d'appel technique");
             
             setErrorMessage(`Veuillez renseigner : ${errors.join(', ')}.`);
             return;
@@ -479,14 +485,14 @@ export default function LeadForm({
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
                                     <label className="flex items-center gap-2 text-sm font-medium text-neutral-700 mb-2">
-                                        Code Postal du projet
+                                        NPA / Code Postal
                                     </label>
                                     <input
                                         type="text"
                                         name="zipCode"
                                         value={formData.zipCode}
                                         onChange={handleInputChange}
-                                        placeholder="75000"
+                                        placeholder="1201 ou 1000"
                                         maxLength={5}
                                         className="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition outline-none"
                                     />
@@ -501,7 +507,7 @@ export default function LeadForm({
                                         name="email"
                                         value={formData.email}
                                         onChange={handleInputChange}
-                                        placeholder="jean.dupont@email.com"
+                                        placeholder="jean.dupont@bluewin.ch"
                                         className="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition outline-none"
                                     />
                                 </div>
@@ -517,12 +523,12 @@ export default function LeadForm({
                                     name="phone"
                                     value={formData.phone}
                                     onChange={handleInputChange}
-                                    placeholder="06 12 34 56 78"
+                                    placeholder="079 123 45 67 ou +41 22 345 67 89"
                                     className="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition outline-none"
                                 />
-                                {formData.phone && !FRENCH_PHONE_REGEX.test(formData.phone.replace(/\s/g, '')) && (
+                                {formData.phone && !SWISS_PHONE_REGEX.test(formData.phone.replace(/\s/g, '')) && (
                                     <p className="text-xs text-red-500 mt-1">
-                                        Format de téléphone invalide (Ex: 0612345678)
+                                        Format de téléphone suisse invalide (Ex: 079 123 45 67 ou +41 79 123 45 67)
                                     </p>
                                 )}
                             </div>
