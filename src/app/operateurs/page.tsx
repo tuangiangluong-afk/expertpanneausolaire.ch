@@ -7,7 +7,7 @@ import { Footer } from "@/components/Footer";
 import { clampTitle, clampDescription, ogImageUrl } from "@/lib/seo-meta";
 import { ShieldCheck, Star, Award, CheckCircle2, AlertTriangle, ArrowRight, Zap, TrendingUp, Info } from "lucide-react";
 
-export const revalidate = 86400;
+export const revalidate = 604800; // 7 days ISR cache
 
 const pageTitle = clampTitle("Top 12 Installateurs Panneaux Solaires Suisse Romande 2026 : Avis & Tarifs");
 const pageDescription = clampDescription(

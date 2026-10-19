@@ -7,7 +7,7 @@ import { Footer } from "@/components/Footer";
 import { clampTitle, clampDescription, ogImageUrl } from "@/lib/seo-meta";
 import { Scale, ArrowRight, CheckCircle2 } from "lucide-react";
 
-export const revalidate = 86400;
+export const revalidate = 604800; // 7 days ISR cache
 
 const pageTitle = clampTitle("Comparatifs Panneaux Solaires & Onduleurs Suisse 2026 : Prix & Choix");
 const pageDescription = clampDescription(

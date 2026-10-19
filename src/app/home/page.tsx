@@ -1,4 +1,4 @@
-export const revalidate = 86400; // 24h ISR cache
+export const revalidate = 604800; // 7 days ISR cache
 import { getHubConfig, SITES, SiteConfig } from "@/lib/sites-config";
 import { slugify } from "@/lib/slugify";
 import { NATIONAL_TARGETS } from "@/config/national-targets";

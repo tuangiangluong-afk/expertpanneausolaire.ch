@@ -21,7 +21,7 @@ import {
   Building2,
 } from "lucide-react";
 
-export const revalidate = 86400;
+export const revalidate = 604800; // 7 days ISR cache
 
 type Params = Promise<{ slug: string }>;
 
