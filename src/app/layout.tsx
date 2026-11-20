@@ -1,5 +1,4 @@
 import Script from "next/script";
-import { headers } from "next/headers";
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -15,25 +14,15 @@ import StructuredData from "@/components/seo/StructuredData";
 import AttributionTracker from "@/components/AttributionTracker";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const headersList = await headers();
-  // Canonical host is ALWAYS this site's own host (never the French .com twin).
-  const canonicalDomain = "www.expertpanneausolaire.ch";
-  const path = headersList.get("x-irve-path") || "";
-  const baseUrl = `https://${canonicalDomain}`;
+const baseUrl = "https://www.expertpanneausolaire.ch";
 
-  // hreflang uniquement sur les routes réellement partagées entre les deux domaines
-  const sharedPath = path === "/" ? "" : path;
-  const sharedNorm = sharedPath.replace(/\/+$/, "") || "/";
-  const hreflangLanguages = ["/", "/blog", "/guides", "/glossaire"].includes(sharedNorm)
-    ? {
-        "fr-CH": `https://www.expertpanneausolaire.ch${sharedPath}`,
-        "fr-FR": `https://www.expertpanneausolaire.com${sharedPath}`,
-        "x-default": `https://www.expertpanneausolaire.ch${sharedPath}`,
-      }
-    : undefined;
+const hreflangLanguages = {
+  "fr-CH": "https://www.expertpanneausolaire.ch",
+  "fr-FR": "https://www.expertpanneausolaire.com",
+  "x-default": "https://www.expertpanneausolaire.ch",
+};
 
-  return {
+export const metadata: Metadata = {
   title: {
     template: "%s",
     default: `Panneaux solaires en Suisse | Aides ${getCurrentYearSEO()}`,
@@ -41,7 +30,7 @@ export async function generateMetadata(): Promise<Metadata> {
   description: `Panneaux solaires et autoconsommation en ${MARKET.country}. Installateurs ${MARKET.installerLabelShort}. Devis et aides en 24h.`,
   metadataBase: new URL(baseUrl),
   alternates: {
-    canonical: `${baseUrl}${path}`,
+    canonical: baseUrl,
     languages: hreflangLanguages,
   },
   robots: {
@@ -61,7 +50,7 @@ export async function generateMetadata(): Promise<Metadata> {
     siteName: "Expert Panneau Solaire",
     locale: MARKET.locale,
     type: "website",
-    url: `${baseUrl}${path}`,
+    url: baseUrl,
     images: [
       {
         url: `${baseUrl}/api/og`,
@@ -89,7 +78,7 @@ export async function generateMetadata(): Promise<Metadata> {
     ]
   },
   };
-}export const viewport: Viewport = {
+export const viewport: Viewport = {
   themeColor: "#eab308",
 };
 

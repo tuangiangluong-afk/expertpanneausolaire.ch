@@ -145,7 +145,9 @@ export default async function middleware(req: NextRequest) {
         !cleanPath.startsWith("/success") &&
         !cleanPath.startsWith("/demo")
     ) {
-        response.headers.set("Vercel-CDN-Cache-Control", "public, s-maxage=604800, stale-while-revalidate=86400");
+        response.headers.set("Cache-Control", "public, max-age=86400, s-maxage=31536000, stale-while-revalidate=86400");
+        response.headers.set("CDN-Cache-Control", "public, s-maxage=31536000, stale-while-revalidate=86400");
+        response.headers.set("Vercel-CDN-Cache-Control", "public, s-maxage=31536000, stale-while-revalidate=86400");
     }
 
     return applySecurityHeaders(response);
