@@ -112,6 +112,7 @@ export default async function MarquePage({ params }: { params: Params }) {
             url: canonicalUrl,
             priceCurrency: "CHF",
             price: "8900",
+            validFrom: "2024-01-01",
             priceValidUntil: "2027-12-31",
             itemCondition: "https://schema.org/NewCondition",
             availability: "https://schema.org/InStock",
