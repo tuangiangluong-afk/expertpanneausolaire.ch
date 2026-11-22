@@ -12,6 +12,7 @@ import LeadForm from "@/components/LeadForm";
 import { CityCards } from "@/components/CityCards";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
 import { Footer } from "@/components/Footer";
+import FAQ from "@/components/FAQ";
 import RealizationsGrid from "@/components/RealizationsGrid";
 import LogoCloud from "@/components/LogoCloud";
 import PricingTable from "@/components/PricingTable";
@@ -253,6 +254,9 @@ export default function HomePage() {
 
             {/* Testimonials */}
             <TestimonialsSection />
+
+            {/* FAQ (AEO / PAA) */}
+            <FAQ />
 
             {/* Cities Grid */}
             <section id="villes" className="py-20 bg-slate-50 scroll-mt-20">
